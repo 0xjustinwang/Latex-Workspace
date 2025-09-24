@@ -1,0 +1,367 @@
+\documentclass[11pt]{article}
+
+% ----------- Font Packages ------------
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+% ----------- Math Formatting ----------
+\usepackage{siunitx}  
+\AtBeginDocument{\RenewCommandCopy\qty\SI}       % Units like \SI{9.8}{m/s^2}
+\usepackage{physics} 
+\usepackage{amsmath, amssymb, amsthm}  % Core math packages
+\usepackage{dsfont}
+% Boxed theorem environments
+\usepackage[most]{tcolorbox}
+\tcbuselibrary{theorems}
+
+% Cross-referencing and hyperlinks
+\usepackage{hyperref}
+\usepackage{cleveref}
+
+% ----------- Layout and Spacing -------
+\usepackage[letterpaper, top=0.75in, bottom=0.75in, left=1in, right=1in, heightrounded]{geometry}
+\usepackage{setspace}
+\onehalfspacing                % More readable line spacing for notes
+
+% ----------- Math Formatting ----------
+\usepackage{mathtools}        % Enhanced math commands
+\usepackage{bm}               % Bold math symbols
+\usepackage{cancel}           % Cross out terms in equations
+
+% ----------- Misc Enhancements --------
+\usepackage{microtype}        % Better font spacing
+\usepackage{enumitem}         % Customizable lists
+\usepackage{fancyhdr}         % Page headers/footers
+\pagestyle{fancy}
+\fancyhead[L]{Math Notes}
+
+\usepackage{bookmark}         % Handle rerunfilecheck warnings
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor=blue,
+    citecolor=blue
+}
+
+% Optional: TikZ for diagrams
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, calc, decorations.markings}
+
+% --------- Boxed theorem and definition environments ---------
+\newtcbtheorem[number within=section]{theorem}{Theorem}%
+{colback=white!97!blue!10,
+ colframe=blue!50!black,
+ fonttitle=\bfseries,
+ coltitle=black,
+ boxrule=0.5pt,
+ arc=4pt,
+ top=6pt,
+ bottom=6pt,
+ left=6pt,
+ right=6pt,
+ enhanced,
+ attach boxed title to top left={yshift=-2mm,xshift=5mm},
+ boxed title style={colframe=blue!50!black, colback=white}}{th}
+
+\newtcbtheorem[number within=section]{definition}{Definition}%
+{colback=white!95!green!10,
+ colframe=green!50!black,
+ fonttitle=\bfseries,
+ coltitle=black,
+ boxrule=0.5pt,
+ arc=4pt,
+ top=6pt,
+ bottom=6pt,
+ left=6pt,
+ right=6pt,
+ enhanced,
+ attach boxed title to top left={yshift=-2mm,xshift=5mm},
+ boxed title style={colframe=green!50!black, colback=white}}{def}
+
+% -------------------------- Document ---------------------------
+\title{Proof Notes}
+\author{Justin Wang}
+\date{Summer 2025}
+
+\begin{document}
+
+\maketitle
+
+\section{Sentential Logic}
+\subsection{Deductive Reasoning and Logical Connectives}
+\textbf{Example 1.1}
+
+We'll have either a reading assignment or homework problems, but we won't have both homework problems and a test. 
+
+\begin{center}
+Let \( P \) = We have a reading assignment. \\
+\( Q \) = We have homework problems. \\
+\( T \) = We have a test. \\
+Then this statement takes the form:
+\end{center}
+
+\begin{equation}
+    (P \vee Q) \wedge \neg (Q \wedge T)
+\end{equation}
+
+\subsection{Truth Tables}
+
+A truth table is a way to show the truth value of a logical expression for all possible combinations of truth values of its components. For example, the truth table for the expression \( P \vee Q \) is: 
+
+\begin{table}[htbp]
+    \caption{Truth Table for \( P \vee Q \)}
+    \centering
+    \begin{tabular}{|l|c|r|}
+        \hline
+        \(P\) & \(Q\) & \(P \vee Q\) \\
+        \hline
+        T & F & T \\
+        T & T & T \\
+        F & T & T \\
+        F & F & F \\
+        \hline
+    \end{tabular}
+\end{table}
+
+\textbf{Argumentative Laws}
+
+\begin{itemize}
+    \item \textbf{Commutative Law:} \(P \vee Q = Q \vee P\) and \(P \wedge Q = Q \wedge P\)
+    \item \textbf{Associative Law:} \((P \vee Q) \vee R = P \vee (Q \vee R)\) and \((P \wedge Q) \wedge R = P \wedge (Q \wedge R)\)
+    \item \textbf{Distributive Law:} \(P \wedge (Q \vee R) = (P \wedge Q) \vee (P \wedge R)\) and \(P \vee (Q \wedge R) = (P \vee Q) \wedge (P \vee R)\)
+    \item \textbf{Idempotent Law:} \(P \vee P = P\) and \(P \wedge P = P\)
+    \item \textbf{Absorption Law:} \(P \vee (P \wedge Q) = P\) and \(P \wedge (P \vee Q) = P\)
+    \item \textbf{Double Negation Law:} \(\neg(\neg P) = P\)
+    \item \textbf{De Morgan's Laws:} \(\neg(P \vee Q) = (\neg P) \wedge (\neg Q)\) and \(\neg(P \wedge Q) = (\neg P) \vee (\neg Q)\)
+\end{itemize}
+
+\textbf{Example 1.2} Find simpler formulas equivalent to these formulas:
+
+\begin{enumerate}
+    \item \(\neg (P \vee \neg Q)\)
+    \item \(\neg (Q \wedge \neg P) \vee P\)
+\end{enumerate}
+
+\textit{Solutions:}
+
+\begin{enumerate}
+    \item Using De Morgan's and Double Negation laws, we have:
+    \[
+        \neg P \wedge Q 
+    \]
+    \item Using four laws, we have:
+    \[
+        (\neg Q \vee P) \vee P = \neg Q \vee P
+    \]
+\end{enumerate}
+
+\textbf{More Laws}
+
+\begin{itemize}
+    \item \textbf{Tautology Laws:} 
+    \begin{center}
+        \(P \wedge\) (a tautology) is equivalent to \(P\) \\
+        \(P \vee\) (a tautology) is a tautology \\
+        \(\neg\) (a tautology) is a contradiction \\
+    \end{center}
+    \item \textbf{Contradiction Laws:}
+    \begin{center}
+        \(P \wedge\) (a contradiction) is a contradiction \\
+        \(P \vee\) (a contradiction) is equivalent to \(P\) \\
+        \(\neg\) (a contradiction) is a tautology \\
+    \end{center}
+\end{itemize}
+
+\textbf{Example 1.3} Make a truth table for the following formula:
+
+\[
+    (S \vee G) \wedge (\neg S \vee \neg G)
+\]
+
+\begin{table}[htbp]
+    \caption{Truth Table for \((S \vee G) \wedge (\neg S \vee \neg G)\)}
+    \centering
+    \begin{tabular}{|l|c|c|c|c|c|r|}
+        \hline
+        \(S\) & \(G\) & \(S \vee G\) & \(\neg S\) & \(\neg G\) & \(\neg S \vee \neg G\) & \((S \vee G) \wedge (\neg S \vee \neg G)\) \\
+        \hline
+        T & T & T & F & F & F & F \\
+        F & T & T & T & F & T & T \\
+        F & F & F & T & T & T & F \\
+        T & F & T & F & T & T & T \\
+        \hline
+    \end{tabular}
+\end{table}
+
+\pagebreak
+
+\subsection{Variables and Sets}
+
+\textbf{Example 1.4} Analyze the logical form of the following statement:
+
+\begin{center}
+    \textit{x is a prime number, and either y or z is divisible by x.}\\~\\
+    \textit{Solution:} Let \( P \) stand for "x is a prime number", and let \( D \) mean divisible by so that "y is divisible by x" equals \( D(y,x) \). \\
+    Then the logical form of the statement is: 
+    \[
+        P \wedge (D(y,x) \vee D(z,x))
+    \]
+\end{center}
+
+\textbf{Some Set Theory Nomenclature}
+
+\begin{itemize}
+    \item A \textit{set} is a collection of objects.
+    \item Objects in a set are called \textit{elements}.
+    \item A simple way to specify a set is with braces: \(\{7, 12, 13\}\).
+    \item If we let \( A \) stand for the above set, we can notate that \( 7 \in A \).
+    \item Then \( 11 \notin A \).
+    \item Order doesn't matter in a set.
+    \item Set with large number of elements: \( B = \{2,3,5,7,11,13,17,\ldots\} \).
+    \item Explicitly define the above set with: \( B = \{ x \mid x \text{ is a prime number} \} \).
+\end{itemize}
+
+Consider the statement \( y \in \{ x \mid x^2 < 9 \} \):
+
+\begin{center}
+    Here \( y \) is a free variable while \( x \) is a bound variable.
+    \begin{itemize}
+        \item Free variable: a variable that can take on any value in the domain.
+        \item Bound variable: a variable that is used to define a set but does not have a specific value.
+        \item The notation \( \{ x \mid \ldots \} \) binds the variable \( x \).
+    \end{itemize}
+\end{center}
+
+\begin{definition}{Truth Set}{def: Truth Set}
+The \textit{truth set} of a statement $P(x)$ is the set of all values of x that make the statement $P(x)$ true. In other words, it is the set defined by using the statement $P(x)$ as an elementhood test: $\{x \mid P(x) \}$.
+\end{definition}
+
+\pagebreak
+
+\textbf{Some Important Sets:}
+\begin{itemize}
+    \item $\mathds{R} = \{x \mid x\ \text{is a real number}\}$
+    \item $\mathds{Q} = \{x \mid x\ \text{is a rational number}\}$
+    \item $\mathds{Z} = \{x \mid x\ \text{is an integer}\}$
+    \item $\mathds{N} = \{x \mid x\ \text{is a natural number}\}$
+    \item $\varnothing$ = a null set (a set containing no elements)
+\end{itemize}
+
+You can specify the universe of discourse in a logical statement. Here's an example:
+\begin{center}
+    $\{x \in U \mid P(x) \} = $ "the set of all x in U such that P(x)"
+\end{center}
+
+\subsection{Operations on Sets}
+
+\begin{definition}{}{}
+The \textit{intersection} of two sets A and B is the set A$\cap$B defined as follows: 
+    \begin{center}
+    $A\cap B = \{x \mid x \in A \ \text{and} \ x \in B\}$ \\
+    The \textit{union} of two sets A and B is the set A$\cup$B defined as follows:\\
+    $A\cup B = \{x \mid x \in A \ \text{or} \ x \in B\}$ \\
+    The \textit{difference} of two sets A and B is the set A$\ \backslash \ $B defined as follows: \\
+    $A\  \backslash\ B = \{x \mid x \in A \ \text{and} \ x \notin B\}$ \\
+    \end{center}
+
+\end{definition}
+\textbf{An Interesting Set Theory Identity}
+\begin{itemize}
+    \item \textbf{$x \in A \backslash (B \cap C) = $}
+    \begin{center}
+        $x \in A \wedge \neg (x \in B \wedge x \in C) = $\\
+        $x \in A \wedge (x \notin B \vee x \notin C) = $\\
+        $(x \in A \wedge x \notin B) \vee (x \in A \wedge x \notin C) = $ \\
+        $(x \in A \backslash B) \vee (x \in A \backslash C) = $ \\
+        $x \in (A \backslash B) \cup (A \backslash C)$ \\
+    \end{center}
+    \item so\dots
+    \begin{center}
+        $x \in A \backslash (B \cap C) = (A \backslash B) \cup (A \backslash C)$
+    \end{center}
+\end{itemize}
+\begin{definition}{}{}
+    Suppose A and B are sets. Say that A is a \textit{subset} of B if every element of A is also an element of B. We write $A \subseteq B$ to mean that A is a subset of B. 
+    A and B are said to be \textit{disjoint} if they have no elements in common. Note that this is the same as saying that the set of elements they have in common is the empty set, or:
+    $A \cap B = \varnothing$.
+\end{definition}
+\newpage
+\begin{theorem}{}{}
+    \textit{For any sets A and B,} $(A \cup B) \backslash B \subseteq A.$
+\end{theorem}
+\begin{proof}
+    Suppose $x \in (A \cup B) \backslash B$. Then $x \in A \cup B \ and \ x \notin B,so \ x \in A \vee x \in B \ and \ x \notin B.$ 
+    Thus $x \in A$ must be true, so $(A \cup B) \backslash B \subseteq A$.
+\end{proof}
+
+\subsection{The Conditional and Biconditional Connectives}
+The logical connective: "$\rightarrow$" can form a conditional statement: $P \rightarrow Q$. \newline
+Here P is an \textit{antecedent} and Q is a \textit{consequent}, and the statement represents "if P then Q". \\
+Looking at a truth table for this statement:
+\begin{table}[htbp]
+    \caption{Truth Table for $P \rightarrow Q$}
+    \centering
+    \begin{tabular}{|l|c|r|}
+        \hline
+        P & Q & $P \rightarrow Q$ \\
+        \hline
+        F & F & T \\
+        F & T & T \\
+        T & F & F \\
+        T & T & T \\
+        \hline
+    \end{tabular}
+\end{table}
+\newline
+\textbf{Conditional Laws}
+\begin{itemize}
+    \item $P \rightarrow Q$ is equivalent to $\neg P \vee Q.$
+    \item $P \rightarrow Q$ is equivalent to $\neg(P \wedge \neg Q).$
+\end{itemize}
+\textbf{Contrapositive Law}
+\begin{itemize}
+    \item $P \rightarrow Q$ is equivalent to $\neg Q \rightarrow \neg P.$
+\end{itemize}
+\textbf{Biconditional Statements}
+A statement of the form $P \leftrightarrow Q$ is called a \textit{biconditional statement}, and it is read as "P if and only if Q", or \textit{"P iff Q"}. 
+\section{Quantificational Logic}
+\subsection{Quantifiers}
+\begin{itemize} 
+    \item The \textit{universal quantifier} $\forall$ means "for all" or "for every".
+    \item The \textit{existential quantifier} $\exists$ means "there exists" or "there is at least one".
+\end{itemize}
+\textbf{Example 2.1} Translate formula into a statement: $\exists x(x^2 -2x +3 =0)$, with universe $\mathds{R}$.
+\begin{center}
+    \textit{Solution:} There exists a real number x such that $x^2 -2x +3 =0$.
+\end{center} 
+\noindent \textbf{Note} that quantifiers \textit{bind} variables.
+
+\subsection{Equivalences Involving Quantifiers}
+\textbf{Quantifier Negation Laws}
+\begin{itemize}
+    \item $\neg\forall x P(x)$ is equivalent to $\exists x \neg P(x)$.
+    \item $\neg\exists x P(x)$ is equivalent to $\forall x \neg P(x)$.
+\end{itemize}
+
+\subsection{More Operations on Sets}
+Suppose you wanted a set whose elements are all the prime numbers.
+\begin{center}
+    Say that it consists of the numbers $p_i$, for $i$ an element of the set $I = \{1, 2, 3,...,100\} = \{ i \in \mathds{N} \mid 1 \leq i \leq 100 \}$. \\
+    Which can be written as: $P = \{p_i \mid i \in I \}$. 
+\end{center}
+Here each element $p_i$ is identified by a number $i \in I$, called the \textit{index} of the element. The set $P$ is then called an \textit{indexed family}, and $I$ is the \textit{index set}. 
+
+\textbf{Example 2.2} Analyze the logical forms of the following statemeent by writing out the definitions of the set theory notation used: 
+$\{n^2 \mid n \in \mathds{N}\}$ and $ \{n^3 \mid n \in \mathds{N} \}$ are not disjoint.
+\begin{center}
+    \textit{Solution:} The logical form of this statement is as follows: \\
+    $\exists n \in \mathds{N} \exists m \in \mathds{N} (n^2 = m^3)$
+\end{center}
+
+
+
+
+
+
+\end{document}

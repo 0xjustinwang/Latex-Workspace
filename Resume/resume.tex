@@ -1,0 +1,468 @@
+\documentclass[10pt, letterpaper]{article}
+
+% Packages:
+\usepackage[
+    ignoreheadfoot, % set margins without considering header and footer
+    top=2 cm, % seperation between body and page edge from the top
+    bottom=2 cm, % seperation between body and page edge from the bottom
+    left=2 cm, % seperation between body and page edge from the left
+    right=2 cm, % seperation between body and page edge from the right
+    footskip=1.0 cm, % seperation between body and footer
+    % showframe % for debugging 
+]{geometry} % for adjusting page geometry
+\usepackage{titlesec} % for customizing section titles
+\usepackage{tabularx} % for making tables with fixed width columns
+\usepackage{array} % tabularx requires this
+\usepackage[dvipsnames]{xcolor} % for coloring text
+\definecolor{primaryColor}{RGB}{0, 79, 144} % define primary color
+\usepackage{enumitem} % for customizing lists
+\usepackage{fontawesome5} % for using icons
+\usepackage{amsmath} % for math
+\usepackage[
+    pdftitle={Justin Wang's CV},
+    pdfauthor={John Doe},
+    pdfcreator={LaTeX with RenderCV},
+    colorlinks=true,
+    urlcolor=primaryColor
+]{hyperref} % for links, metadata and bookmarks
+\usepackage[pscoord]{eso-pic} % for floating text on the page
+\usepackage{calc} % for calculating lengths
+\usepackage{bookmark} % for bookmarks
+\usepackage{lastpage} % for getting the total number of pages
+\usepackage{changepage} % for one column entries (adjustwidth environment)
+\usepackage{paracol} % for two and three column entries
+\usepackage{ifthen} % for conditional statements
+\usepackage{needspace} % for avoiding page brake right after the section title
+\usepackage{iftex} % check if engine is pdflatex, xetex or luatex
+
+% Ensure that generate pdf is machine readable/ATS parsable:
+\ifPDFTeX
+    \input{glyphtounicode}
+    \pdfgentounicode=1
+    % \usepackage[T1]{fontenc} % this breaks sb2nov
+    \usepackage[utf8]{inputenc}
+    \usepackage{lmodern}
+\fi
+
+
+
+% Some settings:
+\AtBeginEnvironment{adjustwidth}{\partopsep0pt} % remove space before adjustwidth environment
+\pagestyle{empty} % no header or footer
+\setcounter{secnumdepth}{0} % no section numbering
+\setlength{\parindent}{0pt} % no indentation
+\setlength{\topskip}{0pt} % no top skip
+\setlength{\columnsep}{0cm} % set column seperation
+\makeatletter
+\let\ps@customFooterStyle\ps@plain % Copy the plain style to customFooterStyle
+\patchcmd{\ps@customFooterStyle}{\thepage}{
+    \color{gray}\textit{\small Justin Wang - Page \thepage{} of \pageref*{LastPage}}
+}{}{} % replace number by desired string
+\makeatother
+\pagestyle{customFooterStyle}
+
+\titleformat{\section}{\needspace{4\baselineskip}\bfseries\large}{}{0pt}{}[\vspace{1pt}\titlerule]
+
+\titlespacing{\section}{
+    % left space:
+    -1pt
+}{
+    % top space:
+    0.3 cm
+}{
+    % bottom space:
+    0.2 cm
+} % section title spacing
+
+\renewcommand\labelitemi{$\circ$} % custom bullet points
+\newenvironment{highlights}{
+    \begin{itemize}[
+        topsep=0.10 cm,
+        parsep=0.10 cm,
+        partopsep=0pt,
+        itemsep=0pt,
+        leftmargin=0.4 cm + 10pt
+    ]
+}{
+    \end{itemize}
+} % new environment for highlights
+
+\newenvironment{highlightsforbulletentries}{
+    \begin{itemize}[
+        topsep=0.10 cm,
+        parsep=0.10 cm,
+        partopsep=0pt,
+        itemsep=0pt,
+        leftmargin=10pt
+    ]
+}{
+    \end{itemize}
+} % new environment for highlights for bullet entries
+
+
+\newenvironment{onecolentry}{
+    \begin{adjustwidth}{
+        0.2 cm + 0.00001 cm
+    }{
+        0.2 cm + 0.00001 cm
+    }
+}{
+    \end{adjustwidth}
+} % new environment for one column entries
+
+\newenvironment{twocolentry}[2][]{
+    \onecolentry
+    \def\secondColumn{#2}
+    \setcolumnwidth{\fill, 4.5 cm}
+    \begin{paracol}{2}
+}{
+    \switchcolumn \raggedleft \secondColumn
+    \end{paracol}
+    \endonecolentry
+} % new environment for two column entries
+
+\newenvironment{header}{
+    \setlength{\topsep}{0pt}\par\kern\topsep\centering\linespread{1.5}
+}{
+    \par\kern\topsep
+} % new environment for the header
+
+% save the original href command in a new command:
+\let\hrefWithoutArrow\href
+
+% new command for external links:
+\renewcommand{\href}[2]{\hrefWithoutArrow{#1}{\ifthenelse{\equal{#2}{}}{ }{#2 }\raisebox{.15ex}{\footnotesize \faExternalLink*}}}
+
+
+\begin{document}
+    \newcommand{\AND}{\unskip
+        \cleaders\copy\ANDbox\hskip\wd\ANDbox
+        \ignorespaces
+    }
+    \newsavebox\ANDbox
+    \sbox\ANDbox{}
+
+
+    \begin{header}
+        \textbf{\fontsize{24 pt}{24 pt}\selectfont Justin Wang}
+
+        \vspace{0.3 cm}
+
+        \normalsize
+        \mbox{{\color{black}\footnotesize\faMapMarker*}\hspace*{0.13cm}Fairfield, Connecticut}%
+        \kern 0.25 cm%
+        \AND%
+        \kern 0.25 cm%
+        \mbox{\hrefWithoutArrow{mailto:justinwangwc@gmail.com}{\color{black}{\footnotesize\faEnvelope[regular]}\hspace*{0.13cm}justinwangwc@gmail.com}}%
+        \kern 0.25 cm%
+        \AND%
+        \kern 0.25 cm%
+        \mbox{\hrefWithoutArrow{tel:203-517-5655}{\color{black}{\footnotesize\faPhone*}\hspace*{0.13cm}203-517-5655}}%
+        \kern 0.25 cm%
+        \AND%
+        \kern 0.25 cm%
+        % \mbox{\hrefWithoutArrow{https://yourwebsite.com/}{\color{black}{\footnotesize\faLink}\hspace*{0.13cm}yourwebsite.com}}%
+        % \kern 0.25 cm%
+        % \AND%
+        % \kern 0.25 cm%
+        \mbox{\hrefWithoutArrow{https://linkedin.com/in/justin-wang-42aa2b2b3}{\color{black}{\footnotesize\faLinkedinIn}\hspace*{0.13cm}justin-wang-42aa2b2b3}}%
+        \kern 0.25 cm%
+        \AND%
+        \kern 0.25 cm%
+        % \mbox{\hrefWithoutArrow{https://github.com/0xjustinwang}{\color{black}{\footnotesize\faGithub}\hspace*{0.13cm}0xjustinwang}}%
+    \end{header}
+
+    \vspace{0.3 cm - 0.3 cm}
+
+
+    % \section{Summary}
+
+
+
+        
+    %     \begin{onecolentry}
+    %         \href{https://rendercv.com}{RenderCV} is a LaTeX-based CV/resume version-control and maintenance app. It allows you to create a high-quality CV or resume as a PDF file from a YAML file, with \textbf{Markdown syntax support} and \textbf{complete control over the LaTeX code}.
+    %     \end{onecolentry}
+
+    %     \vspace{0.2 cm}
+
+    %     \begin{onecolentry}
+    %         The boilerplate content was inspired by \href{https://github.com/dnl-blkv/mcdowell-cv}{Gayle McDowell}.
+    %     \end{onecolentry}
+
+
+    
+    % \section{Summary}
+
+    % \begin{onecolentry}
+    %     {Motivated and academically driven high school student with strong foundations for math, science, and writing. Passionate about helping others learn and grow, with experience mentoring younger students on an academic and developmental basis. Able to break down complex topics into approachable concepts. Eager to provide personalized tutoring support to middle and high school students seeking academic success.} 
+    % \end{onecolentry}
+    \section{Education}
+    
+    \begin{twocolentry}{\textit{Sep 2025 – Jun 2029 }}{\textbf{University of Chicago}}
+    \end{twocolentry}
+    
+    \vspace{0.1cm}
+    
+    \begin{twocolentry}{\textit{Sep 2021 – Jun 2025}}{\textbf{Hopkins School}}
+    \end{twocolentry}
+    
+    \vspace{0.1cm}
+    \begin{onecolentry}
+        \begin{highlights}
+            \item GPA: 3.9/4.0 
+            \item \textbf{Relevant Coursework:} AP Calculus BC, AP Physics C, AP Physics 1  
+        \end{highlights}
+    \end{onecolentry}
+    
+
+    
+    \section{Experience}
+
+        \begin{twocolentry}{
+            \textit{Jun 2024 – Present}}
+            \textbf{Research Intern}
+            
+            \textit{Yale School of Medicine}
+        \end{twocolentry}
+
+        \vspace{0.10 cm}
+        
+        \begin{onecolentry}
+            \begin{highlights}
+                \item Developed mathematical models to forecast tumor growth and treatement.
+            \end{highlights}
+        \end{onecolentry}
+
+        \vspace{0.2 cm}
+
+
+         \begin{twocolentry}{
+        \textit{New Haven, CT}    
+            
+        \textit{Jun 2024 – Aug 2024}}
+            \textbf{Research Intern}
+            
+            \textit{Yale School of Engineering and Applied Science}
+        \end{twocolentry}
+
+        \vspace{0.10 cm}
+        
+        \begin{onecolentry}
+            \begin{highlights}
+                \item Researched charge optimization in a Kelvin Water Dropper at Professor Cong Su’s AtomE Lab
+                \item Presented findings at the Hopkins Summer Research Symposium
+            \end{highlights}
+        \end{onecolentry}
+
+        \vspace{0.2 cm}
+
+         
+        \begin{twocolentry}{
+            \textit{Southport, CT}    
+                
+            \textit{Aug 2023 – August 2025}}
+                \textbf{Club Staff}
+                
+                \textit{Wakeman Boys and Girls Club}
+            \end{twocolentry}
+    
+            \vspace{0.10 cm}
+            \begin{onecolentry}
+                \begin{highlights}
+                    \item Supervised and guided K-8 club members
+                    \item Coached middle schoolers during summer basketball camp sessions
+                \end{highlights}
+            \end{onecolentry}
+
+        \vspace{0.2 cm}
+
+
+        \begin{twocolentry}{
+        \textit{Fairfield, CT}    
+            
+        \textit{Sep 2023 – Mar 2025}}
+            \textbf{Basketball Director}
+            
+            \textit{Apex Basketball CT}
+        \end{twocolentry}
+
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item Coached the 8th grade AAU boys basketball team at Apex Basketball CT
+                \item Maintained social media and recruiting for the program
+                \item Won three championships under Zero Gravity and Vertical Hoops regional tournaments
+            \end{highlights}
+        \end{onecolentry}
+
+       
+       
+ 
+
+    \section{Extracurriculars}
+    
+             \begin{twocolentry}{\textit{Sep 2023 - Jun 2025 }}{\textbf{President of HopTV}}
+    \end{twocolentry}
+    
+    \vspace{0.10 cm}
+    
+    \begin{onecolentry}
+        \begin{highlights}
+            \item Managed a team of 20+ students in producing bi-weekly episodes for school community
+            \item Procured \$10,000 in school funding for club equipment
+        \end{highlights}
+    \end{onecolentry}
+    
+    \vspace{0.2 cm}
+    
+    \begin{twocolentry}{\textit{Sep 2023 – Jun 2025 }}{\textbf{Member of Jazz Choir and Harmonaires}}
+    \end{twocolentry}
+    
+    \vspace{0.10 cm}
+    
+    \begin{onecolentry}
+        \begin{highlights}
+            \item Sung baritone for a cappella group at school events and concerts  
+            \item Performed with jazz group at winter and spring concerts
+        \end{highlights}
+    \end{onecolentry}
+    
+    \vspace{0.2 cm}
+    
+    \begin{twocolentry}{\textit{Sep 2021 – Jun 2025 }}{\textbf{President of ModelUN}}
+    \end{twocolentry}
+    
+    \vspace{0.10 cm}
+    
+    \begin{onecolentry}
+        \begin{highlights}
+            \item Organized and chaired in 2023 “HopMUN” conference
+            \item Lead biweekly meetings to teach and prepare for ModelUN conferences
+        \end{highlights}
+    \end{onecolentry}
+    
+    \vspace{0.2 cm}
+    
+    \begin{twocolentry}{\textit{Sep 2021 – Jun 2025 }}{\textbf{President of Keystone Club at Wakeman Boys and Girls Club}}
+    \end{twocolentry}
+    
+    \vspace{0.10 cm}
+    
+    \begin{onecolentry}
+        \begin{highlights}
+            \item Realized first Northeast Regional Keystone Conference in 10 years as Committee Board Director
+            \item Accumulated 500 volunteer hours
+        \end{highlights}
+    \end{onecolentry}
+    \vspace{0.2 cm}
+    
+    
+    
+    \section{Skills}
+
+
+
+        
+        \begin{onecolentry}
+            \textbf{Languages:} Experienced in Python, Conversational in Mandarin and Spanish
+        \end{onecolentry}
+
+        
+
+    
+
+ 
+        
+  
+   
+
+
+
+    
+    % \section{Publications}
+
+
+
+        
+        % \begin{samepage}
+        %     \begin{twocolentry}{
+        %         Jan 2004
+        %     }
+        %         \textbf{3D Finite Element Analysis of No-Insulation Coils}
+
+        %         \vspace{0.10 cm}
+
+        %         \mbox{Frodo Baggins}, \mbox{\textbf{\textit{John Doe}}}, \mbox{Samwise Gamgee}
+        %     \end{twocolentry}
+
+
+        %     \vspace{0.10 cm}
+
+        %     \begin{onecolentry}
+        % \href{https://doi.org/10.1109/TASC.2023.3340648}{10.1109/TASC.2023.3340648}
+        %     \end{onecolentry}
+        % \end{samepage}
+
+
+    
+%     \section{Projects}
+
+
+
+        
+%         \begin{twocolentry}{
+            
+            
+%         \textit{\href{https://github.com/sinaatalay/rendercv}{github.com/name/repo}}}
+%             \textbf{Multi-User Drawing Tool}
+%         \end{twocolentry}
+
+%         \vspace{0.10 cm}
+%         \begin{onecolentry}
+%             \begin{highlights}
+%                 \item Developed an electronic classroom where multiple users can simultaneously view and draw on a "chalkboard" with each person's edits synchronized
+%                 \item Tools Used: C++, MFC
+%             \end{highlights}
+%         \end{onecolentry}
+
+
+%         \vspace{0.2 cm}
+
+%         \begin{twocolentry}{
+            
+            
+%         \textit{\href{https://github.com/sinaatalay/rendercv}{github.com/name/repo}}}
+%             \textbf{Synchronized Desktop Calendar}
+%         \end{twocolentry}
+
+%         \vspace{0.10 cm}
+%         \begin{onecolentry}
+%             \begin{highlights}
+%                 \item Developed a desktop calendar with globally shared and synchronized calendars, allowing users to schedule meetings with other users
+%                 \item Tools Used: C\#, .NET, SQL, XML
+%             \end{highlights}
+%         \end{onecolentry}
+
+
+%         \vspace{0.2 cm}
+
+%         \begin{twocolentry}{
+            
+            
+%         \textit{2002}}
+%             \textbf{Custom Operating System}
+%         \end{twocolentry}
+
+%         \vspace{0.10 cm}
+%         \begin{onecolentry}
+%             \begin{highlights}
+%                 \item Built a UNIX-style OS with a scheduler, file system, text editor, and calculator
+%                 \item Tools Used: C
+%             \end{highlights}
+%         \end{onecolentry}
+
+
+
+
+\end{document}
