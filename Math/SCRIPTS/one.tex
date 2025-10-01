@@ -1,0 +1,732 @@
+\documentclass[11pt]{article}
+\usepackage{color}
+%\input{rgb}
+
+%----------Packages----------
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+%\usepackage{amsrefs}
+\usepackage{dsfont}
+\usepackage{mathrsfs}
+\usepackage{stmaryrd}
+\usepackage[all]{xy}
+\usepackage[mathcal]{eucal}
+\usepackage{verbatim}  %%includes comment environment
+\usepackage{fullpage}  %%smaller margins
+%----------Commands----------
+
+%%penalizes orphans
+\clubpenalty=9999
+\widowpenalty=9999
+
+
+
+
+
+%% bold math capitals
+\newcommand{\bA}{\mathbf{A}}
+\newcommand{\bB}{\mathbf{B}}
+\newcommand{\bC}{\mathbf{C}}
+\newcommand{\bD}{\mathbf{D}}
+\newcommand{\bE}{\mathbf{E}}
+\newcommand{\bF}{\mathbf{F}}
+\newcommand{\bG}{\mathbf{G}}
+\newcommand{\bH}{\mathbf{H}}
+\newcommand{\bI}{\mathbf{I}}
+\newcommand{\bJ}{\mathbf{J}}
+\newcommand{\bK}{\mathbf{K}}
+\newcommand{\bL}{\mathbf{L}}
+\newcommand{\bM}{\mathbf{M}}
+\newcommand{\bN}{\mathbf{N}}
+\newcommand{\bO}{\mathbf{O}}
+\newcommand{\bP}{\mathbf{P}}
+\newcommand{\bQ}{\mathbf{Q}}
+\newcommand{\bR}{\mathbf{R}}
+\newcommand{\bS}{\mathbf{S}}
+\newcommand{\bT}{\mathbf{T}}
+\newcommand{\bU}{\mathbf{U}}
+\newcommand{\bV}{\mathbf{V}}
+\newcommand{\bW}{\mathbf{W}}
+\newcommand{\bX}{\mathbf{X}}
+\newcommand{\bY}{\mathbf{Y}}
+\newcommand{\bZ}{\mathbf{Z}}
+
+%% blackboard bold math capitals
+\newcommand{\bbA}{\mathbb{A}}
+\newcommand{\bbB}{\mathbb{B}}
+\newcommand{\bbC}{\mathbb{C}}
+\newcommand{\bbD}{\mathbb{D}}
+\newcommand{\bbE}{\mathbb{E}}
+\newcommand{\bbF}{\mathbb{F}}
+\newcommand{\bbG}{\mathbb{G}}
+\newcommand{\bbH}{\mathbb{H}}
+\newcommand{\bbI}{\mathbb{I}}
+\newcommand{\bbJ}{\mathbb{J}}
+\newcommand{\bbK}{\mathbb{K}}
+\newcommand{\bbL}{\mathbb{L}}
+\newcommand{\bbM}{\mathbb{M}}
+\newcommand{\bbN}{\mathbb{N}}
+\newcommand{\bbO}{\mathbb{O}}
+\newcommand{\bbP}{\mathbb{P}}
+\newcommand{\bbQ}{\mathbb{Q}}
+\newcommand{\bbR}{\mathbb{R}}
+\newcommand{\bbS}{\mathbb{S}}
+\newcommand{\bbT}{\mathbb{T}}
+\newcommand{\bbU}{\mathbb{U}}
+\newcommand{\bbV}{\mathbb{V}}
+\newcommand{\bbW}{\mathbb{W}}
+\newcommand{\bbX}{\mathbb{X}}
+\newcommand{\bbY}{\mathbb{Y}}
+\newcommand{\bbZ}{\mathbb{Z}}
+
+%% script math capitals
+\newcommand{\sA}{\mathscr{A}}
+\newcommand{\sB}{\mathscr{B}}
+\newcommand{\sC}{\mathscr{C}}
+\newcommand{\sD}{\mathscr{D}}
+\newcommand{\sE}{\mathscr{E}}
+\newcommand{\sF}{\mathscr{F}}
+\newcommand{\sG}{\mathscr{G}}
+\newcommand{\sH}{\mathscr{H}}
+\newcommand{\sI}{\mathscr{I}}
+\newcommand{\sJ}{\mathscr{J}}
+\newcommand{\sK}{\mathscr{K}}
+\newcommand{\sL}{\mathscr{L}}
+\newcommand{\sM}{\mathscr{M}}
+\newcommand{\sN}{\mathscr{N}}
+\newcommand{\sO}{\mathscr{O}}
+\newcommand{\sP}{\mathscr{P}}
+\newcommand{\sQ}{\mathscr{Q}}
+\newcommand{\sR}{\mathscr{R}}
+\newcommand{\sS}{\mathscr{S}}
+\newcommand{\sT}{\mathscr{T}}
+\newcommand{\sU}{\mathscr{U}}
+\newcommand{\sV}{\mathscr{V}}
+\newcommand{\sW}{\mathscr{W}}
+\newcommand{\sX}{\mathscr{X}}
+\newcommand{\sY}{\mathscr{Y}}
+\newcommand{\sZ}{\mathscr{Z}}
+
+
+\renewcommand{\phi}{\varphi}
+
+\renewcommand{\emptyset}{\O}
+
+\providecommand{\abs}[1]{\lvert #1 \rvert}
+\providecommand{\norm}[1]{\lVert #1 \rVert}
+
+
+\providecommand{\x}{\times}
+
+
+
+
+\providecommand{\ar}{\rightarrow}
+\providecommand{\arr}{\longrightarrow}
+
+
+
+\newcommand{\head}[1]{
+	\begin{center}
+		{\large #1}
+		\vspace{.2 in}
+	\end{center}
+	
+	\bigskip 
+}
+
+
+
+%----------Theorems----------
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem*{definition*}{Definition}
+\newtheorem{nondefinition}[theorem]{Non-Definition}
+\newtheorem{exercise}[theorem]{Exercise}
+
+
+
+\numberwithin{equation}{subsection}
+
+
+%----------Title-------------
+\newcommand{\hide}[1]{{\color{red} #1}} 
+\newcommand{\com}[1]{{\color{blue} #1}} 
+\newcommand{\meta}[1]{{\color{green} #1}} 
+
+\begin{document}
+
+\pagestyle{plain}
+
+
+%%---  sheet number for theorem counter
+\setcounter{section}{1}   
+
+\head{MATH 161, Autumn 2025\\ SCRIPT 1: Sets, Functions and Cardinality } 
+
+
+
+
+Sets and functions are among the most fundamental objects in mathematics.  A formal treatment
+of set theory was first undertaken at the end of the 19th Century and was finally codified
+in the form of the Zermelo-Fraenkel axioms.  While fascinating in its own right, pursuit of these
+formalisms at this point would distract us from our main purpose of studying Calculus.  Thus, we
+present a simplified version that will suffice for our immediate purposes.
+
+
+
+\subsection*{Sets}
+
+\begin{definition} (Working Definition)
+A {\em set} is an object $S$ with the property that, given any $x$, we have the dichotomy that precisely
+one of the two conditions $x\in S$ or $x\not\in S$ is true.  In the former case, we say that $x$ is an 
+{\em element} of $S$, and in the latter, we say that $x$ is not an element of $S$.
+\end{definition}
+
+
+A set is often presented in one of the following forms:
+\begin{itemize}
+\item
+A complete listing of its elements.
+
+Example:  the set $S=\{1,2,3,4,5\}$ contains precisely the 
+five smallest positive integers.
+
+
+\item
+A listing of some of its elements with ellipses to indicate unnamed elements.
+
+Example 1:  the set $S=\{3, 4, 5, \ldots, 100\}$ contains the positive integers from 3 to 100,
+including 6 through 99, even though these latter are not explicitly named.  
+
+
+Example 2:  the set $S=\{2, 4, 6, \ldots, 2n, \ldots \}$ is the set of all positive even integers.
+
+
+\item
+A two-part indication of the elements of the set by first identifying the source of all elements
+and then giving additional conditions for membership in the set.
+
+Example 1: 
+$S=\{x\in {\mathbb N}\mid \mbox{$x$ is prime}\}$ is the set of primes.  
+
+
+Example 2:
+$S=\{x\in {\mathbb Z}\mid \mbox{$x^2<3$}\}$ is the set of integers whose squares are less than 3.
+\end{itemize}
+
+\begin{definition}  
+Two sets $A$ and $B$ are {\em equal} if they contain precisely the same elements, that is, $x\in A$
+if and only if $x\in B$.  When $A$ and $B$ are equal, we denote this by $A=B$.
+\end{definition}
+
+\begin{definition}  
+A set $A$ is a {\em subset} of a set $B$ if every element of $A$ is also an element of $B$, that is,
+if $x\in A$, then $x\in B$.  When $A$ is a subset of $B$, we denote this by $A\subset B$.  If $A\subset B$ but $A\neq B$ 
+we say that $A$ is a {\em proper} subset of $B.$ 
+\end{definition}
+
+
+\begin{exercise}
+Let $A=\{1, \{2\}\}$.  Is $1\in A$?  Is $2\in A$?  Is $\{1\}\subset A$?  Is $\{2\}\subset A$?  
+Is $1\subset A$?  Is $\{1\}\in A$?  Is $\{2\}\in A$?  Is $\{\{2\}\}\subset A$?  
+Explain.
+\end{exercise}
+
+\begin{definition}  Let $A$ and $B$ be two sets. 
+The \emph{union} of $A$ and $B$ is the set
+\[
+A \cup B = \{x \mid \text{$x \in A$ or $x \in B$} \}.
+\]
+\end{definition}
+
+\begin{definition}  Let $A$ and $B$ be two sets. 
+The \emph{intersection} of $A$ and $B$ is the set
+\[
+A \cap B = \{ x \mid \text{$x \in A$ and $x \in B$} \}.
+\]
+\end{definition}
+
+\begin{theorem} \label{basicsets} \meta{no proof required}
+Let $A$ and $B$ be two sets.  Then:
+
+\begin{enumerate}
+\item[a)]
+$A=B$ if and only if $A\subset B$ and $B\subset A$.
+\item[b)]
+$A\subset A\cup B$.
+
+\item[c)]
+$A\cap B\subset A$.
+\end{enumerate}
+\end{theorem}
+
+A special example of the intersection of two sets is when the two sets have no elements in common.
+This motivates the following definition.
+
+\begin{definition}  
+The \emph{empty set} is the set with no elements, and it is denoted $\emptyset$.  That is,
+no matter what $x$ is, we have $x\not\in \emptyset$.
+\end{definition}  
+
+\begin{definition}  
+Two sets $A$ and $B$ are \emph{disjoint} if $A\cap B=\emptyset$.
+\end{definition}  
+
+\begin{exercise}  
+Show that if $A$ is any set, then $\emptyset\subset A$.
+\end{exercise}
+
+
+\begin{definition}  
+Let $A$ and $B$ be two sets. 
+The \emph{difference} of $B$ from $A$ is the set
+\[
+A \setminus B = \{ x \in A \mid x \notin B \}.
+\]
+\end{definition}
+
+The set $A \setminus B$ is also called the \emph{complement} of $B$ relative to $A$.
+When the set $A$ is clear from the context, this set is sometimes denoted $B^{c}$, but we will 
+try to avoid this imprecise formulation and use it only with warning.
+
+\begin{exercise} 
+Let $A=\{x\in\bbN\mid x\text{ is even}\}; B=\{x\in\bbN\mid x\text{ is odd}\}; C=\{x\in\bbN\mid x\text{ is prime}\}; D=\{x\in\bbN\mid x\text{ is a perfect square}\}.$
+Find all possible set differences.
+\end{exercise} 
+
+\begin{theorem} 
+Let $A,B$ and $X$ be sets.  Then:
+\begin{enumerate}
+\item[a)]
+$X\setminus (A\cup B)=(X\setminus A)\cap (X\setminus B)$
+
+\item[b)]
+$X\setminus (A\cap B)=(X\setminus A)\cup (X\setminus B)$
+\end{enumerate}
+\end{theorem}
+
+Sometimes we will encounter families of sets. The definitions of intersection/union can be extended to infinitely many sets. 
+
+
+\begin{definition}
+
+ Let $\mathcal{A}=\{A_\lambda\mid \lambda\in I\}$ be a collection of sets indexed by a nonempty set $I.$ Then the intersection and union of $\mathcal{A}$ are the sets
+$$\bigcap_{\lambda\in I} A_\lambda =\{x\mid x\in A_\lambda, \text{ for all } \lambda\in I\},$$
+and
+$$\bigcup_{\lambda\in I}A_\lambda =\{x\mid x\in A_\lambda, \text{ for some }\lambda\in I\}.$$
+\end{definition}
+
+\begin{theorem}  
+Let $X$ be a set, and let  $\mathcal{A}=\{A_\lambda\mid \lambda\in I\}$ be a nonempty collection of sets. Then:
+\begin{enumerate}
+\item
+$X\setminus \left( \bigcup_{\lambda\in I}A_\lambda\right) =\bigcap_{\lambda\in I} (X\setminus A_\lambda)$
+
+\item
+$X\setminus \left( \bigcap_{\lambda\in I}A_\lambda\right)  =\bigcup_{\lambda\in I} (X\setminus A_\lambda).$
+\end{enumerate}
+\end{theorem}\medskip
+
+
+\begin{definition}  Let $A$ and $B$ be two nonempty sets. 
+The \emph{Cartesian product} of $A$ and $B$ is the set of ordered pairs
+\[
+A \times B = \{ (a, b) \mid \text{$a \in A$ and $b \in B$} \}.
+\]
+If $(a, b)$ and $(a', b') \in A \times B$, we say that $(a, b)$ and $(a', b')$ are
+\emph{equal} if and only if $a = a'$ and $b = b'$. In this case, we write $
+(a, b) = (a', b').$
+
+
+\end{definition}
+
+
+
+
+\subsection*{Functions}
+
+\begin{definition} Let $A$ and $B$ be two nonempty sets.  
+A \emph{function} $f$ from $A$ to $B$ is a subset $f \subset A \times B$ such that for all $a \in A$ there exists a unique $b \in B$ satisfying $(a, b) \in f$.  To express the idea that $(a, b) \in f$, we most
+often write $f(a) = b$.  To express that $f$ is a function from $A$ to $B$ in symbols we write $f \colon A \rightarrow B$.  
+\end{definition}
+
+
+\begin{exercise}  
+Let the function $f \colon \mathbb{Z} \rightarrow \mathbb{Z}$ be defined by
+$f(n)=2n$.  Write $f$ as a subset of $\mathbb{Z} \times \mathbb{Z}$.  
+\end{exercise}
+
+\begin{definition}  Let $f \colon A \rightarrow B$ be a function.  The \emph{domain} of $f$ is $A$ and the \emph{codomain} of $f$ is $B.$\\
+If $X \subset A$, then the \emph{image of $X$ under $f$} is the set
+\[
+f(X) = \{ f(x) \in B \mid  x \in X \}.
+\]
+If $Y \subset B$, then the \emph{preimage of $Y$ under $f$} is the set
+\[
+f^{-1}(Y) = \{ a \in A \mid f(a) \in Y \}.
+\]
+\end{definition}
+
+\begin{exercise}
+Must $f(f^{-1}(Y))=Y$ and $f^{-1}(f(X))=X?$ For each, either prove that it always holds or give a counterexample.
+\end{exercise}
+
+
+\begin{definition}  A function $f \colon A \rightarrow B$ is \emph{surjective} (also known as `onto') if, 
+for every $b\in B$, there is some $a\in A$ such that $f(a) = b$.  The function $f$ is \emph{injective} (also known as `one-to-one') if for all $a, a' \in A$, if $f(a) = f(a')$, then $a = a'$.  The function $f$ is \emph{bijective}, (also known as a bijection or a `one-to-one' correspondence) if it is surjective and injective.
+\end{definition}
+
+
+
+\begin{exercise}
+Let $f:{\mathbb N}\rightarrow {\mathbb N}$ be defined by $f(n)=n+2$.  Is $f$ injective?  Is $f$ surjective?
+\end{exercise}
+
+\begin{exercise}
+Let $f:{\mathbb Z}\rightarrow {\mathbb Z}$ be defined by $f(x)=x+2$.  Is $f$ injective?  Is $f$ surjective?
+\end{exercise}
+
+\begin{exercise}
+Let $f:{\mathbb N}\rightarrow {\mathbb N}$ be defined by $f(n)=n^2$.  Is $f$ injective?  Is $f$ surjective?
+\end{exercise}
+
+\begin{exercise}
+Let $f:{\mathbb Z}\rightarrow {\mathbb Z}$ be defined by $f(x)=x^2$.  Is $f$ injective?  Is $f$ surjective?
+\end{exercise}
+
+
+
+
+\begin{definition}
+Let $f:A\longrightarrow B$ and $g:B\longrightarrow C. $ Then the \emph{composition} $g\circ f: A\longrightarrow C$ is defined by $(g\circ f)(x)=g(f(x)),$ for all $x\in A.$ 
+\end{definition}
+
+\begin{proposition}  Let $A$, $B$, and $C$ be sets and suppose that $f:A\longrightarrow B$  and  $g:B\longrightarrow C.$  Then $g\circ f:A\longrightarrow C$ and
+\begin{enumerate}
+\item[a)] if $f$ and $g$ are both injections, so is $g\circ f.$
+\item[b)] if $f$ and $g$ are both surjections, so is $g\circ f.$
+\item[c)] if $f$ and $g$ are both bijections, so is $g\circ f.$
+\end{enumerate}
+\end{proposition} 
+
+\begin{proposition} 
+Suppose that $f \colon A \rightarrow B$ is bijective.  
+Then there exists a bijection $g \colon B \rightarrow A$ that satisfies $(g\circ f)(a)=a, \forall a\in A$, and $(f\circ g)(b)=b,$ for all $b\in B.$ 
+The function $g$ is often called the \emph{inverse} of $f$ and  denoted $f^{-1}$. It should not be confused with the preimage. 
+\end{proposition}
+
+
+
+\begin{definition}
+We say that two sets $A$ and $B$ are in \emph{bijective correspondence} when there exists a bijection from $A$ to $B$ or, equivalently, from $B$ to $A$.
+\end{definition}
+
+
+
+
+\subsection*{Cardinality}
+
+\begin{definition}  
+Let $n \in \mathbb{N}$ be a natural number.  We define $[n]$ to be the set $\{1, 2, \dotsc, n \}$.  
+Additionally, we define $[0]=\emptyset$.
+\end{definition}
+
+\begin{definition}  
+A set $A$ is \emph{finite} if $A=\emptyset$ or if there exists a natural number $n$ and a bijective correspondence between $A$ and the set $[n].$   If $A$ is not finite, we say that $A$ is \emph{infinite}.
+\end{definition}
+
+
+
+
+\begin{theorem}  \meta{No proof required}
+
+Let $n, m\in {\mathbb N}$ with $n<m$.  \\ Then there does not exist an injective function
+$f:[m]\rightarrow [n]$.
+\end{theorem}
+{\it Hint: Fix $k\in\mathbb N.$ Prove, by induction on $n$, that for all $n\in\mathbb{N},$ there is no injective function $f:[n+k]\longrightarrow [n].$} 
+
+
+\begin{theorem}  \label{bij}
+Let $A$ be a finite set. Suppose that $A$ is in bijective correspondence both with $[m]$ and with $[n]$.  Then $m = n$.
+\end{theorem}
+
+The preceding result allows us to make the following important definition.
+
+\begin{definition}[Cardinality of a finite set]
+ If $A$ is a finite set that is in bijective correspondence with $[n]$, then we say that the \emph{cardinality} of $A$ is $n$, and we write $\abs{A} = n$.  (By   Theorem~\ref{bij}, there is exactly one such natural number $n$.) We define the cardinality of the empty set to be $0.$
+\end{definition}
+
+
+
+
+
+\begin{exercise}
+Let $A$ and $B$ be finite sets. 
+\begin{enumerate}
+\item[a)]
+ If $A\subset B$, then $|A|\leq |B|$.
+\item[b)]
+Let  $A\cap B=\emptyset.$ Then $|A\cup B|=|A|+|B|.$ 
+\item[c)] 
+$|A\cup B|+|A\cap B|=|A|+|B|$
+\item[d)]  
+ $|A\times B|=|A|\cdot |B|$.
+ \end{enumerate}
+\end{exercise}
+
+
+
+
+{\bf Important Note:  In future scripts you may assume basic properties of finite sets and methods of counting elements without having to refer back to the notions presented in this script.When $|A|=n,$ we say that $A$ contains $n$ elements.}
+
+\begin{definition}
+An set $A$ is said to be {\em countable} either if it is finite if or if it is in bijective correspondence with $\bbN.$ An infinite set that is not countable is called {\em uncountable}.
+\end{definition}
+
+\begin{exercise}
+Prove that $\bbZ$ is a countable set.
+\end{exercise}
+
+
+\begin{theorem} \label{subsetbbN}
+  Every subset of $\bbN$ is countable.
+  
+Hint: when $A$ is an infinite subset of $\bbN$,
+    construct a bijection $f\colon\bbN\to A$ inductively/recursively. This looks similar to a proof by induction: define an initial term (or terms)
+explicitly and then present a rule that defines $f(n+1)$ assuming that
+$f(1),\ldots, f(n) $ have already been defined. For example, the factorial of $n$ is defined
+inductively by letting $0! = 1$ and
+\begin{align*}
+  (n+1)! & = (n+1)\cdot n!
+\end{align*}
+for $n\geq 0$. After constructing your function you must verify that it is indeed a bijection.
+
+\end{theorem}
+
+\begin{theorem}\label{injbbN}
+  If there exists an injection $f:A\longrightarrow B$ where $B$ is countable, then $A$ is
+  countable. {\it Hint: Use Theorem~\ref{subsetbbN}.}
+\end{theorem}
+
+\begin{corollary}
+  Every subset of a countable set is also countable.
+\end{corollary}
+
+\begin{corollary}
+  If there exists a surjection $g\colon B\to A$ where $B$ is countable, then $A$ is countable. {\it
+    Hint: Use Theorem~\ref{injbbN}.}
+\end{corollary}
+
+\begin{exercise}
+Prove that $\bbN\times \bbN$ is countable by considering the function $f:\bbN\times\bbN\longrightarrow \bbN$ given by $f(n,m)=(10^n-1)10^m$.
+
+{\em (Alternatively you could use either one of the functions $  g(n,m) = 2^n\cdot 3^m$ and 
+  $h(n,m)  = \binom{n+m}{2} + n.$)}
+\end{exercise}
+\bigskip
+
+\begin{center}
+{\em Additional Exercises}
+\end{center}
+
+{\em In all exercises you are expected to prove your answer, unless explicitly stated otherwise.}
+
+
+\begin{enumerate}
+
+
+\item In each of the following, write out the elements of the sets.
+
+\begin{enumerate}
+\item[a)] $(\left\{n \in \bbZ\mid \text{n is divisible by 2}\right\} \cap \bbN) \cup \{-5\}$ 
+\item[b)] $\left\{F,G,H\right\}\times\left\{5,8,9\right\}$ 
+\item[c)] $\left\{[n] \mid n \in \bbN, 1 \leq n \leq 3 \right\}$ 
+\item[d)]  $\left\{ (x,y) \in \bbN \times \bbN \mid y = 2x,\; x = 2y \right\}$ 
+\item[e)] $(\{1,2\} \times \{1,2\}) \times \{1,2\}$
+\item[f)] $(\{1,2\} \cup \{1,2\}) \cup \{1,2\}$
+\item[g)] $\{1,2\}\cup\emptyset$
+\item[h)] $\{1,2\}\cap\emptyset$
+\item[i)] $\{1,2\}\cup\{\emptyset\}$
+\item[j)] $\{1,2\}\cap\{\emptyset\}$
+\item[k)] $\{\{a\}\cup\{b\}\mid a \in \bbN, b \in \bbN, 1 \leq a \leq 4, 3 \leq b \leq 5\}$
+\item[l)] $\{\{12\} \} \cup \{12\}$
+\end{enumerate} 
+
+
+\item Let $A$ and $B$ be subsets of the set $X.$ 
+The symmetric sum $A\oplus B$ (sometimes also called symmetric difference) of sets $A$ and $B$ is defined by
+$$A\oplus B=(A\setminus B)\cup (B\setminus A).$$
+Prove that 
+$$A\oplus B=(A\cup B)\cap [X\setminus(A\cap B)].$$
+
+
+
+\item
+\begin{definition}\label{powersetdef}
+	Let $A$ be a set.  The ``power set'' of $A$, denoted $\wp(A),$ is the set of all subsets of $A$; that is, $\wp(A) = \{B \mid B \subset A\}$.
+\end{definition}
+
+
+\begin{enumerate}
+	\item If $A$ is a set, show that $\wp(A) \neq \emptyset$.
+	\item Let $\emptyset$ be the empty set.  Write down the elements of $\wp(\wp(\emptyset)).$
+\end{enumerate}
+
+
+
+
+
+
+\item 
+
+
+Let $A, B, C$ be subsets of $\bbN$.  Extend Theorem~\ref{basicsets} by showing that, for any $k \in \bbN$
+\[\begin{split}
+	&A\subset A \cup B \cup C,\\
+	&A \cap B \cap C \subset A.
+\end{split}
+\]
+Can this be extended to four sets $A,B,C,D$?  What about five?  Is there any limit?
+
+
+\item  
+\begin{enumerate}
+\item Set
+$A = \{1,2\}$, 
+$B = \{3,4\}$, and
+$f = \{(a,b) \mid a\in A, b \in B \}$.  \\
+Write out the elements of $f$.  Is $f$ a function $A \to B$?
+
+\item Let $C=\{(1,2),(2,2),(3,2)\}$. \\
+Can $C$ be a function?  (For starters, what would $A$ and $B$ be?)
+
+\item Write out the elements of the set $D= \{(b,a) \mid (a,b) \in C\}, $ where $C$ is as given in b). Can $D$ be a function?  
+\end{enumerate}
+
+
+\item Take the sets $A=\left\{1,2,3\right\}$ and $B=\left\{1,4,9\right\}$. Consider the following four statements:
+\begin{enumerate}
+\item For all $a\in A$, there is some $b\in B$ such that $a^2=b$.
+\item There is some $b\in B$ such that, for all $a\in A$, $a^2=b$.
+\item There is some $b\in B$ such that $a^2=b$ for all $a\in A$.
+\item For all $a\in A$, $a^2=b$ for some $b\in B$.
+\end{enumerate}
+Each statement is equivalent to exactly one other in the list. Which statements are true? Which pairs are equivalent to each other?
+
+
+\item
+Let $f:\bbN\rightarrow\bbN$ be given by $f(n)=n^3.$
+\begin{enumerate}
+\item Is $f$ surjective?  Is $f$ injective?
+\item Let $A\subset\bbN$ be the set $\{1,2,\ldots,30\}.$  What is $f^{-1}(f(A))?$  What is
+$f(f^{-1}(A))?$
+\end{enumerate}
+
+
+\item 
+
+Define $f:\bbZ\times\bbZ\rightarrow\bbZ$ by $f(m,n)=mn.$  Is $f$ injective?  Surjective?  If
+$A\subset \bbZ$ is the set of even integers, what is $f^{-1}(A)?$
+
+
+\item Let $f:A\to B$ and $g:B\to C$ be functions.
+\begin{enumerate}
+\item Suppose that $f$ and $g\circ f$ are injective. Is $g$ necessarily injective?
+\item Suppose that $g$ and $g\circ f$ are injective. Is $f$ necessarily injective?
+\item Suppose that $f$ and $g\circ f$ are surjective. Is $g$ necessarily surjective?
+\item Suppose that $g$ and $g\circ f$ are surjective. Is $f$ necessarily surjective?
+\end{enumerate}
+
+
+
+
+
+\item Let $f:A\longrightarrow B$ be a function. Let $X\subset A$ and $Y\subset B.$ 
+\begin{enumerate}
+\item Prove that if $f$ is surjective then $f(f^{-1} (Y)))=Y.$
+ \item Prove that if $f$ is injective then $f^{-1}(f(X))=X.$
+ \item Are the converse statements also true? i.e. If $f(f^{-1} (Y)))=Y$ for all subsets $Y\subset B,$ must $f$ be surjective? If $f^{-1}(f(X))=X$ for all subsets $X\subset A,$ must $f$ be injective?
+ \end{enumerate}
+
+
+\item Let $f:A\longrightarrow B$ be a bijection. Let $g$ be the inverse function to $f,$ given by Proposition 1.27.  Let $Y\subset B.$ Show that 
+$g(Y)=f^{-1}(Y).$ 
+
+Note: $g(Y)$ denotes the image of $Y$ under the map $g$ and $f^{-1}(Y)$ denotes the preimage of $Y$ under $f.$ Thus when $g=f^{-1}$ exists as a function, the two possible interpretations of $f^{-1}(Y)$ coincide.
+
+
+
+
+
+
+
+
+\item Recall the definition of power set, Definition~\ref{powersetdef}.
+\begin{enumerate}
+\item Let $A$ be any set.  Show that there is no bijection between $A$ and its power set $\wp(A).$
+(Hint:  If $f:A\rightarrow \wp(A)$ is any function, think about the set
+$B=\{a\in A\mid a\not\in f(a)\}\subset A.)$
+
+ 
+\item
+Show that there is no injective map from $\wp(\bbN)$ to $\bbN.$
+\end{enumerate}
+
+\item Let $A$ be a set with cardinality $n.$ Let $f\colon [n]\longrightarrow A$ be a bijection. Show that $A=\{f(1),f(2),\cdots,f(n)\}$ and deduce that we can write $A=\{a_1,a_2,\cdots, a_n\}.$ 
+
+\item Let $f: A \to B$ be a function. 
+\begin{enumerate}
+\item Let $X$ and $Y$ be subsets of $A$. Is it true that $f(X \cup Y) = f(X) \cup f(Y)$? Is it true that  
+$f(X\cap Y)= f(X)\cap f(Y)?$ Either prove or give a counterexample in each case.
+
+
+\item  Now let $X$ and $Y$ be subsets of $B$. Is it true that $f^{-1}(X \cup Y) = f^{-1}(X) \cup f^{-1}(Y)$? Is it true that $f^{-1}(X\cap Y)=f^{-1}(X)\cap f^{-1} (Y)?$ Either prove or give a counterexample in each case.
+\end{enumerate}
+
+
+
+\item
+Suppose that $A,B\subset \mathbb{N}.$ Prove that if $A$ and $B$ are finite and there is a bijection $f:A\to B,$ then $|A|=|B|.$
+
+
+\item
+	Prove that there is no set $A$ with maximal cardinality.  In other words, show that there does not exist a set $A$ with the property that if $B$ is a set, then $B$ has smaller cardinality than $A$.
+
+
+
+
+
+\item
+
+\begin{enumerate}
+\item[a)]  
+Let $X$ be a countable set and $Y$ a finite set such that $X\cap Y=\emptyset$. Show that $X\cup Y$ is countable. 
+ \item[b)] Prove that a union of 2 disjoint countable sets is countable.
+  \item[c)] Use a) and b) to prove that $\bbZ$ is countable.
+ \item[d)] Suppose that $A_1, A_2, \dots$ are sets such that $A_i$ is countable for each $i \in\bbN$. Show that, for each $n$, \[\bigcup_{i=1}^n A_i\] is countable.
+     \item[e)] Prove that a countable union of countable sets is countable. That is, if $\{A_i\}_{i\in\bbN} $ is a countable  collection of countable sets, then 
+  $$\bigcup_{i\in\bbN} A_i$$ 
+  is countable.
+  \item[f)]  Prove that if $A$ and $B$ are countable then $A\times B$ is countable.
+  \item[g)] Prove that if $A_1,A_2,\cdots, A_n$ are countable, then so is $A_1\times A_2\times \cdots\times A_n.$
+  \item[h)] Let $A_n=\{0,1\},$ for every $n.$ Show that $A_1\times A_2\times\cdots\times A_n\times\cdots$ is uncountable.
+
+ \end{enumerate}
+
+
+
+
+
+\end{enumerate}
+
+
+
+\end{document}
