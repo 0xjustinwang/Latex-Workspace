@@ -110,7 +110,54 @@
     "a collection of specifications that may take variable inputs, and that can be executed to produce outputs"
 \end{center}
 
+\section{Variables, Types, and Expressions: 10/3/25}
+\subsection{How do computer's work?}
+\begin{itemize}
+    \item Processor: takes input values and operations, and produces output values.
+    \item Memory: stores values for later retrieval.
+\end{itemize}
+\newpage
+\subsection{Variables}
+Let's say that we are trying to convert Fahrenheit to Celsius.
+\begin{itemize}
+    \item We can use variables to store values. For example, we can use the variable \texttt{fahrenheit} to store the temperature in Fahrenheit.
+    \item We can then use the variable \texttt{celsius} to store the temperature in Celsius.
+    \item We can then use the formula to convert Fahrenheit to Celsius: 
+    \begin{center}
+    \item $C = \frac{5}{9}(F - 32)$
+    \end{center}
+    where C is the temperature in Celsius and F is the temperature in Fahrenheit.
+\end{itemize}
+In python, we can write this as:
+\begin{verbatim}
+fahrenheit = 100
+celsius = (5/9) * (fahrenheit - 32)
+print(celsius)
+\end{verbatim}
 
+\subsection{Types}
+\begin{itemize}
+    \item numbers
+    \begin{itemize}
+        \item integers: whole numbers, e.g. -2, -1, 0, 1, 2
+        \item floats: decimal numbers, e.g. -2.5, -1.0, 0.0, 1.0, 2.5
+    \end{itemize}
+    \item strings: text, e.g. "hello", "world"
+    \item booleans: true or false, e.g. True, False
+\end{itemize}
+\textbf{Type Casting:} \\
+Notice that "13" + 12 $\longrightarrow$ Error.
+"13" + "12" = "1312" \\
+So to actually add these as integer values:
+\begin{verbatim}
+int("13") + 12 = 25
+\end{verbatim}
+\subsection{Boolean Values and Logical Operators}
+\begin{itemize}
+    \item Boolean values: True, False
+    \item Logical operators: and, or, not
+    \item Comparison operators: ==, !=, <, >, <=, >=
+\end{itemize}
 
 
 
