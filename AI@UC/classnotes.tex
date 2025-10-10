@@ -1,0 +1,98 @@
+\documentclass[11pt]{article}
+
+% ----------- Font Packages ------------
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+% ----------- Math Formatting ----------
+\usepackage{siunitx}  
+\AtBeginDocument{\RenewCommandCopy\qty\SI}       % Units like \SI{9.8}{m/s^2}
+\usepackage{physics} 
+\usepackage{amsmath, amssymb, amsthm}  % Core math packages
+\usepackage{dsfont}
+% Boxed theorem environments
+\usepackage[most]{tcolorbox}
+\tcbuselibrary{theorems}
+
+% Cross-referencing and hyperlinks
+\usepackage{hyperref}
+\usepackage{cleveref}
+
+% ----------- Layout and Spacing -------
+\usepackage[letterpaper, top=0.75in, bottom=0.75in, left=1in, right=1in, heightrounded]{geometry}
+\usepackage{setspace}
+\onehalfspacing                % More readable line spacing for notes
+
+% ----------- Math Formatting ----------
+\usepackage{mathtools}        % Enhanced math commands
+\usepackage{bm}               % Bold math symbols
+\usepackage{cancel}           % Cross out terms in equations
+
+% ----------- Misc Enhancements --------
+\usepackage[protrusion=true, expansion=true, tracking=true, kerning=true, spacing=true, factor=1100, stretch=20, shrink=20, final, babel]{microtype} % Better font spacing
+\microtypesetup{disable=footnote} % Disable footnote patch to avoid errors
+\usepackage{enumitem}         % Customizable lists
+\usepackage{fancyhdr}         % Page headers/footers
+\pagestyle{fancy}
+\fancyhead[L]{AI@UC Notes}
+
+\usepackage{bookmark}         % Handle rerunfilecheck warnings
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor=blue,
+    citecolor=blue
+}
+
+% Optional: TikZ for diagrams
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, calc, decorations.markings}
+
+% --------- Boxed theorem and definition environments ---------
+\newtcbtheorem[number within=section]{theorem}{Theorem}%
+{colback=white!97!blue!10,
+ colframe=blue!50!black,
+ fonttitle=\bfseries,
+ coltitle=black,
+ boxrule=0.5pt,
+ arc=4pt,
+ top=6pt,
+ bottom=6pt,
+ left=6pt,
+ right=6pt,
+ enhanced,
+ attach boxed title to top left={yshift=-2mm,xshift=5mm},
+ boxed title style={colframe=blue!50!black, colback=white}}{th}
+
+\newtcbtheorem[number within=section]{definition}{Definition}%
+{colback=white!95!green!10,
+ colframe=green!50!black,
+ fonttitle=\bfseries,
+ coltitle=black,
+ boxrule=0.5pt,
+ arc=4pt,
+ top=6pt,
+ bottom=6pt,
+ left=6pt,
+ right=6pt,
+ enhanced,
+ attach boxed title to top left={yshift=-2mm,xshift=5mm},
+ boxed title style={colframe=green!50!black, colback=white}}{def}
+
+
+
+%  Document Start
+
+\title{AI @ UC Notes}
+\author{Justin Wang}
+\date{Autumn Quarter 2025}
+
+\begin{document}
+
+\maketitle
+
+\section{Decision Trees 10/8/25}
+
+
+\end{document}
