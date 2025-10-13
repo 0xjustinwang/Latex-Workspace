@@ -34,7 +34,7 @@
 \usepackage{enumitem}         % Customizable lists
 \usepackage{fancyhdr}         % Page headers/footers
 \pagestyle{fancy}
-\fancyhead[L]{Math Notes}
+\fancyhead[L]{CS Notes}
 
 \usepackage{bookmark}         % Handle rerunfilecheck warnings
 
@@ -209,4 +209,149 @@ int("13") + 12 = 25
     \item Variables declared in "outer" blcoks can be used in nested blcoks.
     \item Variables declared in "inner" blocks cannot be used in outer blocks.
 \end{enumerate}
+
+\section{Loops and Lists: 10/10/25}
+
+\textbf{Loops:}
+\begin{itemize}
+    \item while loop: repeats a block of code while a condition is true.
+    \item for loop: repeats a block of code for a specific number of times.
+\end{itemize}
+\textbf{Loop Structure:}
+\begin{verbatim}
+    for <variable> in <sequence>:
+        <body>
+\end{verbatim}
+\textbf{Example: Print numbers from 1 to 10:}
+\begin{verbatim}
+    for i in range(1, 11):
+        print(i)
+\end{verbatim}
+\textbf{Lists:} A structure that stores an arbitrarily large collection of data.
+\begin{verbatim}
+    my_list = [1,2,3,4,5,6,7,8,9,10]
+\end{verbatim}
+Index a list to iterate through each element in the list. 
+\begin{verbatim}
+    for num in my_list:
+        print(num)
+\end{verbatim}
+\textbf{List Examples:}
+\begin{itemize}
+    \item A = []
+    \item B = [1,2,3]
+    \item C = ["hello", "world"]
+    \item D = [1, "hello", 2.5, True]
+\end{itemize}
+
+\textbf{Example: Calculate Grades of Multiple Students:}
+\begin{verbatim}
+    scores = [17,30,100,99,52,1]
+    def calculate_grades(scores):
+        grades = []
+        for score in scores:
+            if score >= 90:
+                grades.append("A")
+            elif score >= 80:
+
+                grades.append("B")
+            elif score >= 70:
+                grades.append("C")
+            elif score >= 60:
+                grades.append("D")
+            else:
+                grades.append("F")
+        print("Done Grading")
+        return grades
+    print(calculate_grades(scores))
+\end{verbatim}
+\textbf{Executing a While Loop:}
+Only proceed if condition is true:
+\begin{verbatim}
+    while (condition):
+        <body>
+\end{verbatim}
+\textbf{Example: Print numbers from 1 to 10 using while loop:}
+\begin{verbatim}
+    i = 1
+    while (i <=10):
+        print(i)
+        i += 1
+\end{verbatim}
+\textbf{More List Operations (10/13/25):}
+\begin{itemize}
+    \item Make list from a range:
+\end{itemize}
+\begin{verbatim}
+    my_list = list(range(45)) # [0,1,2,...,44]
+    print(my_list[24]) # 24
+    print(my_list[-1]) # 44
+    print(my_list[10:20]) # [10,11,...,19]
+\end{verbatim}
+Change values in a list:
+\begin{verbatim}
+    my_list[0] = 100
+    print(my_list) # [100,1,2,...,44]
+\end{verbatim}
+Add values to a list:
+\begin{verbatim}
+    my_list.append(200)
+    print(my_list) # [100,1,2,...,44,200]
+    my_list.insert(0, -50) 
+    print(my_list) # [-50,100,1,2,...,44,200]
+\end{verbatim}
+Remove values from a list:
+\begin{verbatim}
+    my_list.remove(100)
+    print(my_list) # [-50,1,2,...,44,200]
+    my_list.pop() # removes and returns last element
+    print(my_list) # [-50,1,2,...,44]
+    my_list.pop(0) # removes and returns element at index 0
+    print(my_list) # [1,2,...,44]
+    del my_list[0] # removes element at index 0
+    print(my_list) # [2,3,...,44]
+\end{verbatim}
+Get length of a list:
+\begin{verbatim}
+    print(len(my_list)) # 43
+\end{verbatim}
+\textbf{String Review:}
+\begin{itemize}
+    \item String Delimitters: 
+    \begin{verbatim}
+    No return between items printed:
+    print("Hello World", end="") 
+    print("Bye")
+    Output: Hello WorldBye
+    \end{verbatim}
+\end{itemize}
+\textbf{Advanced Looping:} 
+\begin{itemize}
+    \item Accumulator:
+\begin{verbatim}
+    acc = 0
+    list_of_numbers = [1,2,3,4,5]
+    for i in list_of_numbers:
+        acc += i
+    print(acc) # 15
+\end{verbatim}
+    \item Continue Statement: skips the rest of the loop and goes to the next iteration.
+\begin{verbatim}
+    count_to_100 = list(range(101))
+    for c in count_to_100:
+        if (c % 2 ==0):
+            print(c)
+        else:
+            continue
+\end{verbatim}
+    \item Break Statement: exits the loop entirely.
+\begin{verbatim}
+    inputs = [0, 2, 4, 6, 8, 10, -1, 10, 8, 6, 4, 2]
+    for i in inputs:
+        print(i)
+        if i == -1:
+            break
+\end{verbatim}
+
+\end{itemize}
 \end{document}
