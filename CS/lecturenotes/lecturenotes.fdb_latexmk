@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1760372352.61937 "/Users/justinwang/Documents/LaTeX/CS/lecturenotes/lecturenotes.tex" "lecturenotes.pdf" "lecturenotes" 1760372353.49563 0
-  "/Users/justinwang/Documents/LaTeX/CS/lecturenotes/lecturenotes.tex" 1760372351.56813 10836 0a47924aeff66a542dd90d52b42dadfe ""
+["pdflatex"] 1760718066.85182 "/Users/justinwang/Documents/LaTeX/CS/lecturenotes/lecturenotes.tex" "lecturenotes.pdf" "lecturenotes" 1760718067.7131 0
+  "/Users/justinwang/Documents/LaTeX/CS/lecturenotes/lecturenotes.tex" 1760718065.79701 14709 4224539346de4a9e84c5324d2f2f4719 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -241,8 +241,8 @@
   "/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1754259412 5467155 19efa205003f9ecad95fbbaa6ff24da1 ""
   "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1741450574 3345740 46b66fdb0378f7bf5921b5eabf1762b8 ""
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
-  "lecturenotes.aux" 1760372353.41665 5311 b83337e5884e86a85e7935246be2aaf9 "pdflatex"
-  "lecturenotes.tex" 1760372351.56813 10836 0a47924aeff66a542dd90d52b42dadfe ""
+  "lecturenotes.aux" 1760718067.63472 6377 3d1278ee4ef87a3772ef2895ca47de20 "pdflatex"
+  "lecturenotes.tex" 1760718065.79701 14709 4224539346de4a9e84c5324d2f2f4719 ""
   (generated)
   "lecturenotes.aux"
   "lecturenotes.log"

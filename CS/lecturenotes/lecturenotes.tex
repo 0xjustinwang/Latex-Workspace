@@ -352,6 +352,181 @@ Get length of a list:
         if i == -1:
             break
 \end{verbatim}
-
 \end{itemize}
+\section{Tuples and More: 10/15/25}
+
+\begin{verbatim}
+# Check if two lists contain the same items (regardless of order)
+list_a = ["Sports", "Physics", "CS"]
+list_b = ["Physics", "Arts", "Music"]
+similarities = 0
+
+for i in list_a:
+    for j in list_b:
+        if i == j:
+            print("item in a:", i)
+            print("item in b:", j)
+            similarities += 1
+
+print(similarities)
+\end{verbatim}
+
+\subsection*{Tuples}
+
+Tuples are ordered, immutable sequences that can store multiple items in one variable.
+
+\subsection*{Creating and Accessing Tuples}
+
+\begin{verbatim}
+tup = (0, 1, 2)
+print(tup[0])  # Access element 0
+
+tup[0] = 10  # Error: tuples are immutable
+\end{verbatim}
+
+\subsection*{Returning Tuples from Functions}
+
+\begin{verbatim}
+numbers = [42, -7, 0, 19, 103, 58, -32, 7, 88]
+
+def min_and_max(num_list):
+    max_val = num_list[0]
+    min_val = num_list[0]
+
+    for n in num_list:
+        if n > max_val:
+            max_val = n
+        if n < min_val:
+            min_val = n
+
+    return min_val, max_val  # returns a tuple
+\end{verbatim}
+
+\subsection*{Tuple Unpacking}
+
+\begin{verbatim}
+min_v, max_v = min_and_max(numbers)
+print(min_v)
+print(max_v)
+\end{verbatim}
+
+\subsection*{Unpacking in a Loop}
+
+\begin{verbatim}
+list_of_min_max = [
+    min_and_max(numbers),
+    min_and_max(numbers),
+    min_and_max(numbers),
+]
+
+for m, n in list_of_min_max:
+    print(m)
+    print(n)
+\end{verbatim}
+
+\subsection*{Enumerate Function}
+
+\texttt{enumerate()} returns pairs of \texttt{(index, value)} as tuples.
+
+\begin{verbatim}
+def min_and_max_index(num_list):
+    max_val = num_list[0]
+    max_index = 0
+    min_val = num_list[0]
+    min_index = 0
+
+    for n in enumerate(num_list):  # e.g. [(0, 5), (1, 3), (2, 10)]
+        if n[1] > max_val:
+            max_val = n[1]
+            max_index = n[0]
+        if n[1] < min_val:
+            min_val = n[1]
+            min_index = n[0]
+
+    return min_val, min_index, max_val, max_index
+\end{verbatim}
+
+\begin{verbatim}
+min_v, min_i, max_v, max_i = min_and_max_index(numbers)
+print((min_v, min_i, max_v, max_i))
+\end{verbatim}
+
+\subsection*{Reversed and Range}
+
+\begin{verbatim}
+for n in reversed(numbers):
+    print(n)
+
+# range(start, end, step)
+for i in range(0, len(numbers), -1):  # backwards
+    print(numbers[i])
+\end{verbatim}
+
+\subsection*{Strings}
+
+\begin{verbatim}
+name = "Nelson-Fromm"
+print(name[0])  # returns "N"
+
+fruit1 = "mango"
+fruit2 = "kiwi"
+fruit3 = "     Kiwi     "
+
+print(fruit1 == fruit2)  # False
+print(fruit3.lower().strip() == fruit2.lower())     # True (English only)
+print(fruit3.casefold().strip() == fruit2.casefold())  # True (language-agnostic)
+\end{verbatim}
+
+\section{Strings and Lists of Lists: 10/18/25}
+
+\subsection*{String Manipulation: }
+
+\begin{verbatim}
+full_name = "John Doe-Smith"
+print(len(full_name)) # 15
+list_from_my_name = full_name.split('-') 
+print(list_from_my_name)  # ['John Doe', 'Smith']
+
+#String Methods:
+#.split(seperator/delimitter, 'maximum split -- optional')
+#range(start, end, step -- optional)
+print(full_name.split(' ')) # ['John', 'Doe-Smith']
+
+lst = [list_from_my_name[0], list_from_my_name[1]]
+print(lst)  # ['John Doe', 'Smith']
+\end{verbatim}
+
+\subsection*{Lists of Lists:}
+\begin{verbatim}
+    ascii_subset = [
+        [65, 'A'],
+        [66, 'B'],
+        [67, 'C'],
+        [68, 'D'],
+        [69, 'E'],
+    ]
+print(ascii_subset[0])  # [65, 'A']
+print(ascii_subset[0][1])  # 'A'
+#ASCII uses:
+encoding characters, send over networks, 
+validating data, ciphers, alphabetical order
+
+#ord()
+print(ord('A'))  # 65
+
+#chr()
+print(chr(65))  # 'A'
+\end{verbatim}
+
+\subsection*{Slicing:}
+\begin{verbatim}
+my_list = [0,1,2,3,4,5,6,7,8,9]
+print(my_list[2:5])  # [2,3,4]
+print(my_list[:4])   # [0,1,2,3]
+print(my_list[6:])   # [6,7,8,9]
+print(my_list[::-1])  # [9,8,7,6,5,4,3,2,1,0]
+print(my_list[:5:])  # [0,1,2,3,4]
+#list[start:end:step]
+\end{verbatim}
+
 \end{document}

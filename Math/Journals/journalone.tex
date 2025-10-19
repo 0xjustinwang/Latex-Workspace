@@ -1,0 +1,308 @@
+\documentclass[11pt]{article}
+
+% ----------- Font Packages ------------
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+% ----------- Math Formatting ----------
+\usepackage{siunitx}  
+\AtBeginDocument{\RenewCommandCopy\qty\SI}       % Units like \SI{9.8}{m/s^2}
+\usepackage{physics} 
+\usepackage{amsmath, amssymb, amsthm}  % Core math packages
+\usepackage{dsfont}
+% Boxed theorem environments
+\usepackage[most]{tcolorbox}
+\tcbuselibrary{theorems}
+
+% Cross-referencing and hyperlinks
+\usepackage{hyperref}
+\usepackage{cleveref}
+
+% ----------- Layout and Spacing -------
+\usepackage[letterpaper, top=0.75in, bottom=0.75in, left=1in, right=1in, heightrounded]{geometry}
+\usepackage{setspace}
+\onehalfspacing                % More readable line spacing for notes
+
+% ----------- Math Formatting ----------
+\usepackage{mathtools}        % Enhanced math commands
+\usepackage{bm}               % Bold math symbols
+\usepackage{cancel}           % Cross out terms in equations
+
+% ----------- Misc Enhancements --------
+\usepackage{microtype}        % Better font spacing
+\usepackage{enumitem}         % Customizable lists
+\usepackage{fancyhdr}         % Page headers/footers
+\pagestyle{fancy}
+\fancyhead[L]{Journal One}
+
+\usepackage{bookmark}         % Handle rerunfilecheck warnings
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor=blue,
+    citecolor=blue
+}
+
+% Optional: TikZ for diagrams
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, calc, decorations.markings}
+
+% --------- Boxed theorem and definition environments ---------
+\newtcolorbox{theorem}[1][]
+{colback=white!97!blue!10,
+ colframe=blue!50!black,
+ fonttitle=\bfseries,
+ coltitle=black,
+ boxrule=0.5pt,
+ arc=4pt,
+ top=6pt,
+ bottom=6pt,
+ left=6pt,
+ right=6pt,
+ enhanced,
+ attach boxed title to top left={yshift=-2mm,xshift=5mm},
+ boxed title style={colframe=blue!50!black, colback=white},
+ title=Theorem #1}
+\newtcbtheorem[number within=section]{definition}{Definition}%
+{colback=white!95!green!10,
+ colframe=green!50!black,
+ fonttitle=\bfseries,
+ coltitle=black,
+ boxrule=0.5pt,
+ arc=4pt,
+ top=6pt,
+ bottom=6pt,
+ left=6pt,
+ right=6pt,
+ enhanced,
+ attach boxed title to top left={yshift=-2mm,xshift=5mm},
+ boxed title style={colframe=green!50!black, colback=white}}{def}
+
+ \newtcbtheorem[number within=section]{proposition}{Proposition}%
+{colback=white!97!violet!10,
+ colframe=violet!60!black,
+ fonttitle=\bfseries,
+ coltitle=black,
+ boxrule=0.5pt,
+ arc=4pt,
+ top=6pt,
+ bottom=6pt,
+ left=6pt,
+ right=6pt,
+ enhanced,
+ attach boxed title to top left={yshift=-2mm,xshift=5mm},
+ boxed title style={colframe=violet!60!black, colback=white}}{prop}
+
+
+
+% -------------------------- Document ---------------------------
+\title{MATH 16110: Journal One}
+\author{Justin Wang}
+\date{Autumn 2025}
+\begin{document}
+
+\maketitle 
+\noindent\textbf{Exercise 1.4}
+Let $A=\{1, \{2\}\}$.  Is $1\in A$?  Is $2\in A$?  Is $\{1\}\subset A$?  Is $\{2\}\subset A$?  
+Is $1\subset A$?  Is $\{1\}\in A$?  Is $\{2\}\in A$?  Is $\{\{2\}\}\subset A$?  
+Explain.
+\begin{enumerate}
+    \item Yes, $1 \in A$ as $1$ is an element of set $A$.
+    \item No, $2 \notin A$, as it is not an element of set $A$.
+    \item Yes, $\{1\} \subset A,$ by definition $1.3$; every element of $\{1\} $ is in $A$.
+    \item No, $\{1\} \notin A,$ by definition $1.1$; the element $\{1\}$ is not an element of $A$.
+    \item Yes, $\{2\} \in A,$ by definition $1.1$; the element $\{2\}$ is an element of $A$.
+    \item Yes $\{\{2\}\} \subset A$ by definition $1.3$; every element of $\{\{2\}\}$ is in $A$.
+\end{enumerate}
+
+\noindent\textbf{Exercise 1.10}
+Show that if $A$ is any set, then $\emptyset\subset A$.
+\begin{proof}
+We want to show that if $A$ is any set, then $\emptyset\subset A$.\\
+We will prove by the contrapositive: \\
+Given $A$, a set, then if $x \notin A$, then $x \notin \emptyset$. $\forall x, x \notin \emptyset,$ thus this holds. 
+\end{proof}
+\noindent\textbf{Exercise 1.12} 
+Let $A=\{x\in \mathds{N} \mid x\text{ is even}\}; B=\{x\in \mathds{N} \mid x\text{ is odd}\}; C=\{x\in \mathds{N} \mid x\text{ is prime}\}; D=\{x\in \mathds{N} \mid x\text{ is a perfect square}\}.$
+Find all possible set differences.
+\begin{itemize}
+    \item $A \setminus B = A$
+    \item $A \setminus C = \{x \in \mathds{N} \mid x$ is even and $x \notin \{2\}\}$
+    \item $A \setminus D = \{x \in \mathds{N} \mid \exists n \in \mathds{N},\; x = 2n $ and $ \forall m \in \mathds{N},\; x\neq m^2\} $
+    \item $B \setminus A = B$
+    \item $B \setminus C = \{x \in \mathds{N} \mid x $ is composite or $ x = 1\}$
+    \item $B \setminus D = \{x \in \mathds{N} \mid \exists n \in \mathds{N},\; x = 2n + 1 $ and $ \forall m \in \mathds{N},\; x\neq m^2\} $
+    \item $C \setminus A = \{x \in \mathds{N} \mid x$ is prime and $ x \notin \{2\}\}$
+    \item $C \setminus B = \{2\}$
+    \item $C \setminus D = C$
+    \item $D \setminus A = \{x \in \mathds{N} \mid x$ is odd and $x$ is a perfect square$\}$
+    \item $D \setminus B  \{x \in \mathds{N} \mid x$ is even and $x$ is a perfect square$\}$
+    \item $D \setminus C \{x \in \mathds{N} \mid x$ is composite and $x$ is a perfect square$\}$
+\end{itemize}
+\begin{theorem}[1.13]
+Let $A,B$ and $X$ be sets.  Then:
+\begin{enumerate}
+\item[a)]
+$X\setminus (A\cup B)=(X\setminus A)\cap (X\setminus B)$
+
+\item[b)]
+$X\setminus (A\cap B)=(X\setminus A)\cup (X\setminus B)$
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+\textbf{a. } Let $A,B$ and $X$ be sets. We want to show that $X\setminus (A\cup B)=(X\setminus A)\cap (X\setminus B)$. \\
+$\supset:$ Let $z$ be an arbitrary element such that $z \in X \setminus (A \cup B)$. Then, $z \in X$ and $z\notin A \cup B$. By Definition 1.5, $z$ is not in the union of sets $A$ and $B$, $z \notin A$ and $z \notin B$.
+Then by Definition 1.11, we have $z \in X \setminus A$ and $z \in X \setminus B$. It follows by Definition 1.6, $z \in (X \setminus A) \cap (X \setminus B).$ Since $z$ is arbitrary, and is an element in both $X \setminus (A \cup B)$ 
+and $(X\setminus A)\cap (X\setminus B)$, by Definition 1.3, $X\setminus (A\cup B) \subset (X\setminus A)\cap (X\setminus B)$. \\
+$\subset:$ Let $z$ be an arbitrary element such that $z \in (X\setminus A)\cap (X\setminus B)$. Then, $z \in X \setminus A$ and $z\in X \setminus B$ Then it follows that $(z \in X, z \notin A $ and $ z \notin B)$. Then by Definition 1.3, $z \in X \setminus (A \cup B).$ 
+Since $z$ is arbitrary, and is an element in both $X \setminus (A \cup B)$ 
+and $(X\setminus A)\cap (X\setminus B)$, by Definition 1.3, $(X\setminus A)\cap (X\setminus B) \subset X\setminus (A\cup B)$. \\
+By Theorem 1.7, because both sides are subsets of each other, $X\setminus (A\cup B)=(X\setminus A)\cap (X\setminus B)$ \\
+\newline
+\textbf{b. } Let $A,B$ and $X$ be sets. We want to show that $X\setminus (A\cap B)=(X\setminus A)\cup (X\setminus B)$. \\
+$\supset:$ Let $z$ be an arbitrary element such that $z \in X \setminus (A \cap B)$. Then, $z \in X$ and $z\notin A \cap B$. By Definition 1.6, $z$ is not in the intersection of sets $A$ and $B$, so $z \notin A$ or $z \notin B$.
+Then by Definition 1.11, we have $z \in X \setminus A$ or $z \in X \setminus B$. It follows by Definition 1.5, $z \in (X \setminus A) \cup (X \setminus B).$ Since $z$ is arbitrary, and is an element in both $X \setminus (A \cap B)$
+and $(X\setminus A)\cup (X\setminus B)$, by Definition 1.3, $X\setminus (A\cap B) \subset (X\setminus A)\cup (X\setminus B)$. \\
+$\subset:$ Let $z$ be an arbitrary element such that $z \in (X\setminus A)\cup (X\setminus B)$. Then, $z \in X \setminus A$ or $z\in X \setminus B$. Then it follows that $z \in X$ and $(z \notin A$ or $z \notin B)$. Then by Definition 1.6, $z \in X \setminus (A \cap B).$
+Since $z$ is arbitrary, and is an element in both $X \setminus (A \cap B)$
+and $(X\setminus A)\cup (X\setminus B)$, by Definition 1.3, $(X\setminus A)\cup (X\setminus B) \subset X\setminus (A\cap B)$. \\
+By Theorem 1.7, because both sides are subsets of each other, $X\setminus (A\cap B)=(X\setminus A)\cup (X\setminus B)$.
+\end{proof}
+\newpage
+\begin{theorem}[1.15]
+Let $X$ be a set, and let  $\mathcal{A}=\{A_\lambda\mid \lambda\in I\}$ be a nonempty collection of sets. Then:
+\begin{enumerate}
+\item
+$X\setminus \left( \bigcup_{\lambda\in I}A_\lambda\right) =\bigcap_{\lambda\in I} (X\setminus A_\lambda)$
+
+\item
+$X\setminus \left( \bigcap_{\lambda\in I}A_\lambda\right)  =\bigcup_{\lambda\in I} (X\setminus A_\lambda).$
+\end{enumerate}  
+\end{theorem}
+\begin{proof}
+\textbf{a.} Let $X$ be a set, and let $\mathcal{A} = \{ A_{\lambda} \mid \lambda \in I \}$ be a nonempty collection of sets. We want to show that $X \setminus \left( \bigcup_{\lambda \in I} A_{\lambda}\right) = \bigcap_{\lambda \in I} ( X \setminus A_{\lambda} )$. \\
+$\supset:$ Let $z$ be an arbitrary element such that $z \in X \setminus \left( \bigcup_{\lambda \in I} A_{\lambda} \right)$. Then $z \in X$ and $z \notin \bigcup_{\lambda \in I} A_{\lambda}$. By Definition 1.11, $z \notin A_{\lambda}$ for all $\lambda \in I$. Then by Definition 1.11, we have $z \in X \setminus A_{\lambda}$ for all $\lambda \in I$. It follows by Definition 1.14, $z \in \bigcap_{\lambda \in I} (X \setminus A_{\lambda})$. Since $z$ is arbitrary, by Definition 1.3, $X \setminus \left( \bigcup_{\lambda \in I} A_{\lambda} \right) \subset \bigcap_{\lambda \in I} (X \setminus A_{\lambda})$. \\
+$\subset:$ Let $z$ be an arbitrary element such that $z \in \bigcap_{\lambda \in I} (X \setminus A_{\lambda})$. Then by Definition 1.14, $z \in X \setminus A_{\lambda}$ for all $\lambda \in I$. Then it follows that $z \in X$ and $z \notin A_{\lambda}$ for all $\lambda \in I$. Then by Definition 1.14, $z \notin \bigcup_{\lambda \in I} A_{\lambda}$. Thus $z \in X \setminus \left( \bigcup_{\lambda \in I} A_{\lambda} \right)$. Since $z$ is arbitrary, by Definition 1.3, $\bigcap_{\lambda \in I} (X \setminus A_{\lambda}) \subset X \setminus \left( \bigcup_{\lambda \in I} A_{\lambda} \right)$. \\
+By Theorem 1.7, because both sides are subsets of each other, $X \setminus \left( \bigcup_{\lambda \in I} A_{\lambda}\right) = \bigcap_{\lambda \in I} ( X \setminus A_{\lambda} )$. \\
+
+\textbf{b.} Let $X$ be a set, and let $\mathcal{A} = \{ A_{\lambda} \mid \lambda \in I \}$ be a nonempty collection of sets. We want to show that $X \setminus \left( \bigcap_{\lambda \in I} A_{\lambda} \right) = \bigcup_{\lambda \in I} ( X \setminus A_{\lambda})$. \\
+$\supset:$ Let $z$ be an arbitrary element such that $z \in X \setminus \left( \bigcap_{\lambda \in I} A_{\lambda} \right)$. Then $z \in X$ and $z \notin \bigcap_{\lambda \in I} A_{\lambda}$. By Definition 1.14, there exists some $\lambda_0 \in I$ such that $z \notin A_{\lambda_0}$. Then by Definition 1.11, we have $z \in X \setminus A_{\lambda_0}$. It follows by Definition 1.14, $z \in \bigcup_{\lambda \in I} (X \setminus A_{\lambda})$. Since $z$ is arbitrary, by Definition 1.3, $X \setminus \left( \bigcap_{\lambda \in I} A_{\lambda} \right) \subset \bigcup_{\lambda \in I} (X \setminus A_{\lambda})$. \\
+$\subset:$ Let $z$ be an arbitrary element such that $z \in \bigcup_{\lambda \in I} (X \setminus A_{\lambda})$. Then by Definition 1.14, there exists some $\lambda_0 \in I$ such that $z \in X \setminus A_{\lambda_0}$. Then by Definition 1.11 it follows that $z \in X$ and $z \notin A_{\lambda_0}$. Then by Definition 1.14, $z \notin \bigcap_{\lambda \in I} A_{\lambda}$. Thus $z \in X \setminus \left( \bigcap_{\lambda \in I} A_{\lambda} \right)$. Since $z$ is arbitrary, by Definition 1.3, $\bigcup_{\lambda \in I} (X \setminus A_{\lambda}) \subset X \setminus \left( \bigcap_{\lambda \in I} A_{\lambda} \right)$. \\
+By Theorem 1.7, because both sides are subsets of each other, $X \setminus \left( \bigcap_{\lambda \in I} A_{\lambda} \right) = \bigcup_{\lambda \in I} ( X \setminus A_{\lambda})$.
+\end{proof}
+\noindent\textbf{Exercise 1.18:} Let the function $f \colon \mathds{Z} \rightarrow \mathds{Z}$ be defined by
+$f(n)=2n$.  Write $f$ as a subset of $\mathds{Z} \times \mathds{Z}$.  
+\begin{itemize}
+    \item $f:\; \{(n, 2n) \mid n \in \mathds{Z} \}$
+\end{itemize}
+\textbf{Exercise 1.20:} Must $f(f^{-1}(Y))=Y$ and $f^{-1}(f(X))=X?$ For each, either prove that it always holds or give a counterexample.
+\begin{proof}
+1). We will show that $f(f^{-1}(Y)) = Y$ does not hold in general via counterexample. \\
+Let $f: \mathds{Z} \rightarrow \mathds{Z}$, where $f(n) = n^2$. Let $Y$ be a set such that $Y \subset \mathds{Z}, Y = \{-4, 4\}$ \\
+By Definition 1.19, the preimage of $Y$ under $f$ is the following set: $\{2, -2\}$. Then, by Definition 1.19, the image of this set under $f$ is: $\{4\}$.
+Since $\{-4, 4\} \neq \{4\}$, we have $f(f^{-1}(Y)) \neq Y$, providing a counterexample.\\
+2). We will show that $f^{-1}(f(X)) = X$ does not hold in general via counterexample. \\
+Let $f: \mathds{Z} \rightarrow \mathds{Z}$, where $f(n) = n^2$. Let $X$ be a set such that $X \subset \mathds{Z}, X = \{1\}$. \\
+By Definition 1.19, the image of $X$ under $f$ is the following set: $\{1\}$. Then, by Definition 1.19, the preimage of this set under $f$ is: $\{-1, 1\}$. \\
+Since $\{1\} \neq \{-1, 1\}$, we have $f^{-1}(f(X)) \neq X$, providing a counterexample.
+\end{proof}
+\noindent\textbf{Exercise 1.22:} Let $f:{\mathbb N}\rightarrow {\mathbb N}$ be defined by $f(n)=n+2$.  Is $f$ injective?  Is $f$ surjective?
+\begin{itemize}
+    \item $f$ is injective; $a + 2 = a' + 2 \rightarrow a = a'$
+    \item $f$ is not surjective; $1 \in \mathds{N}$, the codomain, but there is no $n \in \mathbb{N}$ such that $f(n) = 1$.
+\end{itemize}
+\noindent\textbf{Exercise 1.23:} Let $f:{\mathbb Z}\rightarrow {\mathbb Z}$ be defined by $f(x)=x+2$.  Is $f$ injective?  Is $f$ surjective?
+\begin{itemize}
+    \item $f$ is injective; $a + 2 = a' + 2 \rightarrow a = a'$
+    \item $f$ is surjective; Let $b \in \mathbb{Z}$. Choose $a = b - 2$. Then $f(a) = (b-2) + 2 = b$
+\end{itemize}
+\noindent\textbf{Exercise 1.24:} Let $f:{\mathbb N}\rightarrow {\mathbb N}$ be defined by $f(n)=n^2$.  Is $f$ injective?  Is $f$ surjective?
+\begin{itemize}
+    \item $f$ is injective; $a^2 = a'^2 \rightarrow \pm a = \pm a'.$ But $a\in \mathds{N}$, so $a$ cannot be a negative number. Thus $a = a'$
+    \item $f$ is not surjective; $3 \in \mathds{N}$, the codomain, but there is no $n \in \mathds{N}$ such that $f(n) = 3$.
+\end{itemize}
+\noindent\textbf{Additional Exercise 1:} In each of the following, write out the elements of the sets.
+\begin{enumerate}
+\item[a)] $(\left\{n \in \mathds{Z}\mid \text{n is divisible by 2}\right\} \cap \mathds{N}) \cup \{-5\}$ 
+\begin{itemize}
+    \item $\{n \in \mathds{N} \mid n$ is even$\}$ $\cup \; \{-5\}$
+\end{itemize}
+\item[b)] $\left\{F,G,H\right\}\times\left\{5,8,9\right\}$ 
+\begin{itemize}
+    \item $\{(F,5), (F,8), (F,9), (G,5), (G,8), (G,9), (H,5), (H,8), (H,9)\}$
+\end{itemize}
+\item[c)] $\left\{[n] \mid n \in \mathds{N}, 1 \leq n \leq 3 \right\}$ 
+\begin{itemize}
+    \item $\{1,2,3\}$
+\end{itemize}
+\item[d)]  $\left\{ (x,y) \in \mathds{N} \times \mathds{N} \mid y = 2x,\; x = 2y \right\}$ 
+\begin{itemize}
+    \item $\{(0,0)\}$
+\end{itemize}
+\item[e)] $(\{1,2\} \times \{1,2\}) \times \{1,2\}$
+\begin{itemize}
+    \item \{((1,1),1), ((1,1),2), ((1,2),1), ((1,2),2), ((2,1),1), ((2,1),2), ((2,2),1), ((2,2),2)\}
+\end{itemize}
+\item[f)] $(\{1,2\} \cup \{1,2\}) \cup \{1,2\}$
+\begin{itemize}
+    \item  $\{1,2\}$
+\end{itemize}
+\item[g)] $\{1,2\}\cup\emptyset$
+\begin{itemize}
+    \item $\{1,2\}$
+\end{itemize}
+\item[h)] $\{1,2\}\cap\emptyset$
+\begin{itemize}
+    \item $\emptyset$
+\end{itemize}
+\item[i)] $\{1,2\}\cup\{\emptyset\}$
+\begin{itemize}
+    \item $\{1, 2, \{\emptyset\}\}$
+\end{itemize}
+\item[j)] $\{1,2\}\cap\{\emptyset\}$
+\begin{itemize}
+    \item $\emptyset$
+\end{itemize}
+\item[k)] $\{\{a\}\cup\{b\}\mid a \in \mathds{N}, b \in \mathds{N}, 1 \leq a \leq 4, 3 \leq b \leq 5\}$
+\begin{itemize}
+    \item \{\{1,3\}, \{1,4\}, \{1,5\}, \{2,3\}, \{2,4\}, \{2,5\}, \{3\}, \{3,4\}, \{3,5\}, \{4\}, \{4,5\}, \{5\}\}
+\end{itemize}
+\item[l)] $\{\{12\} \} \cup \{12\}$
+\begin{itemize}
+    \item $\{\{12\}, 12 \}$
+\end{itemize}
+\end{enumerate} 
+\textbf{Additional Exercise 2:} Let $A$ and $B$ be subsets of the set $X.$
+The symmetric sum $A\oplus B$ (sometimes also called symmetric difference) of sets $A$ and $B$ is defined by
+$$A\oplus B=(A\setminus B)\cup (B\setminus A).$$
+Prove that
+$$A\oplus B=(A\cup B)\cap [X\setminus(A\cap B)].$$
+\begin{proof}
+Let $A$ and $B$ be subsets of the set $X$. We want to show that $(A\setminus B)\cup (B\setminus A)=(A\cup B)\cap [X\setminus(A\cap B)].$ \\
+$\subset:$ Let $z$ be an arbitrary element such that $z \in (A\setminus B)\cup (B\setminus A)$. Then $z \in A\setminus B$ or $z \in B\setminus A$. \\
+Case 1: Suppose $z \in A\setminus B$. Then $z \in A$ and $z \notin B$. Since $z \in A$, we have $z \in A \cup B$. Since $z \notin B$, we have $z \notin A \cap B$. Since $A \subset X$, we have $z \in X$. Thus $z \in X$ and $z \notin A \cap B$, so $z \in X\setminus(A\cap B)$. Therefore $z \in (A\cup B)\cap [X\setminus(A\cap B)]$. \\
+Case 2: Suppose $z \in B\setminus A$. Then $z \in B$ and $z \notin A$. Since $z \in B$, we have $z \in A \cup B$. Since $z \notin A$, we have $z \notin A \cap B$. Since $B \subset X$, we have $z \in X$. Thus $z \in X$ and $z \notin A \cap B$, so $z \in X\setminus(A\cap B)$. Therefore $z \in (A\cup B)\cap [X\setminus(A\cap B)]$. \\
+Since $z$ is arbitrary, by Definition 1.3, $(A\setminus B)\cup (B\setminus A) \subset (A\cup B)\cap [X\setminus(A\cap B)]$. \\
+$\supset:$ Let $z$ be an arbitrary element such that $z \in (A\cup B)\cap [X\setminus(A\cap B)]$. Then $z \in A\cup B$ and $z \in X\setminus(A\cap B)$. \\
+Since $z \in A\cup B$, we have $z \in A$ or $z \in B$. Since $z \in X\setminus(A\cap B)$, we have $z \notin A\cap B$, which means $z \notin A$ or $z \notin B$. \\
+Case 1: Suppose $z \in A$ and $z \notin B$. Then $z \in A\setminus B$, so $z \in (A\setminus B)\cup (B\setminus A)$. \\
+Case 2: Suppose $z \in B$ and $z \notin A$. Then $z \in B\setminus A$, so $z \in (A\setminus B)\cup (B\setminus A)$. \\
+Since $z$ must be in $A$ or $B$ (from $z \in A\cup B$) and cannot be in both (from $z \notin A\cap B$), one of these cases must hold. Thus $z \in (A\setminus B)\cup (B\setminus A)$. \\
+Since $z$ is arbitrary, by Definition 1.3, $(A\cup B)\cap [X\setminus(A\cap B)] \subset (A\setminus B)\cup (B\setminus A)$. \\
+By Theorem 1.7, because both sides are subsets of each other, $(A\setminus B)\cup (B\setminus A)=(A\cup B)\cap [X\setminus(A\cap B)]$.
+\end{proof}
+\noindent\textbf{Additional Exercise 3:} 
+\begin{enumerate}
+	\item If $A$ is a set, show that $\wp(A) \neq \emptyset$.
+	\begin{itemize}
+        \item Given $A$, a set, then $A \subset A$, by Definition 1.3. Then $A \in \wp(A).$ But if $A \in \wp(A),$ then $\wp(A) \neq \emptyset$, by Definition 1.8 of the empty set, where, $\forall x, x\notin \emptyset$, and $\wp(A)$ contains element that is set $A$.
+    \end{itemize}
+	\item Let $\emptyset$ be the empty set.  Write down the elements of $\wp(\wp(\emptyset)).$
+	\begin{itemize}
+        \item $\{\emptyset, \{\emptyset\}\}$
+    \end{itemize}
+\end{enumerate}
+
+
+\end{document}
