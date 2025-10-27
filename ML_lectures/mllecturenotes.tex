@@ -1,0 +1,154 @@
+\documentclass[11pt]{article}
+
+% ----------- Font Packages ------------
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+% ----------- Math Formatting ----------
+\usepackage{siunitx}  
+\AtBeginDocument{\RenewCommandCopy\qty\SI}       % Units like \SI{9.8}{m/s^2}
+\usepackage{physics} 
+\usepackage{amsmath, amssymb, amsthm}  % Core math packages
+\usepackage{dsfont}
+% Boxed theorem environments
+\usepackage[most]{tcolorbox}
+\tcbuselibrary{theorems}
+
+% Cross-referencing and hyperlinks
+\usepackage{hyperref}
+\usepackage{cleveref}
+
+% ----------- Layout and Spacing -------
+\usepackage[letterpaper, top=0.75in, bottom=0.75in, left=1in, right=1in, heightrounded]{geometry}
+\usepackage{setspace}
+\onehalfspacing                % More readable line spacing for notes
+
+% ----------- Math Formatting ----------
+\usepackage{mathtools}        % Enhanced math commands
+\usepackage{bm}               % Bold math symbols
+\usepackage{cancel}           % Cross out terms in equations
+
+% ----------- Misc Enhancements --------
+\usepackage[protrusion=true, expansion=true, tracking=true, kerning=true, spacing=true, factor=1100, stretch=20, shrink=20, final, babel]{microtype} % Better font spacing
+% \microtypesetup{disable=footnote} % Disable footnote patch to avoid errors
+\usepackage{enumitem}         % Customizable lists
+\usepackage{fancyhdr}         % Page headers/footers
+\pagestyle{fancy}
+\fancyhead[L]{CS Notes}
+
+\usepackage{bookmark}         % Handle rerunfilecheck warnings
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor=blue,
+    citecolor=blue
+}
+
+% Optional: TikZ for diagrams
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, calc, decorations.markings}
+
+% --------- Boxed theorem and definition environments ---------
+\newtcbtheorem[number within=section]{theorem}{Theorem}%
+{colback=white!97!blue!10,
+ colframe=blue!50!black,
+ fonttitle=\bfseries,
+ coltitle=black,
+ boxrule=0.5pt,
+ arc=4pt,
+ top=6pt,
+ bottom=6pt,
+ left=6pt,
+ right=6pt,
+ enhanced,
+ attach boxed title to top left={yshift=-2mm,xshift=5mm},
+ boxed title style={colframe=blue!50!black, colback=white}}{th}
+
+\newtcbtheorem[number within=section]{definition}{Definition}%
+{colback=white!95!green!10,
+ colframe=green!50!black,
+ fonttitle=\bfseries,
+ coltitle=black,
+ boxrule=0.5pt,
+ arc=4pt,
+ top=6pt,
+ bottom=6pt,
+ left=6pt,
+ right=6pt,
+ enhanced,
+ attach boxed title to top left={yshift=-2mm,xshift=5mm},
+ boxed title style={colframe=green!50!black, colback=white}}{def}
+
+
+
+%  Document Start
+
+\title{Lecture Notes: CS229 - Machine Learnng}
+ \author{Justin Wang}
+\date{Autumn Quarter 2025}
+\begin{document}
+\maketitle
+
+\section{Lecture 1: 10/21/25}
+\subsection*{Supervised Learning}
+Regression has continuous values, classification is just discrete number of variables.
+
+\subsubsection*{Features}
+The inputs fed into the algorithm are called \textbf{features}. These are the measurable properties or characteristics of the phenomenon being observed.
+
+\section{Linear Regression and Gradient Descent: 10/21/25}
+\textbf{Supervised Learning Steps:}
+\begin{enumerate}
+    \item Input Training Set
+    \item Use learning algorithm
+    \item Ouput a function (the hypothesis)
+\end{enumerate}
+
+\subsection*{Linear Regression}
+Linear regression is a supervised learning algorithm where the goal is to learn a linear mapping from input features to output values.
+
+\subsubsection*{Hypothesis Function}
+The hypothesis function for linear regression is given by:
+\[
+h_\theta(x) = \theta_0 + \theta_1 x_1 + \theta_2 x_2 + \cdots + \theta_n x_n = \bm{\theta}^\top \bm{x}
+\]
+where:
+\begin{itemize}
+    \item \( \bm{\theta} \) is the vector of parameters (weights),
+    \item \( \bm{x} \) is the vector of input features.
+\end{itemize}
+
+\subsubsection*{Cost Function}
+The cost function measures the error between the predicted values and the actual values. For linear regression, the cost function is the Mean Squared Error (MSE):
+\[
+J(\bm{\theta}) = \frac{1}{2m} \sum_{i=1}^m \left( h_\theta(x^{(i)}) - y^{(i)} \right)^2
+\]
+where:
+\begin{itemize}
+    \item \( m \) is the number of training examples,
+    \item \( h_\theta(x^{(i)}) \) is the predicted value for the \( i \)-th training example,
+    \item \( y^{(i)} \) is the actual value for the \( i \)-th training example.
+\end{itemize}
+
+\subsubsection*{Gradient Descent}
+Gradient descent is an optimization algorithm used to minimize the cost function. The update rule for gradient descent is:
+\[
+\theta_j := \theta_j - \alpha \frac{\partial J(\bm{\theta})}{\partial \theta_j}
+\]
+for \( j = 0, 1, \ldots, n \), where:
+\begin{itemize}
+    \item \( \alpha \) is the learning rate,
+    \item \( \frac{\partial J(\bm{\theta})}{\partial \theta_j} \) is the partial derivative of the cost function with respect to \( \theta_j \).
+\end{itemize}
+
+The partial derivative is computed as:
+\[
+\frac{\partial J(\bm{\theta})}{\partial \theta_j} = \frac{1}{m} \sum_{i=1}^m \left( h_\theta(x^{(i)}) - y^{(i)} \right) x_j^{(i)}
+\]
+
+
+
+
+
+\end{document}

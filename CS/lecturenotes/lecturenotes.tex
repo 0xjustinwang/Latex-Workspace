@@ -529,4 +529,65 @@ print(my_list[:5:])  # [0,1,2,3,4]
 #list[start:end:step]
 \end{verbatim}
 
+\section{More Lists of Lists 10/20/25:}
+\begin{verbatim}
+
+2d_list = [[0,0,0],[0,0,0],[]]
+2d_list.append()
+
+\end{verbatim}
+
+\begin{itemize}
+
+\item Think of the 2D List as a gameboard with rows and columns. 
+\end{itemize}
+
+\begin{verbatim}
+
+list_2d = [ [0, 0, 0],
+            [0, 0, 0],
+            [0, 0, 0],
+           ]
+
+image = [[(r,g,b), (  ), (  )],
+         [(  ), (  ), (  )],
+         [(  ), (  ), (  )],
+         [(  ), (  ), (  )]]
+columns = nth item
+rows = lists
+height = 3
+width = 4
+pixel = image[0][0]
+blue = pixel[2]
+
+\end{verbatim}
+
+\section{Function Execution: 10/22/25}
+In the call stack:
+\begin{itemize}
+    \item Main: stores your global variables.
+    \item Heap: an unorganized fill of values that maps to a variable, and is subject to change.
+\end{itemize}
+Pass by reference:
+\begin{itemize}
+    \item The "address" is given to the function as a parameter, so the mutable value at the address can be changed.
+\end{itemize}
+Pass by value:
+\begin{itemize}
+    \item Makes a copy of the function so modifying the arguments doesn't affect the variable globally.
+\end{itemize}
+Note: Mutable arguments get changed while immutable ones don't. \\
+Deep Copy:
+\begin{itemize}
+    \item Creates a new copy where changes in the old does not affect the new.
+\end{itemize}
+Shallow Copy:
+\begin{itemize}
+    \item Creates a new list, or any mutuable item. but the elements of the list are references/addresses to the elements in the original list.
+\end{itemize}
+
+
+
+
+
 \end{document}
