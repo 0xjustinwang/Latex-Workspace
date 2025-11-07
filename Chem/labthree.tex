@@ -1,0 +1,211 @@
+\documentclass[11pt]{article}
+% -------------------------------------------------
+% --------------- ENCODING & FONT ------------------
+% -------------------------------------------------
+\usepackage{stix2}
+\usepackage[T1]{fontenc}
+% -------------------------------------------------
+% ---------------- PAGE LAYOUT --------------------
+% -------------------------------------------------
+\usepackage[letterpaper, top=0.8in, bottom=0.8in, left=1in, right=1in]{geometry}
+\usepackage{setspace}
+\onehalfspacing % Comfortable for reports
+\usepackage{parskip} % No paragraph indent, space between paragraphs
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\textit{Lab 3: Gravimetric Analysis of Chloride in a Solution}}
+\fancyhead[R]{\textit{\thepage}}
+\renewcommand{\headrulewidth}{0.4pt}
+% -------------------------------------------------
+% ---------------- CHEMISTRY TOOLS ----------------
+% -------------------------------------------------
+\usepackage{siunitx} % For units and measurements
+\sisetup{
+ per-mode=symbol,
+ separate-uncertainty=true,
+ round-mode=places,
+ round-precision=3
+}
+\usepackage[version=4]{mhchem} % For chemical equations and reactions
+% Example: \ce{H2 + O2 -> H2O}
+% -------------------------------------------------
+% ---------------- MATH PACKAGES ------------------
+% -------------------------------------------------
+\usepackage{amsmath, amssymb, mathtools, bm}
+\usepackage{cancel} % For striking out terms
+\usepackage{physics} % Derivatives, vectors, etc.
+% -------------------------------------------------
+% ---------------- GRAPHICS & FIGURES -------------
+% -------------------------------------------------
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float} % Better figure placement
+% -------------------------------------------------
+% ----------------- TABLES ------------------------
+% -------------------------------------------------
+\usepackage{booktabs} % Beautiful tables
+\usepackage{multirow}
+\usepackage{array}
+% -------------------------------------------------
+% --------------- HYPERLINKS ----------------------
+% -------------------------------------------------
+\usepackage{hyperref}
+\usepackage{bookmark}
+\usepackage{cleveref}
+\hypersetup{
+ colorlinks=true,
+ linkcolor=blue!50!black,
+ urlcolor=blue!60!black,
+ citecolor=blue!50!black,
+ pdfauthor={Justin Wang},
+ pdftitle={Chemistry Lab Report},
+}
+% -------------------------------------------------
+% ----------------- DIAGRAMS ----------------------
+% -------------------------------------------------
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, calc, decorations.markings, positioning}
+% -------------------------------------------------
+% ----------- CUSTOM BOXED ENVIRONMENTS ----------
+% -------------------------------------------------
+\usepackage[table]{xcolor}
+% -------------------------------------------------
+% ----------------- ENUMERATIONS ------------------
+% -------------------------------------------------
+\usepackage{enumitem}
+\setlist{itemsep=4pt, topsep=4pt}
+% -------------------------------------------------
+% ----------------- TITLE FORMAT ------------------
+% -------------------------------------------------
+\usepackage{titlesec}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+% -------------------------------------------------
+% ------------------ DOCUMENT INFO ----------------
+% -------------------------------------------------
+\title{\textbf{Lab 3: Gravimetric Analysis of Chloride in a Solution}}
+\author{Justin Wang\\ University of Chicago \\ CHEM 11100}
+\date{11/3/2025}
+\begin{document}
+\maketitle
+
+\begin{center}
+    {\small Lab Partner: Charlotte Zelin} \\
+    {\small TA: Jordan Boysen}
+\end{center}
+\section*{Introduction}
+\hspace{2em}The purpose of this experiment was to calculate the mass percent of chloride ions (\ce{Cl-}) in an unknown sample by precipitating the chloride ions as silver chloride (\ce{AgCl}) using silver nitrate (\ce{AgNO3}). 
+This form of chemical analysis is known as gravimetric analysis, a method that dates back to the late 18th century and is still used today for its accuracy and reliability in determining the composition of substances.$^{1}$ Typical gravimetric analysis yields precision within $0.1\%$ to $0.3\%$. We are able to perform gravimetric analysis because the compound (\ce{AgCl}) is highly insoluble in water, ensuring that nearly all chloride ions in the solution will precipitate out when \ce{AgNO3} is added.$^{2}$
+Thus, by using the calculated mass percent, we determined the identity of the unknown sample, which we conclude to be sodium chloride (\ce{NaCl}).
+\section*{Experimental Procedure}
+The procedure followed the steps outlined in the lab manual. 
+
+\section*{Data Analysis}
+
+\begin{table}[H]
+\centering
+\label{tab:masses}
+\begin{tabular}{@{}lcc@{}}
+\toprule
+\textbf{Measurement} & \textbf{Sample \#1 (g)} & \textbf{Sample \#2 (g)} \\ 
+\midrule
+Mass of \ce{Cl-} in Sample & 0.2555 & 0.2581 \\
+Mass of Crucible & 31.4716 & 31.6923 \\
+Mass of Crucible + Precipitate & 32.7497 & 32.3081 \\
+\bottomrule
+\end{tabular}
+\caption{Measurements using an analytical balance to the precision of 0.0001 g of: mass of chloride per sample, mass of crucible, and mass of crucible and precipate.}
+\end{table}
+\newpage
+\subsection*{Sample Calculations}
+{\small\textit{Disclaimer: All values used in the sample calculations will be truncated to four significant figures for readibility. Actual calculations were done with full precision,
+and the final calculation of mass percent will be reported with appropriate significant figures.}}
+
+Using data from Sample 2:
+\begin{enumerate}[label=\arabic*.]
+    \item \textbf{Calculating the mass of \ce{AgCl} precipitate:}
+    \begin{align*}
+        32.3081 \: g_{C+P} - 31.6923 \: g_{C} = 0.6158 \: g_{P}
+    \end{align*}
+    \item \textbf{Calculating the moles of \ce{AgCl}:}
+    \begin{align*}
+        \text{mol } \ce{AgCl} &= g_{P} \cdot \frac{1 \text{ mol } \ce{AgCl}}{143.32 \: g \ce \: \ce{AgCl}} \\
+        &=  .6158 \: g_{P} \cdot \frac{1 \text{ mol }}{143.32 \: g} \\
+        &=  0.004295 \: \text{mol } \ce{AgCl}
+    \end{align*}
+    \item \textbf{Converting moles of \ce{AgCl} to grams of \ce{Cl-}:}
+    \begin{align*}
+        \text{g } \ce{Cl-} &= \text{mol } \ce{AgCl} \cdot \frac{1 \text{ mol } \ce{Cl-}}{1 \text{ mol } \ce{AgCl}} \cdot \frac{35.45 \: g}{1 \text{ mol } \ce{Cl-}} \\
+        &= 0.004295 \: \text{mol } \ce{AgCl} \cdot 1 \cdot 35.45 \: g \\
+        &= 0.1522 \: g \: \ce{Cl-}
+    \end{align*}
+    \item \textbf{Calculating the mass percent of \ce{Cl-} in the original sample:}
+    \begin{align*}
+        \text{Mass \% } \ce{Cl-} &= \frac{g \: \ce{Cl-}}{g \text{ sample}} \cdot 100\% \\
+        &= \frac{0.1522 \: g \: \ce{Cl-}}{0.2581 \: g \text{ sample}} \cdot 100\% \\
+        &= 58.95\% \: \ce{Cl-}
+    \end{align*}
+\end{enumerate} 
+\begin{table}[H]
+\centering
+\begin{tabular}{@{}lc@{}}
+\toprule
+\textbf{Sample} & \textbf{Mass \% \ce{Cl-}} \\ 
+\midrule
+1 & 123.7 \\
+2 & 58.95 \\
+\midrule
+\textbf{Average} & 91.33 \\
+\bottomrule
+\end{tabular}
+\caption{Mass percentages of chloride (\ce{Cl-}) in the unknown sample and the calculated average.}
+\label{tab:masspercent}
+\end{table}
+\textbf{Deriving the identity of the sample using mass percent of $\ce{Cl-}$ from Trial 2:} \\
+\textit{Given 0.2581 g of Unknown Sample \ce{XCl}:}
+\begin{align*}
+    \text{Mass of } \ce{Cl-} &= 0.5895 \cdot 0.2581 \: g_{\text{sample}} = 0.1522 \: g \: \ce{Cl-} \\
+    \text{Moles of } \ce{Cl-} &= \frac{0.1522 \: g \: \ce{Cl-}}{35.45 \: g/\text{mol}} = 0.004295 \: \text{mol } \ce{Cl-} \\
+    \text{Moles of Unknown Sample } \ce{XCl} &= 0.004295 \: \text{mol } \ce{XCl} \\
+    \text{Mass of Unknown Sample } \ce{XCl} &= 0.2581 \: g_{\text{sample}} \\
+    \text{Molar Mass of Unknown Sample } \ce{XCl} &= \frac{0.2581 \: g_{\text{sample}}}{0.004295 \: \text{mol } \ce{XCl}} = 60.10 \: g/\text{mol} \\
+    \text{Molar Mass of Element } X &= 60.10 - 35.45 = 24.65 \: g/\text{mol}
+\end{align*}
+
+Based on the calculated molar mass of element $X$ being approximately 24.65 g/mol, we can identify element $X$ as either Sodium (Na) with a molar mass of 22.99 g/mol or Magnesium (Mg) with a molar mass of 24.31 g/mol. 
+Given that we assumed the stoichiometric ratio between $\ce{X}$ and $\ce{Cl-}$ to be 1:1, it is more likely that element $X$ is Sodium (Na), as Magnesium Chloride of the form $\ce{MgCl}$ is not a stable compound, and instead exists as $\ce{MgCl_{2}}$. Therefore, we conclude that the unknown sample is most likely Sodium Chloride ($\ce{NaCl})$.
+
+\textbf{Theoretical Mass Percent Calculation for Sodium Chloride ($\ce{NaCl}$):}
+\begin{align*}
+    \text{Molar Mass of } \ce{NaCl} &= 22.99 \: g/\text{mol} + 35.45 \: g/\text{mol} = 58.44 \: g/\text{mol} \\
+    \text{Mass \% of } \ce{Cl-} &= \frac{35.45 \: g/\text{mol}}{58.44 \: g/\text{mol}} \    \cdot 100\% = 60.66\% \: \ce{Cl-}
+\end{align*}
+
+\section*{Discussion}
+\hspace{2em}In Trial 1, the calculated mass percent of chloride was $123.7 \% $, which is physically impossible since the mass of an individual component of a sample cannot exceed the overall mass of the sample.  
+This clearly demonstrates that the trial was not successful and cannot be used for analysis. As a result, Trial 1 was disregarded and the average mass percent was not used to identify the unknown component of the original sample. 
+Instead we focused on the result from Trial 2, which yielded a mass percent of $58.95 \%$, and from this determined the identity of the unknown sample as sodium chloride ($\ce{NaCl}$). 
+With this conclusion, we calculated the theoretical mass percent of chloride in sodium chloride to be $60.66 \%$. This yields a percent error of $2.819 \%$ between our experimental result and the theoretical value, which is reasonably low in comparison to the percent error if the average mass percent was used.
+This percent error is still larger than the precision typically expected from gravimetric analysis ($0.1\%$ to $0.3\%$), indicating that there were still sources of error in Trial 2.
+
+\hspace{2em} One possible source of error could have been incomplete precipitation of the chloride ions. If not all chloride ions reacted with silver nitrate to produce silver chloride, the mass of the solid precipitate would be lower than expected, contributing to a lower mass percent of chloride. This aligns with our observation that in Trial 2, the calculated mass percent of chloride was lower than the theoretical value. 
+Future experiments should ensure that the solution is thoroughly mixed by stipulating a minimum stirring time after adding silver nitrate to the solution, rather than relying on qualitative metrics such as a "clear solution". Another source of error could stem from improper filtration of the precipitate. If some of the precipitate was lost during this step, it would lead to an underestimation of the mass of chloride in the sample.
+To counteract this, future procedures could include rinsing the precipitate with distilled water to ensure all solid is collected, as well as using more precise filtration techniques to minimize loss.
+
+\hspace{2em} Gravimetric analysis is useful in this experiment because we are dealing with chloride ions that are present in relatively high concentrations in the unknown sample. If the concentration of chloride ions were significantly lower, gravimetric analysis might not be the most effective method as the resultant mass of the precipitate could be too small to measure accurately. 
+
+\textbf{Question 2:} The mass percent of chloride in the unknown sample is $40.1 \%$. 
+\begin{enumerate}[label=\alph*)]
+    \item 53.1 g/mol
+    \item 106. g/mol
+    \item 106. g/mol
+\end{enumerate}
+
+\section*{References}
+\begin{enumerate}
+    \item Burns, D. T.; Szabadváry, F. History of Analytical Science. In Encyclopedia of Analytical Science, 2nd ed.; Worsfold, P.; Townshend, A.; Poole, C., Eds.; Elsevier: Amsterdam, 2005; pp 267–277. https://doi.org/10.1016/B0-12-369397-7/00258-2.
+    \item PubChem [Internet]. Bethesda (MD): National Library of Medicine (US), National Center for Biotechnology Information; 2004-. PubChem Compound Summary for CID 24561, Silver Chloride; [cited 2025 Nov. 4]. Available from: https://pubchem.ncbi.nlm.nih.gov/compound/Silver-Chloride
+\end{enumerate}
+\end{document}

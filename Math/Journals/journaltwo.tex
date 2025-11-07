@@ -1,0 +1,326 @@
+\documentclass[11pt]{article}
+
+% ----------- Font Packages ------------
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+% ----------- Math Formatting ----------
+\usepackage{siunitx}  
+\AtBeginDocument{\RenewCommandCopy\qty\SI}       % Units like \SI{9.8}{m/s^2}
+\usepackage{physics} 
+\usepackage{amsmath, amssymb, amsthm}  % Core math packages
+\usepackage{dsfont}
+% Boxed theorem environments
+\usepackage[most]{tcolorbox}
+\tcbuselibrary{theorems}
+
+% Cross-referencing and hyperlinks
+\usepackage{hyperref}
+\usepackage{cleveref}
+
+% ----------- Layout and Spacing -------
+\usepackage[letterpaper, top=0.75in, bottom=0.75in, left=1in, right=1in, heightrounded]{geometry}
+\usepackage{setspace}
+\onehalfspacing                % More readable line spacing for notes
+
+% ----------- Math Formatting ----------
+\usepackage{mathtools}        % Enhanced math commands
+\usepackage{bm}               % Bold math symbols
+\usepackage{cancel}           % Cross out terms in equations
+
+% ----------- Misc Enhancements --------
+\usepackage{microtype}        % Better font spacing
+\usepackage{enumitem}         % Customizable lists
+\usepackage{fancyhdr}         % Page headers/footers
+\pagestyle{fancy}
+\fancyhead[L]{Journal Two}
+
+\usepackage{bookmark}         % Handle rerunfilecheck warnings
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor=blue,
+    citecolor=blue
+}
+
+% Optional: TikZ for diagrams
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, calc, decorations.markings}
+
+% --------- Boxed theorem and definition environments ---------
+\newtcolorbox{theorem}[1][]
+{colback=white!97!blue!10,
+ colframe=blue!50!black,
+ fonttitle=\bfseries,
+ coltitle=black,
+ boxrule=0.5pt,
+ arc=4pt,
+ top=6pt,
+ bottom=6pt,
+ left=6pt,
+ right=6pt,
+ enhanced,
+ attach boxed title to top left={yshift=-2mm,xshift=5mm},
+ boxed title style={colframe=blue!50!black, colback=white},
+ title=Theorem #1}
+\newtcbtheorem[number within=section]{definition}{Definition}%
+{colback=white!95!green!10,
+ colframe=green!50!black,
+ fonttitle=\bfseries,
+ coltitle=black,
+ boxrule=0.5pt,
+ arc=4pt,
+ top=6pt,
+ bottom=6pt,
+ left=6pt,
+ right=6pt,
+ enhanced,
+ attach boxed title to top left={yshift=-2mm,xshift=5mm},
+ boxed title style={colframe=green!50!black, colback=white}}{def}
+
+\newtcolorbox{proposition}[1][]
+{colback=white!97!violet!10,
+ colframe=violet!60!black,
+ fonttitle=\bfseries,
+ coltitle=black,
+ boxrule=0.5pt,
+ arc=4pt,
+ top=6pt,
+ bottom=6pt,
+ left=6pt,
+ right=6pt,
+ enhanced,
+ attach boxed title to top left={yshift=-2mm,xshift=5mm},
+ boxed title style={colframe=violet!60!black, colback=white},
+ title=Proposition #1}
+
+\newtcolorbox{corollary}[1][]
+{colback=white!97!green!10,
+ colframe=green!60!black,
+ fonttitle=\bfseries,
+ coltitle=black,
+ boxrule=0.5pt,
+ arc=4pt,
+ top=6pt,
+ bottom=6pt,
+ left=6pt,
+ right=6pt,
+ enhanced,
+ attach boxed title to top left={yshift=-2mm,xshift=5mm},
+ boxed title style={colframe=green!60!black, colback=white},
+ title=Corollary #1}
+
+
+
+
+% -------------------------- Document ---------------------------
+\title{MATH 16110: Journal Two}
+\author{Justin Wang}
+\date{Autumn 2025}
+\begin{document}
+\maketitle
+
+\noindent\textbf{Exercise 1.25}
+Let $f:{\mathbb Z}\rightarrow {\mathbb Z}$ be defined by $f(x)=x^2$.  Is $f$ injective?  Is $f$ surjective? \\
+\begin{itemize}
+    \item No, $f$ is not injective. For example, let $f(a) = f(a') = 1$. The definition of injectivity
+            says that $a = a'$. Yet, for $a = 1, a' = -1$, $f(1) = f(-1) = 1$, but $1 \neq -1$.
+    \item No, $f$ is not surjective. For example, the integer $-1$ is in the codomain of the function, namely the set of all integers.
+            However, there exists no element $a \in \mathbb Z$, the domain, where $f(a) = -1$.
+
+\begin{proposition}[1.27]  Let $A$, $B$, and $C$ be sets and suppose that $f:A\longrightarrow B$  and  $g:B\longrightarrow C.$  Then $g\circ f:A\longrightarrow C$ and
+\begin{enumerate}
+\item[a)] if $f$ and $g$ are both injections, so is $g\circ f.$
+\item[b)] if $f$ and $g$ are both surjections, so is $g\circ f.$
+\item[c)] if $f$ and $g$ are both bijections, so is $g\circ f.$
+\end{enumerate}
+\end{proposition} 
+\end{itemize}
+\begin{proof}
+    \item a) Suppose $f: A \rightarrow B$ and $g: B \rightarrow C$ are injective functions. 
+    We want to show that $g \circ f$ is injective, or by definition, if $g(f(a)) = g(f(a')) \rightarrow a = a'$.
+    Let g(f(a)) = g(f(a')); since $g$ is injective, then by definition it follows that $f(a) = f(a')$. Since $f(a) = f(a')$ and $f$ is injective,
+    it follows by definition that $a = a'$. Thus, since we have shown that if  $g(f(a)) = g(f(a'))$, where $g$ and $f$ are both injective functions,
+    then $a = a'$, we have proved the injectivity of the function $g \circ f$.
+    \item b) Suppose $f: A \rightarrow B$ and $g: B \rightarrow C$ are surjective functions. 
+    We want to show that $g \circ f$ is surjective, or by definition, for every $c \in C$, there is some $a \in A$ such that $g(f(a)) = c$.
+    Let $c$ be an arbitrary element such that $c \in C$, then since $g$ is surjective, there exists an arbitrary element $b \in B$ such that $g(b) = C$. 
+    Since $f$ is surjective, for every element $b \in B$ there is an arbitrary element $a \in A$ such that $f(a) = b$. Since $g(b) = C$, and $f(a) = b$, then by substitution 
+    it follows that $g(f(a)) = c$. Thus, $g \circ f$ is surjective by definition. 
+    element 
+    \item c) We have shown that if $f: A \rightarrow B$ and $g: B \rightarrow C$ are injective functions then the composition $g \circ f$ is injective and if 
+    $f: A \rightarrow B$ and $g: B \rightarrow C$ are surjective functions then the composition $g \circ f$ is surjective. It follows from the definition of bijectivity that the 
+    if $f$ and $g$ are both bijections, so is $g\circ f.$
+\end{proof}
+\begin{proposition}[1.28]
+Suppose that $f \colon A \rightarrow B$ is bijective.  
+Then there exists a bijection $g \colon B \rightarrow A$ that satisfies $(g\circ f)(a)=a, \forall a\in A$, and $(f\circ g)(b)=b,$ for all $b\in B.$ 
+The function $g$ is often called the \emph{inverse} of $f$ and  denoted $f^{-1}$. It should not be confused with the preimage. 
+\end{proposition}
+\begin{proof}
+\item
+    We want to show that for a bijective function $f: A \rightarrow B$, there exists a function $g:B \rightarrow A$, where $g$ is a bijective function such that $(g \circ f)(a) = a$ for all $a \in A$, and 
+    $(f \circ g)(b) = b$ for all $b \in B$. Note that $\forall b \in B, g(b)$ equals the unique $a \in A$ such that $f(a) = b$. This is well defined because $f$ is surjective
+    meaning all $b = f(a)$, and $f$ is injective, meaning $f(a)$ has a unique element in the domain that it corresponds to. 
+    Now we must prove that $(g \circ f)(a) = a, \forall a \in A$, and that $(f \circ g)(b) = b,  \forall b \in B$. 
+    \begin{enumerate}[label = \alph*)]
+        \item Prove that $(g \circ f)(a) = a, \forall a \in A$. Let $f(a) = b$. By the definition of $g$, $g(b) = a$ such that
+        $f(a) = b$. So, $g(f(a)) = a, \forall a \in A$. This is the same as saying $(g \circ f)(a) = a \forall a \in A$. 
+        \item Prove that $(f \circ g)(b) = b,  \forall b \in B$. Let $g(b) = a$, such that $f(a) = b$. Substituting $a$ for $g(b)$ in the function $f$ yields $f(g(b)) = b, \forall b \in B$.
+        This is the same as saying $(f \circ g)(b) = b,  \forall b in B$.  
+    \end{enumerate}
+    We must now show the injectivity and surjectivity of $g$:
+    \begin{enumerate}
+        \item Let $g(b) = g(b'), b, b' \in B.$ Then $f(g(b)) = f(g(b')), \text{so } b = b'$. Thus $g$ is injective. 
+        \item Let $a \in A$ be arbitrary. We know that $f(a) \in B$. Then $g(f(a)) = a$, and $g$ is surjective. 
+    \end{enumerate}
+    Since the function $g$ is both injective and surjective it is bijective. Since $g$ is a bijection and satisifies the conditions proved in a) and b),
+    $g$ is the inverse of $f$. 
+\end{proof}
+\begin{theorem}[1.33]
+Let $A$ be a finite set. Suppose that $A$ is in bijective correspondence both with $[m]$ and with $[n]$.  Then $m = n$.
+\end{theorem}
+\begin{proof}
+\item
+Suppose that $A$ is in bijective correspondence both with $[m]$ and with $[n]$, where $n, m \in \mathbb{N}$.
+Then we can construct a bijective function $f: A \rightarrow [m]$, and a bijective function $g: [n] \rightarrow A$. We can then construct
+the composite function $f \circ g: [n] \rightarrow [m]$, which is bijective by Proposition 1.27. The function $f \circ g$ is also injective by the definition of a bijection. Since $f \circ g$ is bijective there exists the function's inverse: $(f \circ g)^{-1} : [m] \to [n]$
+, that is bijective and injective by Proposition 1.28. Then by taking the contrapositive of Theorem 1.32, if there exists an injective function $f \circ g: [n] \rightarrow [m]$, then $m \leq n$.
+Then, if there exists a function $(f \circ g)^{-1} : [m] \to [n]$, then $n \leq m$. It must follow then that $m = n$, which ends the proof. 
+\end{proof}
+\newpage
+\noindent\textbf{Exercise 1.35} Let $A$ and $B$ be finite sets. 
+\begin{enumerate}[label = \alph*)]
+    \item If $A\subset B$, then $|A|\leq |B|$.
+        \begin{proof} 
+            We want to show that given $A \subset B$, $|A|\leq |B|$. Since $A$ and $B$ are finite sets, there is a bijective correspondence between $A, B$ and the set $[n], [m]$, respectively. 
+            We can then construct a bijection $f: A \rightarrow [n]$, and a bijection $g: B \rightarrow [m]$. We can then say that $|A| = n$, and $|B| = m$, by Definition 1.34. Since $A \subset B$, we can construct the inclusion function $i: A \rightarrow B$, where $i(a) = a.$
+            We can show this function is injective by:
+            \begin{center}
+                Suppose $i(a) = i(a')$. Then $a = a'$. Then $i$ is injective by definition.
+            \end{center}
+            Since $f$ is a bijection there exists the inverse $f^{-1}$, which is bijective by Proposition 1.28. Since $i$ is injective, and $g$ and $f$ are bijective, we can construct a function
+            $g \circ i \circ f^{-1}: [n] \rightarrow [m]$, which is injective, by Proposition 1.27. Theorem 1.32 says that if there exists an injective function $g \circ i \circ f^{-1}: [n] \rightarrow [m]$, then $n \leq m$, which ends the proof. 
+            Since $|A| = n$, and $|B| = m$, $|A|\leq |B|$.
+        \end{proof}
+    \item Let  $A\cap B=\emptyset.$ Then $|A\cup B|=|A|+|B|.$ 
+      \begin{proof}
+    We can say that $|A\cup B| = |A\setminus B| + |B\setminus A| + |A\cap B|$ by Definition 1.5 and 1.34. Since $A\cap B = \emptyset$, and $|\emptyset| = 0$, it follows that $|A\cup B| = |A\setminus B| + |B\setminus A|$. 
+    We know that since the intersection of $A$ and $B$ is the $\emptyset$, $A$ and $B$ are disjoint and share none of the same elements. Then $A \setminus B = A$ and $B \setminus A = B$. Thus, $|A\cup B|=|A|+|B|$. 
+        \end{proof}
+    \item $|A\cup B|+|A\cap B|=|A|+|B|$
+    \begin{proof}
+    We can say that $|A \cup B| + |A \cap B| = |A \cup (B \setminus A)| + |A \cap B|$, because the union contains all 
+    unique elements of $A$ and $B$ so the elements of $B$ that are in $A$ are not contained twice. Thus removing the elements of A from B preserves the equality. 
+    This can then be rewritten as $|A| + |(B \setminus A)| + |A \cap B |$. Since there is no element both in $B \setminus A$ and $|A \cap B |$, we can rewrite the expression as 
+    $|A| + |(B \setminus A) \cup (A \cap B)|$. Removing all the elements in $B$ that are also in $A$ then collecting the elements that are in both $A$ and $B$ back is just equal to $B$.
+    Thus, we can rewrite the expression as $|A| + |B|$, which ends the proof. 
+    \end{proof}
+    \item  $|A\times B|=|A|\cdot |B|$.
+        \begin{proof}
+        We will prove by inducting on $B$. We must first prove the base case: \\
+        \textbf{Base Case:} $|B|$ = 0. By Definition 1.30 $B = \emptyset$. Then:
+        \begin{center}
+        $|A \times \emptyset| = \{ (a, b) | a \in A $ and $ b \in \emptyset \}$.
+        \end{center}
+        Since $\emptyset$ is the set that contains no elements, $b \notin \emptyset$, and there exists
+        no ordered pair $(a, b)$ that satisfies the conditions of the set, so the set has no elements. \\
+        \textbf{Inductive Hypothesis: } Assume that $(|A \times B| = |A| \cdot |B|),$ where $|B| = k$. We need to show that $|A \times B'| = |A| \cdot |B'|,$ where $|B'| = k + 1$. 
+        Let $b$ be an element such that $b \in B'$ and $b \notin B$, where $b$ is arbitrary. Then $|A \times B'| = |A \times (B \cup \{b\})|$. The expression on the right hand side can be 
+        defined as $|\{ (a, b) | a \in A$ and $b \in (B \cup \{b\})\}|$ Since $b$ is not in $B$, we can rewrite the set of ordered pairs as the union of two disjoint sets:
+        \begin{center}
+        $|(A \times B) \cup (A \times \{b\})|.$
+        \end{center}
+        Where because they are disjoint, the intersection between them is $\emptyset$. With this, we can use part b) of this exercise to say:
+        \begin{center}
+        $|(A \times B) \cup (A \times \{b\})| = |A \times B| + |A \times \{b\}|$.
+        \end{center}
+        We can then construct a function $f: A \times \{b\} \rightarrow A$ such that $f(a,b) = a.$
+        By Definition 1.34, proving that $f$ is a bijection would lead to a conclusion that $|A \times \{b\}| = |A|$. To show bijectivity of $f$, we must first show that $f$ is both injective and surjective:
+        \begin{center}
+        Let $a, a' \in A$ and $b', b" \in {b}$. Suppose $f(a, b') = f(a', b")$. By the definition of $f$, $f(a, b') = a = f(a', b") = a'$. So $a = a'$. Since ${b}$ only contains the single element $b$, it must be that $b' = b"$.
+        \end{center}
+        Thus, we have shown injectivity of $f$. Now let $a \in A$ be an arbitrary element. The definition of the function states that 
+        $a = f(a,b)$ Thus for every element in the codomain $A$ there is an ordered pair which is the element in question and the element $b$. Thus $f$ is surjective. Since $f$ is both surjective and injective, $f$ is bijective, so 
+        $|A \times \{b\} | = |A|$. Thus, $|A \times B| + |A \times \{b\}| = |A \times B| + |A|$. We can substitue the inductive hypothesis in and we rewrite the expression as:
+        \begin{center}
+        $|A| \cdot |B| + |A|$.
+        \end{center}
+        Recall from the induction hypothesis that $|A| \cdot |B'|$. Substiuting $|B'| = (k + 1)$ yields, $|A| \cdot (k + 1)$ Expanding gives $k \cdot |A| + |A|$. Substituting $|B| = k$ yields
+        $|A| \cdot |B| + |A|$. Since both sides are identical, we have proved the inductive hypothesis.
+        \end{proof}
+\end{enumerate}
+\textbf{Exercise 1.37} Prove that $\mathbb{Z}$ is a countable set. 
+\begin{proof}
+\item 
+By Definition 1.36, The set $\mathbb{Z}$ is countable if it is in bijective correspondence with $\mathbb{N}$. If it is in bijective correspondence with $\mathbb{N}$ then there must exist a bijective function 
+$f: \mathbb{Z} \rightarrow \mathbb{N}$. We must find such a function. We can begin doing so by constructing a piecewise function $f: \mathbb{Z} \rightarrow \mathbb{N}$, defined that $\forall z \in \mathbb{Z}$:
+\begin{center}
+$f(z) =
+\begin{cases}
+-2z, & \text{if } z < 0, \\
+2z + 1, & \text{if } z \ge 0.
+\end{cases}$
+\end{center}
+We must now show that this function is both injective and surjective. \\
+\textit{f is injective}: \\
+Case 1, z < 0: \\
+Let $z, z' \in Z, z, z' < 0$. Suppose $f(z) = f(z')$. Then, $f(z) = -2z = f(z') = -2z'$. Then $-2z = -2z$ and $z = z'$, thus we have shown injectivity when $z < 0$. \\
+Case 2, $z \geq 0$ : \\
+Let $z, z' \in Z, z, z' \geq 0$. Suppose $f(z) = f(z')$. Then, $f(z) = 2z + 1 = f(z') = 2z' + 1$. Then $2z + 1 = 2z + 1$ and $z = z'$, thus we have shown injectivity when $z \geq 0$. \\
+Since both cases are fulfilled, the $f$ is injective. \\
+\textit{f is surjective}: If $f$ is surjective, then for all $n \in \mathbb{N}$, there exists some $z \in \mathbb{Z}$ such that $f(z) = n$.\\
+The former piece of $f$ which is defined as $f(z) = -2z$ maps to all evens, where $2k = n$ for $k\in \mathbb{N}$.
+The latter piece of $f$ which is defined as $f(z) = 2z + 1$ maps to all odds, where $2k + 1 = n$. Because either $n$ is even or $n$ is odd, $f$ is surjective. 
+If $f$ is injective and surjective, it is bijective. Thus,$f$ is bijective and $\mathbb{Z}$ is in bijective correspondence with $\mathbb{N}$. Therefore $\mathbb{Z}$ is a countable set.
+\end{proof}
+\begin{theorem}[1.39]  If there exists an injection $f:A\longrightarrow B$ where $B$ is countable, then $A$ is
+  countable.
+\end{theorem}
+\begin{proof}
+\item Suppose $f: A \rightarrow B$ is an injection, then by Definitions 1.19 and 1.21, $f(A) \subset B$. Because $B$ is countable, there
+exists a bijection $g: B \rightarrow C$, where $C \subseteq N$ by Definition 1.36. Then by Theorem 1.38, $C$ is countable. \\
+If $B$ is finite, then by Definition 1.36 $C = [m] \text{ where } m \in \mathbb{N}$. \\
+If $B$ is infinite, then by Definition 1.36 $C$ is in bijective correspondence with $\mathbb{N}.$ \\
+We can construct a function $g \circ f: A \rightarrow C$, which is injective by Proposition 1.27. Now consider $h: A \rightarrow (g \circ f)(A)$. The image $(g \circ f)(A)$ is trivially a subset of $C$ as it contains all the elements in $C$ for which the function $h$ can map to. Then if $g \circ f(A) \subset C, C \subset N$, then  $g \circ f(A)$ is countable by Definition 1.36.
+Now we must prove that $h$ is a bijective function so we can construct a bijective composite containing $h$ and another bijective function. \\
+Recall $h: A \rightarrow (g \circ f)(A)$.\\
+\textit{h is injective:} Suppose $(g \circ f)(A)$ = $(g \circ f)(A')$, then $g(f(A)) = g(f(A'))$, but $f(A) = B$ and $f(A') = B'$. So, $g(B) = g(B')$, then $C =C'$.
+If $C = C'$, then by the injectivity of $g \circ f$, $A = A'$. Thus $h$ is injective. \\
+\textit{h is surjective:} $h$ is trivially surjective by Definition 1.19 of the image, as any function is surjective onto its image, so $h$ is surjective. \\
+So since $h$ is both injective and surjective it is bijective. Now recall that if $g \circ f(A)$ is infinite and countable, by Theorem 1.38 there exists a bijection $j: g \circ f(A) \rightarrow \mathbb{N}$.
+Thus $j \circ h: A \rightarrow \mathbb{N}$ is bijective by Proposition 1.27, and $A$ is countable by Definition 1.36. Therefore, if there exists an injection $f: A \rightarrow B$ and $B$ is countable, then $A$ is countable.
+\end{proof}
+\newpage
+\begin{corollary}[1.40]
+Every subset of a countable set is also countable.
+\end{corollary}
+\begin{proof} 
+\item Let $B$ be a countable set and let $A \subset B$. Since $A$ is a subset of $B$ we can always define a function called the inclusion $i: A \rightarrow B$, where $i(a) = a$. 
+The function $i$ is injective by this logic: 
+\begin{center}
+Suppose $i(a) = i(a')$. Then $a = a'$. Then $i$ is injective by definition.
+\end{center}
+Then, by Theorem 1.39, since there exists the injection $i: A \rightarrow B$ where $B$ is countable, then $A$ is countable, and the proof is complete. 
+\end{proof}
+\begin{corollary}[1.41]  If there exists a surjection $g\colon B\to A$ where $B$ is countable, then $A$ is countable.
+\end{corollary}
+\begin{proof}
+\item Let $i \in A$ be arbitrary. Then by surjectivity there is at least one $b_{i} \in B$ such that $g(b_{i}) = i$. Then every
+preimage of $\{i\}$ has at least one element. Now we can define the collection of sets $C = \{Y_{i} \: | \: i \in A\}$, where $Y_{i}$ is the preimage of $\{i\}$ under $g$. Each $Y_{i}$ = $f^{-1}(i) = \{b_{i} \in B \mid g(b_{i}) \in A\}$.
+By the Axiom of Choice, since we have a collection of sets where each set has at least one element, we can construct a set $X$, by choosing one element $\{b_{i}\}$ from each set $Y_{i}$ in the collection of sets $C$.
+Then $X = \{b{_i} \mid i \in A\}$. By definition of the set, $X \subseteq B$, and thus $X$ is countable by Corollary 1.40. Now we can construct a function $f: A \rightarrow X$, defined as $f(i) = b_{i}$. We must show $f$ is injective:
+\begin{center}
+Let $i_{1}, i_{2} \in A, $and suppose that $f(i_{1}) = f(i_{2})$. \\
+Then $b_{i1} = b_{i2}$. \\
+We know that $b_{i1}, b_{i2} \in X$, so they're also in $B$. Then from $g$: \\
+$g(b_{i1} = i_{1}, g(b_{i2}) = i_{2})$ Then since $b_{i1} = b_{i2}$, \\
+$g(b_{i2}) = i_{1} = i_{2}$. $i_{1} = i_{2}$, so $f$ is injective. 
+\end{center}
+Then by Theorem 1.39, since $X$ is countable and $f:A \rightarrow X$ is an injection then $A$ is countable. 
+\end{proof}
+
+
+
+\end{document}

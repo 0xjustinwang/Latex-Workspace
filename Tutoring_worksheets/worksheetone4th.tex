@@ -1,0 +1,129 @@
+\documentclass[11pt]{article}
+
+% ----------- Font Packages ------------
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+% ----------- Math Formatting ----------
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{dsfont}
+\usepackage[most]{tcolorbox}
+\tcbuselibrary{theorems}
+
+% Cross-referencing and hyperlinks
+\usepackage{hyperref}
+\usepackage{cleveref}
+
+% ----------- Layout and Spacing -------
+\usepackage[letterpaper, top=0.75in, bottom=0.75in, left=1in, right=1in, heightrounded]{geometry}
+\usepackage{setspace}
+\onehalfspacing
+
+% ----------- Misc Enhancements --------
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead[L]{Homework One}
+
+\usepackage{bookmark}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor=blue,
+    citecolor=blue
+}
+
+\title{Algebra Homework: Parentheses Cont'd and Intro to Exponents}
+\author{Name: \underline{\hspace{3cm}}}
+\date{Due: Nov 3}
+
+\begin{document}
+\maketitle
+
+% ---------------------------------------------------
+\section*{Foundational Questions: Understanding PEMDAS}
+
+\begin{enumerate}
+    \item What does the acronym \textbf{PEMDAS} stand for?
+    \item Why do we use parentheses in math expressions?
+    \item If an expression has both multiplication and division, which operation comes first? Explain your reasoning. (I know we haven't gone over this yet, but ask your brother and try to understand!)
+\end{enumerate}
+
+\vspace{1cm}
+
+% ---------------------------------------------------
+\section*{Nested Parentheses Practice}
+
+Simplify each expression \textbf{step by step}, starting with the innermost parentheses. (The brackets ([]) also represent parentheses. I put them there to make it easier to read!)
+
+\[
+\textbf{(1)} \quad 6 - \big( 4 - [\,2 + (\,3 - 1\,)\,] \big)
+\]
+
+\vspace{2cm}
+
+\[
+\textbf{(2)} \quad 12 \div \big( 3 - [\,2 - (\,4 - 1\,) \times 2\,] \big)
+\]
+
+\vspace{2cm}
+
+% ---------------------------------------------------
+\newpage
+\section*{Intro to Exponents}
+
+Exponents tell us to multiply a number by itself multiple times.
+
+\[
+a^n = \underbrace{a \times a \times a \times \cdots \times a}_{n \text{ times}}
+\]
+
+For example:
+\[
+2^3 = 2 \times 2 \times 2 = 8
+\]
+
+\vspace{0.5cm}
+
+\noindent
+\textbf{Key Rules:}
+\begin{itemize}
+    \item Parentheses come before exponents in the order of operations.
+    \item Exponents only apply to what they are directly attached to.
+    \item Always simplify inside parentheses first.
+\end{itemize}
+
+\vspace{1cm}
+
+% ---------------------------------------------------
+\section*{Exponent Practice}
+
+Simplify each expression:
+
+\begin{enumerate}[label=\textbf{(\arabic*)}]
+    \item \( (3 + 2)^2 \)
+    \item \( 4 \times (2^3) \)
+    \item \( (5 - 1)^3 \div 2 \)
+    \item \( [\,2 + (3^2)\,] \times 2 \)
+    \item \( (\,6 - 2\,)^2 + (\,3^2\,) \)
+\end{enumerate}
+
+\vspace{1cm}
+
+% ---------------------------------------------------
+\section*{Challenge Problem}
+\textit{This will be very hard for you to do, with the little I have taught you. However, I want you to try it and I will check on Monday to see how far you got.}
+
+During a Fortnite match, a player builds a tall structure.  
+He starts at a height of \( (5 + 3)^2 \) meters.  
+Then, a storm breaks part of it, removing \(\dfrac{1}{2}\) of the total height.  
+Next, he rebuilds \(3^2\) more meters.  
+
+\begin{enumerate}[label=\textbf{(\alph*)}]
+    \item Write an expression that represents the player’s final build height.  
+    \item Simplify the expression completely.
+\end{enumerate}
+
+\end{document}
