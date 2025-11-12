@@ -1,0 +1,352 @@
+\documentclass[11pt]{article}
+
+\usepackage{color}
+%\input{rgb}
+
+%----------Packages----------
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsrefs}
+\usepackage{dsfont}
+\usepackage{mathrsfs}
+\usepackage{stmaryrd}
+\usepackage[all]{xy}
+\usepackage[mathcal]{eucal}
+\usepackage{verbatim}  %%includes comment environment
+\usepackage{fullpage}  %%smaller margins
+%----------Commands----------
+
+%%penalizes orphans
+\clubpenalty=9999
+\widowpenalty=9999
+
+
+
+
+
+%% bold math capitals
+\newcommand{\bA}{\mathbf{A}}
+\newcommand{\bB}{\mathbf{B}}
+\newcommand{\bC}{\mathbf{C}}
+\newcommand{\bD}{\mathbf{D}}
+\newcommand{\bE}{\mathbf{E}}
+\newcommand{\bF}{\mathbf{F}}
+\newcommand{\bG}{\mathbf{G}}
+\newcommand{\bH}{\mathbf{H}}
+\newcommand{\bI}{\mathbf{I}}
+\newcommand{\bJ}{\mathbf{J}}
+\newcommand{\bK}{\mathbf{K}}
+\newcommand{\bL}{\mathbf{L}}
+\newcommand{\bM}{\mathbf{M}}
+\newcommand{\bN}{\mathbf{N}}
+\newcommand{\bO}{\mathbf{O}}
+\newcommand{\bP}{\mathbf{P}}
+\newcommand{\bQ}{\mathbf{Q}}
+\newcommand{\bR}{\mathbf{R}}
+\newcommand{\bS}{\mathbf{S}}
+\newcommand{\bT}{\mathbf{T}}
+\newcommand{\bU}{\mathbf{U}}
+\newcommand{\bV}{\mathbf{V}}
+\newcommand{\bW}{\mathbf{W}}
+\newcommand{\bX}{\mathbf{X}}
+\newcommand{\bY}{\mathbf{Y}}
+\newcommand{\bZ}{\mathbf{Z}}
+
+%% blackboard bold math capitals
+\newcommand{\bbA}{\mathbb{A}}
+\newcommand{\bbB}{\mathbb{B}}
+\newcommand{\bbC}{\mathbb{C}}
+\newcommand{\bbD}{\mathbb{D}}
+\newcommand{\bbE}{\mathbb{E}}
+\newcommand{\bbF}{\mathbb{F}}
+\newcommand{\bbG}{\mathbb{G}}
+\newcommand{\bbH}{\mathbb{H}}
+\newcommand{\bbI}{\mathbb{I}}
+\newcommand{\bbJ}{\mathbb{J}}
+\newcommand{\bbK}{\mathbb{K}}
+\newcommand{\bbL}{\mathbb{L}}
+\newcommand{\bbM}{\mathbb{M}}
+\newcommand{\bbN}{\mathbb{N}}
+\newcommand{\bbO}{\mathbb{O}}
+\newcommand{\bbP}{\mathbb{P}}
+\newcommand{\bbQ}{\mathbb{Q}}
+\newcommand{\bbR}{\mathbb{R}}
+\newcommand{\bbS}{\mathbb{S}}
+\newcommand{\bbT}{\mathbb{T}}
+\newcommand{\bbU}{\mathbb{U}}
+\newcommand{\bbV}{\mathbb{V}}
+\newcommand{\bbW}{\mathbb{W}}
+\newcommand{\bbX}{\mathbb{X}}
+\newcommand{\bbY}{\mathbb{Y}}
+\newcommand{\bbZ}{\mathbb{Z}}
+
+%% script math capitals
+\newcommand{\sA}{\mathscr{A}}
+\newcommand{\sB}{\mathscr{B}}
+\newcommand{\sC}{\mathscr{C}}
+\newcommand{\sD}{\mathscr{D}}
+\newcommand{\sE}{\mathscr{E}}
+\newcommand{\sF}{\mathscr{F}}
+\newcommand{\sG}{\mathscr{G}}
+\newcommand{\sH}{\mathscr{H}}
+\newcommand{\sI}{\mathscr{I}}
+\newcommand{\sJ}{\mathscr{J}}
+\newcommand{\sK}{\mathscr{K}}
+\newcommand{\sL}{\mathscr{L}}
+\newcommand{\sM}{\mathscr{M}}
+\newcommand{\sN}{\mathscr{N}}
+\newcommand{\sO}{\mathscr{O}}
+\newcommand{\sP}{\mathscr{P}}
+\newcommand{\sQ}{\mathscr{Q}}
+\newcommand{\sR}{\mathscr{R}}
+\newcommand{\sS}{\mathscr{S}}
+\newcommand{\sT}{\mathscr{T}}
+\newcommand{\sU}{\mathscr{U}}
+\newcommand{\sV}{\mathscr{V}}
+\newcommand{\sW}{\mathscr{W}}
+\newcommand{\sX}{\mathscr{X}}
+\newcommand{\sY}{\mathscr{Y}}
+\newcommand{\sZ}{\mathscr{Z}}
+
+\newcommand{\fr}[2]{\frac{\underline{#1}}{#2}}
+
+
+\renewcommand{\phi}{\varphi}
+
+\renewcommand{\emptyset}{\O}
+
+\providecommand{\abs}[1]{\lvert #1 \rvert}
+\providecommand{\norm}[1]{\lVert #1 \rVert}
+
+
+\providecommand{\ar}{\rightarrow}
+\providecommand{\arr}{\longrightarrow}
+
+\renewcommand{\_}[1]{\underline{ #1 }}
+
+
+\DeclareMathOperator{\ext}{ext}
+
+
+\newcommand{\head}[1]{
+	\begin{center}
+		{\large #1}
+		\vspace{.2 in}
+	\end{center}
+	
+	\bigskip 
+}
+
+%----------Theorems----------
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+
+
+\newtheorem*{axiom4}{Axiom 4}
+
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{nondefinition}[theorem]{Non-Definition}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{warning}[theorem]{Warning}
+\newtheorem{examples}[theorem]{Examples}
+\newtheorem{example}[theorem]{Example}
+
+
+\newcommand{\set}[1]{\left\lbrace #1 \right\rbrace}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\st}{\ |\ }
+\newcommand{\Hskip}{\vspace{0.7in}}
+\numberwithin{equation}{subsection}
+\newcommand{\hide}[1]{{\color{red} #1}} % for instructor version
+\newcommand{\com}[1]{{\color{blue} #1}} % for instructor version
+
+
+\begin{document}
+
+\head{MATH 161, Autumn 2025\\ SCRIPT 2: The Rationals} 
+
+
+
+
+
+%%---  sheet number for theorem counter
+\setcounter{section}{2}   
+
+
+Note that all of the following proofs should be straightforward consequences of properties of the integers; you should be sure to make it clear what facts about the integers you are using. 
+See Script 0 for a list of the defining properties of $\bbZ$. 
+
+ 
+\begin{definition}
+Let $X$ be a nonempty set. A {\em relation} $R$ on $X$ is a subset of $X\times X.$ The statement $(x,y)\in R$ is read as `$x$ is related to $y$ by the relation $R,$' and is often denoted $x\sim y.$ \medskip
+
+\noindent A relation is {\em reflexive} if $x\sim x$ for all $x\in X.$\\
+A relation is {\em symmetric} if $y\sim x$ whenever $x\sim y.$\\
+A relation is {\em transitive} if  $x\sim z$ whenever $x\sim y$ and $y\sim z.$ \\
+A relation is an {\em equivalence relation} if it is reflexive, symmetric and transitive.\medskip
+\end{definition}
+
+\begin{exercise}\label{equivclassex}
+Determine which of the following are equivalence relations.
+\begin{enumerate}
+\item[a)] Any set $X$ with the relation $=.$ So $x\sim y$ if and only if $x=y.$
+\item[b)] $\mathbb{Z}$ with the relation $<.$ 
+\item[c)] Any subset $X $ of $\mathbb{Z}$ with the relation $\leq.$ So $x\sim y$ if and only if $x\leq y.$ 
+\item[d)] $X=\mathbb{Z}$ with $x\sim y$ if and only if $y-x$ is divisible by 5.
+\item[e)]  $X=\{(a,b)\mid a,b\in \mathbb{Z}, b\neq 0\}$ with the relation $\sim$ defined by
+$$(a,b)\sim (c,d)\hspace{10pt}\mbox{if and only if}\hspace{10pt}ad=bc.$$
+
+
+ \end{enumerate}
+ \end{exercise}
+
+
+\begin{remark}  
+A {\em partition} of a set is a collection of non-empty
+disjoint subsets whose union is the original set.  
+Any equivalence relation on a set creates a partition of that set by collecting into subsets all
+of the elements that are equivalent (related) to each other.
+When the partition of a set arises from an equivalence relation in this manner, the subsets
+are referred to as {\em equivalence classes}. (See Exercises 2 and 3 in the Additional Exercises section below.)
+\end{remark}  
+
+\begin{remark}  
+If we think of the set $X$ in \ref{equivclassex}e) as representing the collection of all fractions whose denominators are not
+zero, then the relation $\sim$ may be thought of as representing the equivalence of two fractions.
+\end{remark}  
+
+\begin{definition}
+As a set, the {\em rational numbers}, denoted $\bbQ$, are the equivalence classes in the set $X=\{(a,b)\mid a,b\in \mathbb{Z}, b\neq 0\}$ under
+the equivalence relation $\sim$ as defined in \ref{equivclassex}e).
+If $(a,b)\in X$, we denote the equivalence class of this element as $\left[ \frac{a}{b}\right]$.   So
+$$\left[\frac{a}{b}\right]=\{(x_1,x_2)\in X\mid (x_1,x_2)\sim (a,b)\}=\{(x_1,x_2)\in X\mid x_1 b=x_2 a\}.$$
+Then,
+$$
+\bbQ=\left\{ {\left[\frac{a}{b}\right]} \mid (a,b)\in X\right\}.
+$$
+\end{definition}
+
+\begin{exercise}
+$\displaystyle \left[\frac{a}{b}\right]=\displaystyle \left[\frac{a'}{b'}\right]\Longleftrightarrow (a,b)\sim (a',b').$
+\end{exercise}
+
+\begin{definition}
+We define the binary operations addition and multiplication on $\bbQ$ as follows.  If $\displaystyle \left[ \frac{a}{b}\right]$ and $\displaystyle \left[\frac{c}{d}\right]$ are in $\bbQ$, then:
+$$
+\left[\frac{a}{b}\right]+_\bbQ \left[\frac{c}{d}\right]=\left[\frac{ad+bc}{bd}\right]
+$$
+$$
+\left[\frac{a}{b}\right]\cdot_\bbQ \left[\frac{c}{d}\right]=\left[\frac{ac}{ bd}\right].
+$$
+We use the notation $+_\bbQ$ and $\cdot_\bbQ$ to represent addition and multiplication in $\bbQ$
+so as to distinguish these operations from the usual addition ($+$) and multiplication ($\cdot$) in $\bbZ$.
+\end{definition}
+
+
+We want to know that addition and multiplication are ``well-defined'', by which we mean that if we change the representatives of the
+classes $\left[\frac{a}{b}\right]$ and $\left[\frac{c}{d}\right]$, then does this not change the
+resulting classes on the right-hand-side of the equalities in the definition.  To prove the next theorem first you will need to formulate a precise statement about what needs to be checked.
+
+\begin{theorem}
+Addition and multiplication in $\bbQ$ are well-defined.  
+\end{theorem}
+
+\begin{theorem} 
+
+ \begin{enumerate}
+   \item[a)] {\bf Commutativity of addition}
+   
+   $\displaystyle \left[\frac{a}{b}\right]+_{\bbQ} \left[\frac{c}{d}\right] =\left[\frac{c}{d}\right]+_{\bbQ}\left[\frac{a}{b}\right]$ for all $\displaystyle  \left[\frac{a}{b}\right],\left[\frac{c}{d}\right] \in\bbQ.$
+  \item[b)] {\bf Associativity of addditon}
+  
+  $\displaystyle \left(\left[\frac{a}{b}\right]+_{\bbQ}\left[\frac{c}{d}\right] \right)+_{\bbQ}\left[\frac{e}{f}\right] = 
+  \left[\frac{a}{b}\right]+_{\bbQ}\left( \left[\frac{c}{d}\right] +_{\bbQ} \left[\frac{e}{f}\right]\right) $ for all $\displaystyle \left[\frac{a}{b}\right],\left[\frac{c}{d}\right] , \left[\frac{e}{f}\right]\in \bbQ.$ 
+  \item[c)] {\bf Existence of an additive identity}
+  
+  $\displaystyle \left[\frac{a}{b}\right]+_{\bbQ}\left[\frac{0}{1}\right]=\left[\frac{a}{b}\right],$ for all $\displaystyle \left[\frac{a}{b}\right]\in\bbQ.$
+  \item[d)] {\bf Existence of additive inverses}
+  
+  $\displaystyle \left[\frac{a}{b}\right]+_{\bbQ}\left[\frac{-a}{b}\right]=\left[\frac{0}{1}\right],$ for all $\displaystyle \left[\frac{a}{b}\right] \in \bbQ.$
+  
+  \item[e)] {\bf Commutativity of multiplication}
+  
+  $\displaystyle \left[\frac{a}{b}\right]\cdot_{\bbQ} \left[\frac{c}{d}\right] =\left[\frac{c}{d}\right]\cdot_{\bbQ} \left[\frac{a}{b}\right]$ for all $\displaystyle  \left[\frac{a}{b}\right],\left[\frac{c}{d}\right] \in\bbQ.$
+  \item[f)] {\bf Associativity of multiplication}
+  
+   $\displaystyle \left(\left[\frac{a}{b}\right]\cdot_{\bbQ} \left[\frac{c}{d}\right] \right)\cdot_{\bbQ} \left[\frac{e}{f}\right] = 
+  \left[\frac{a}{b}\right]\cdot_{\bbQ} \left( \left[\frac{c}{d}\right] \cdot_{\bbQ} \left[\frac{e}{f}\right]\right) $ for all $\displaystyle \left[\frac{a}{b}\right],\left[\frac{c}{d}\right] , \left[\frac{e}{f}\right]\in \bbQ.$ 
+  
+    \item[g)]  {\bf Existence of a multiplicative identity}
+    
+     $\displaystyle \left[\frac{a}{b}\right] \cdot_{\bbQ}\left[\frac{1}{1}\right]=\left[\frac{a}{b}\right],$ for all $\displaystyle \left[\frac{a}{b}\right] \in\bbQ.$
+     
+    \item[h)] {\bf Existence of multiplicative inverses for nonzero elements}
+    
+    $\displaystyle \left[\frac{a}{b}\right] \cdot_{\bbQ}\left[\frac{b}{a}\right]=\left[\frac{1}{1}\right],$ for all $\displaystyle \left[\frac{a}{b}\right] \in\bbQ$ such that $\displaystyle\left[\frac{a}{b}\right]\neq \left[\frac{0}{1}\right].$ 
+  \item[i)] {\bf Distributivity} 
+  
+  $\displaystyle \left[\frac{a}{b}\right]\cdot_{\bbQ} \left(\left[\frac{c}{d}\right]+_{\bbQ}\left[\frac{e}{f}\right]\right)=\left(\left[\frac{a}{b}\right]\cdot_{\bbQ} \left[\frac{c}{d}\right]\right) +_{\bbQ} \left( \left[\frac{a}{b}\right]\cdot_{\bbQ} \left[\frac{e}{f}\right]\right),$ for all $\displaystyle \left[\frac{a}{b}\right],\left[\frac{c}{d}\right], \left[\frac{e}{f}\right] \in\bbQ.$  
+   \end{enumerate}    
+
+
+
+\end{theorem}
+
+
+\begin{theorem} 
+
+$\Q$ is countable.
+\end{theorem}
+{\em Hint: look back at Script 1} \bigskip
+
+We will now lose the equivalence class notation and simply refer to elements of $\Q$ as usual. So for example, if we refer to $0,$ we really mean $[
+\frac{0}{1}],$ but this distinction should no longer be necessary or relevant.
+\bigskip
+
+\begin{center}
+{\em Additional Exercises}
+\end{center}
+
+{\em In all exercises you are expected to prove your answer, unless explicitly stated otherwise.}
+
+
+\begin{enumerate}
+
+\item
+Prove that for every $q=\left[\frac{a}{b}\right]\in\bbQ,$ there is exactly one element $(a_0,b_0)\in q$ such that $a_0$ and $b_0$ have no common factors and $b_0>0$.
+
+
+
+
+
+
+\item Let $\sim$ be an equivalence relation on $X$. Let $[x]$ be the equivalence class of $x$. Show that
+\begin{enumerate}
+\item $[x] = [y]$ if and only if $x\sim y$
+\item for all $x, y \in X$,
+\[[x] \cap [y] = \begin{cases} [x] =[y] & \text{if $x \sim y$} \\
+\emptyset & \text{if $x \not\sim y $}.
+\end{cases}\]
+\item $X = \displaystyle \bigcup_{x \in X}[x]$
+\end{enumerate}
+    
+    
+
+
+\item For the equivalence relations found in Exercise~\ref{equivclassex}, what are the equivalence classes?
+
+
+\end{enumerate}
+
+
+\end{document}
+

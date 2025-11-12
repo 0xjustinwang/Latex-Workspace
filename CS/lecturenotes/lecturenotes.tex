@@ -585,6 +585,22 @@ Shallow Copy:
 \begin{itemize}
     \item Creates a new list, or any mutuable item. but the elements of the list are references/addresses to the elements in the original list.
 \end{itemize}
+\newpage
+\section{Recursion: 11/7/25}
+\textbf{Recursion:} A function that calls itself. 
+\begin{itemize}
+    \item Base Case: The condition under which the function stops calling itself.
+    \item Recursive Case: The part of the function where it calls itself with modified arguments.
+\end{itemize}
+\textbf{Example: Factorial Function}
+\begin{verbatim}
+def factorial(n):
+    if n == 0:  # Base Case
+        return 1
+    else:       # Recursive Case
+        return n * factorial(n - 1)
+print(factorial(5))  # Output: 120
+\end{verbatim}
 
 
 

@@ -1,0 +1,480 @@
+\documentclass[11pt]{article}
+
+% ----------- Font Packages ------------
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+% ----------- Math Formatting ----------
+\usepackage{siunitx}  
+\AtBeginDocument{\RenewCommandCopy\qty\SI}       % Units like \SI{9.8}{m/s^2}
+\usepackage{physics} 
+\usepackage{amsmath, amssymb, amsthm}  % Core math packages
+\usepackage{dsfont}
+% Boxed theorem environments
+\usepackage[most]{tcolorbox}
+\tcbuselibrary{theorems}
+
+% Cross-referencing and hyperlinks
+\usepackage{hyperref}
+\usepackage{cleveref}
+
+% ----------- Layout and Spacing -------
+\usepackage[letterpaper, top=0.75in, bottom=0.75in, left=1in, right=1in, heightrounded]{geometry}
+\usepackage{setspace}
+\onehalfspacing                % More readable line spacing for notes
+
+% ----------- Math Formatting ----------
+\usepackage{mathtools}        % Enhanced math commands
+\usepackage{bm}               % Bold math symbols
+\usepackage{cancel}           % Cross out terms in equations
+
+% ----------- Misc Enhancements --------
+\usepackage{microtype}        % Better font spacing
+\usepackage{enumitem}         % Customizable lists
+\usepackage{fancyhdr}         % Page headers/footers
+\pagestyle{fancy}
+\fancyhead[L]{Journal Three}
+
+\usepackage{bookmark}         % Handle rerunfilecheck warnings
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor=blue,
+    citecolor=blue
+}
+
+% Optional: TikZ for diagrams
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, calc, decorations.markings}
+
+% --------- Boxed theorem and definition environments ---------
+\newtcolorbox{theorem}[1][]
+{colback=white!97!blue!10,
+ colframe=blue!50!black,
+ fonttitle=\bfseries,
+ coltitle=black,
+ boxrule=0.5pt,
+ arc=4pt,
+ top=6pt,
+ bottom=6pt,
+ left=6pt,
+ right=6pt,
+ enhanced,
+ attach boxed title to top left={yshift=-2mm,xshift=5mm},
+ boxed title style={colframe=blue!50!black, colback=white},
+ title=Theorem #1}
+\newtcbtheorem[number within=section]{definition}{Definition}%
+{colback=white!95!green!10,
+ colframe=green!50!black,
+ fonttitle=\bfseries,
+ coltitle=black,
+ boxrule=0.5pt,
+ arc=4pt,
+ top=6pt,
+ bottom=6pt,
+ left=6pt,
+ right=6pt,
+ enhanced,
+ attach boxed title to top left={yshift=-2mm,xshift=5mm},
+ boxed title style={colframe=green!50!black, colback=white}}{def}
+
+ \newtcbtheorem[number within=section]{proposition}{Proposition}%
+{colback=white!97!violet!10,
+ colframe=violet!60!black,
+ fonttitle=\bfseries,
+ coltitle=black,
+ boxrule=0.5pt,
+ arc=4pt,
+ top=6pt,
+ bottom=6pt,
+ left=6pt,
+ right=6pt,
+ enhanced,
+ attach boxed title to top left={yshift=-2mm,xshift=5mm},
+ boxed title style={colframe=violet!60!black, colback=white}}{prop}
+
+
+
+% -------------------------- Document ---------------------------
+\title{MATH 16110: Journal Three}
+\author{Justin Wang}
+\date{Autumn 2025}
+\begin{document}
+
+\maketitle 
+
+\begin{theorem}[1.38]
+Every subset of $\mathbb{N}$ is countable.
+\end{theorem}
+\begin{proof}
+    Let $A \subset \mathbb{N}.$ There are two cases to consider: \\
+    \textbf{Case 1:} If $A$ is finite, then by Def 1.36, $A$ is countable. \\
+    \textbf{Case 2:} Suppose $A$ is infinite. By exercise 0.3, subsets of $\mathbb{N}$ have a least element. 
+    We can define a function $f\colon \mathbb{N} \to A$ recursively as follows:
+    \begin{itemize}
+        \item Base case: Let $f(1)$ be the least element of $A.$
+        \item Recursive case: For $n \geq 1,$ let $f(n+1)$ be the least element of $A$ such that $f(n+1) > f(n).$ Such an element exists since $A$ is infinite.
+    \end{itemize}
+    We must show that $f$ is a bijection. \\
+    \textit{Injectivity: } Let $m,n \in \mathbb{N}$ such that $f(m) = f(n).$ Without loss of generality, assume $m \leq n.$ We will show that $m = n$ by induction on $n.$
+    \begin{itemize}
+        \item Base case: Suppose $n = 1$. Then for $ m \leq n$ to hold, it must be that $m = 1$. So $n = m$. Thus the base case holds. 
+        \item Inductive Step: Assume that for some $k \in \mathbb{N},$ if $f(m) = f(k)$ and $m \leq k,$ then $m = k.$ We must show that this holds for $k + 1.$ 
+        Suppose $f(m) = f(k+1)$ and $m \leq k + 1.$ We have two cases:
+        \begin{itemize}
+            \item Case 1: If $m = k + 1,$ then the inductive step holds.
+            \item Case 2: If $m < k + 1,$ then by definition of $f$, $f(k + 1) > f(m).$ This contradicts our assumption that $f(m) = f(k + 1).$ Thus, this case cannot occur.
+        \end{itemize}
+    \end{itemize}
+    By the principle of mathematical induction, we conclude that for all $n \in \mathbb{N},$ if $f(m) = f(n)$ and $m \leq n,$ then $m = n.$ Thus, $f$ is injective. \\
+    \textit{Surjectivity: } Let $a \in A$ be arbitrary. We will show that $\exists n \in \mathbb{N}$ such that $f(n) = a$ by induction on $a$. 
+    \begin{itemize}
+        \item Base case: Since $f(1)$ is defined as the least element of $A$, if $a$ is the least element of $A,$ then $f(1) = a.$ Thus the base case holds.
+        \item Inductive Step: Assume that for some $k \in A,$ there exists $n \in \mathbb{N}$ such that $f(n) = k.$ We must show that this holds for $k + 1$, which is the least element of $A$ greater than $k$. Since $k + 1 \in A,$ by definition of $f,$ there exists some $m \in \mathbb{N}$ such that $f(m) = k + 1.$ Thus the inductive step holds.
+    \end{itemize}
+    By the PMI, we conclude that for all $a \in A,$ there exists $n \in \mathbb{N}$ such that $f(n) = a.$ Thus, $f$ is surjective. \\
+    Since $f$ is both injective and surjective, it is a bijection, and $A$ is in bijective correspondence with $\mathbb{N}.$ Thus by Def 1.36, $A$ is countable. \\
+\end{proof}
+\noindent\textbf{Exercise 1.42} Prove that $\mathbb{N}\times \mathbb{N}$ is countable by considering the function $f:\mathbb{N}\times\mathbb{N}\longrightarrow \mathbb{N}$ given by $f(n,m)=(10^n-1)10^m$.
+\begin{proof}
+    By Theorem 1.39, showing that this function is injective suffices to show that $\mathbb{N} \times \mathbb{N}$ is countable.
+    Let $(n_1,m_1), (n_2,m_2) \in \mathbb{N} \times \mathbb{N}$ such that $f(n_1,m_1) = f(n_2,m_2).$ Then by definition of $f,$ we have:
+    \[
+    (10^{n_1} - 1)10^{m_1} = (10^{n_2} - 1)10^{m_2}.
+    \]
+    Without loss of generality, assume $m_1 \leq m_2.$ Dividing both sides of the equation by $10^{m_1}$ gives:
+    \[10^{n_1} - 1 = (10^{n_2} - 1)10^{m_2 - m_1}.\]
+    Since $10^{n_1} - 1$ ends with a digit of 9, the right side of the equation must also end with a digit of 9. This implies that $m_2 - m_1 = 0,$ or $m_1 = m_2.$ Substituting this back into the equation gives:
+    \[10^{n_1} - 1 = 10^{n_2} - 1.\]
+    Adding 1 to both sides gives:
+    \[10^{n_1} = 10^{n_2}.\]
+    We must now show that the function $g: \mathbb{N} \rightarrow \mathbb{N}$ given by $g(n) = 10^n$ is injective for $n \in \mathbb{N},$ or that if $g(n) = g(n'), n = n'$. We will show this by induction on $n.$
+    \begin{itemize}
+        \item Base case: Suppose $n = 1.$ Then $g(1) = 10^1 = 10$. If $g(n') = 10,$ then $10^{n'} = 10.$ Dividing both sides by 10 gives $10^{n' - 1} = 1.$ Since $10^0 = 1,$ it must be that $n' - 1 = 0,$ or $n' = 1.$ Thus, $n = n'.$ The base case holds.
+        \item Inductive Step: Assume that for some $k \in \mathbb{N}, g(k) = g(k') \implies k = k'$. We must show that this holds for $k + 1$. Suppose $g(k + 1) = g(k' + 1)$. Then:
+        \[
+        10^{k + 1} = 10^{k' + 1}.
+        \]
+        Dividing both sides by $10$, we get:
+        \[
+        10^k = 10^{k'}.
+        \]
+        By the inductive hypothesis, we conclude that $k = k'$. Thus, $g$ is injective.
+    \end{itemize}
+    Since the function $10^n$ is injective for $n \in \mathbb{N},$ we conclude that $n_1 = n_2.$ Thus, we have shown that $f$ is injective. Since $f$ is injective, by Theorem 1.39, we conclude that $\mathbb{N} \times \mathbb{N}$ is countable.
+
+\end{proof}
+\noindent\textbf{Exercise 2.2} Determine which of the following are equivalence relations.
+\begin{enumerate}[label=(\alph*)]
+    \item Any set $X$ with the relation $=.$ So $x\sim y$ if and only if $x=y.$
+    \begin{proof}
+        Checking the three properties of an equivalence relation under Def 2.1:
+        \begin{itemize}
+            \item Reflexive: For any $x\in X,$ we have $x=x$. Then by the relation, $x\sim x.$
+            \item Symmetric: If $x\sim y,$ then $x=y.$ Since equality is symmetric, $y=x,$ so $y\sim x.$
+            \item Transitive: If $x\sim y$ and $y\sim z,$ then $x=y$ and $y=z,$ so $x=z$ and $x\sim z.$ 
+        \end{itemize}
+        Since this relation satisfies all three properties, it is an equivalence relation.
+    \end{proof}
+    \item $\mathbb{Z}$ with the relation $<.$ 
+    \begin{proof}
+        Checking the three properties of an equivalence relation under Def 2.1:
+        \begin{itemize}
+            \item Reflexive: For any $x\in \mathbb{Z},$ we do not have $x<x.$ So this property fails.
+        \end{itemize}
+        Since this relation fails for at least one of the three properties, it is not an equivalence relation. 
+    \end{proof}
+    \item Any subset $X $ of $\mathbb{Z}$ with the relation $\leq.$ So $x\sim y$ if and only if $x\leq y.$ 
+    \begin{proof}
+        Checking the three properties of an equivalence relation under Def 2.1:
+        \begin{itemize}
+            \item Symmetric: If $x\sim y,$ then $x\leq y.$ However, this does not imply that $y\leq x.$ So this property fails.
+        \end{itemize}
+        Since this relation fails for at least one of the three properties, it is not an equivalence relation.
+    \end{proof}
+    \item $X=\mathbb{Z}$ with $x\sim y$ if and only if $y-x$ is divisible by 5.
+    \begin{proof}
+        Note that to say $y - x$ is divisible by 5 means there exists some $k \in \mathbb{Z}$ such that $y - x = 5k.$ Checking the three properties of an equivalence relation under Def 2.1:
+        \begin{itemize}
+            \item Reflexive: For any $x\in \mathbb{Z},$ we have $x-x=0.$ Then to check divisibility by 5, we can write $0 = 5k$. The integer $k=0$ satisifies the equation. Thus, $x\sim x.$
+            \item Symmetric: If $x\sim y,$ then $y-x$ is divisible by 5. This means there exists some integer $k$ such that $y-x=5k.$ Multiplying both sides by $-1$ gives $x-y=-5k,$ and since the integers are closed under multiplication, $-5k$ is an integer. Thus $x-y$ is divisible by 5 so $x\sim y.$ 
+            \item Transitive: If $x\sim y$ and $y\sim z,$ then there exist integers $k_1$ and $k_2$ such that $y-x=5k_1$ and $z-y=5k_2.$ Adding these two equations gives us:
+            \[
+            (y-x) + (z-y) = 5k_1 + 5k_2 \implies z - x = 5(k_1 + k_2).
+            \]
+            Since the integers are closed under addition, $k_1 + k_2$ is an integer. This shows that $z - x$ is divisible by 5, so $x\sim z.$
+        \end{itemize}
+        Since this relation satisfies all three properties, it is an equivalence relation.
+    \end{proof}
+    \item $X=\{(a,b)\mid a,b\in \mathbb{Z}, b\neq 0\}$ with the relation $\sim$ defined by
+$$(a,b)\sim (c,d)\hspace{10pt}\mbox{if and only if}\hspace{10pt}ad=bc.$$
+    \begin{proof}
+        Checking the three properties of an equivalence relation under Def 2.1:
+        \begin{itemize}
+            \item Reflexive: For any $(a,b)\in X,$ we have $ab=ba,$ because multiplication of the integers are commutative. Thus, $(a,b)\sim (a,b).$
+            \item Symmetric: Let $(a,b), (c,d) \in X$ such that $(a,b) \sim (c,d).$ Then by definition of the relation, we have $ad = bc.$ Since equality is symmetric, we have $bc = ad,$ so $(c,d) \sim (a,b).$
+            \item Transitive: Let $(a,b), (c,d), (e,f) \in X$ such that $(a,b) \sim (c,d)$ and $(c,d) \sim (e,f).$ Then by definition of the relation, we have $ad = bc$ and $cf = de.$ We want to show that $(a,b) \sim (e,f),$ or that $af = be.$ Starting from the two equations we have:
+                \begin{align*}
+                \text{From } ad = bc, \text{multiply both sides by f to get: } adf = bcf. \\
+                \text{From } cf = de, \text{multiply both sides by b to get: } bcf = bde. \\ 
+                \text{By the transitivity of equality, we have: } adf = bde. 
+                \end{align*}
+            Since $d \neq 0,$ we can divide both sides of the equation by $d$ to get $af = be.$ Thus, $(a,b) \sim (e,f).$
+        \end{itemize} 
+        Since this relation satisfies all three properties it is an equivalence relation.
+    \end{proof}
+\end{enumerate}
+\textbf{Exercise 2.6} $\displaystyle \left[\frac{a}{b}\right]=\displaystyle \left[\frac{a'}{b'}\right]\Longleftrightarrow (a,b)\sim (a',b').$
+\begin{proof}
+Let $(a,b), (a',b') \in X$, where $(a,b) \sim (a',b')$, so $ab' = a'b$. 
+We want to show that $\displaystyle \left[\frac{a}{b}\right] = \left[\frac{a'}{b'}\right]$ if and only if $(a,b) \sim (a',b')$.
+Let $(x,y) \in \displaystyle \left[\frac{a}{b}\right]$ be arbitrary. 
+Then $(x,y) \sim (a,b)$, which by definition means $xb = ya$.
+Since $(a,b) \sim (a',b')$, we have $ab' = a'b$. 
+Given $ab' = a'b$ we can multiply both sides by $y$ to get: $yab' =ya'b$. Recall that $xb = ya$, so substitution yields $xbb' = ya'b$. Since $b \neq 0$, dividing leads to: $xb' = ya'$.
+Then by the relation definition $(x,y) \sim (a', b'),$ so $(x, y) \in \displaystyle \left[\frac{a'}{b'}\right]$. Thus $\displaystyle \left[\frac{a}{b}\right] \subset \left[\frac{a'}{b'}\right].$ The reverse implication follows logically by symmetry, so by subset equality we conclude that:
+$\displaystyle \left[\frac{a}{b}\right] = \left[\frac{a'}{b'}\right]$.
+\end{proof}
+\begin{theorem}[2.8]
+\textit{Addition and multiplication in $\mathbb{Q}$ are well-defined}.
+\end{theorem}
+\begin{proof}
+An operation is well-defined if all representatives of an equivalence classes adhere to the rules of operation. \\
+Assume $\left[\frac{a}{b}\right], \left[\frac{c}{d}\right] \in \mathbb{Q}$. Let $(a',b') \in \left[\frac{a}{b}\right]$ and $(c',d') \in \left[\frac{c}{d}\right]$. For addition, we want to show that:
+\[\left[\frac{a}{b}\right] +_\mathbb{Q} \left[\frac{c}{d}\right] = \left[\frac{a'}{b'}\right] +_\mathbb{Q} \left[\frac{c'}{d'}\right]\]
+or that
+\[\left[\frac{ad + bc}{bd}\right] = \left[\frac{a'd' + b'c'}{b'd'}\right].\]
+By Exercise 2.6, it suffices to show that:
+\[(ad + bc)(b'd') = (a'd' + b'c')(bd).\]
+Expanding both sides, we have:
+\[ad b'd' + bc b'd' = a' d' bd + b' c' bd.\]
+Rearranging terms gives:
+\[ad b'd' - a' d' bd = b' c' bd - bc b'd'.\]
+Factoring both sides, we have:
+\[d' (ab b' - a' b b') = b' (c bd - c' b d).\]
+Since $(a,b) \sim (a',b')$, we have $ab' = a'b$, so the left side is 0. Similarly, since $(c,d) \sim (c',d')$, we have $cd' = c'd$, so the right side is also 0. Thus, both sides are equal, and addition is well-defined.
+For multiplication, we want to show that:
+\[\left[\frac{a}{b}\right] \cdot_\mathbb{Q} \left[\frac{c}{d}\right] = \left[\frac{a'}{b'}\right] \cdot_\mathbb{Q} \left[\frac{c'}{d'}\right]\]
+or that
+\[\left[\frac{ac}{bd}\right] = \left[\frac{a'c'}{b'd'}\right].\]
+By Exercise 2.6, it suffices to show that:
+\[(ac)(b'd') = (a'c')(bd).\]
+Expanding both sides, we have:
+\[ac b'd' = a' c' bd.\]
+Rearranging terms gives:
+\[ac b'd' - a' c' bd = 0.\]
+Factoring both sides, we have:
+\[c (ab b' - a' b b') = 0.\]
+Since $(a,b) \sim (a',b')$, we have $ab' = a'b$, so the left side is 0. Thus, both sides are equal, and multiplication is well-defined.
+\end{proof}
+\begin{theorem}[2.9]
+
+\begin{enumerate}
+\item[a)] {\bf Commutativity of addition}
+
+$\displaystyle \left[\frac{a}{b}\right]+_{\mathbb{Q}} \left[\frac{c}{d}\right] =\left[\frac{c}{d}\right]+_{\mathbb{Q}}\left[\frac{a}{b}\right]$ for all $\displaystyle  \left[\frac{a}{b}\right],\left[\frac{c}{d}\right] \in\mathbb{Q}.$
+\item[b)] {\bf Associativity of addditon}
+
+$\displaystyle \left(\left[\frac{a}{b}\right]+_{\mathbb{Q}}\left[\frac{c}{d}\right] \right)+_{\mathbb{Q}}\left[\frac{e}{f}\right] = 
+\left[\frac{a}{b}\right]+_{\mathbb{Q}}\left( \left[\frac{c}{d}\right] +_{\mathbb{Q}} \left[\frac{e}{f}\right]\right) $ for all $\displaystyle \left[\frac{a}{b}\right],\left[\frac{c}{d}\right] , \left[\frac{e}{f}\right]\in \mathbb{Q}.$
+\item[c)] {\bf Existence of an additive identity}
+
+$\displaystyle \left[\frac{a}{b}\right]+_{\mathbb{Q}}\left[\frac{0}{1}\right]=\left[\frac{a}{b}\right],$ for all $\displaystyle \left[\frac{a}{b}\right]\in\mathbb{Q}.$
+\item[d)] {\bf Existence of additive inverses}
+
+$\displaystyle \left[\frac{a}{b}\right]+_{\mathbb{Q}}\left[\frac{-a}{b}\right]=\left[\frac{0}{1}\right],$ for all $\displaystyle \left[\frac{a}{b}\right] \in \mathbb{Q}.$
+
+\item[e)] {\bf Commutativity of multiplication}
+
+$\displaystyle \left[\frac{a}{b}\right]\cdot_{\mathbb{Q}} \left[\frac{c}{d}\right] =\left[\frac{c}{d}\right]\cdot_{\mathbb{Q}} \left[\frac{a}{b}\right]$ for all $\displaystyle  \left[\frac{a}{b}\right],\left[\frac{c}{d}\right] \in\mathbb{Q}.$
+\item[f)] {\bf Associativity of multiplication}
+
+$\displaystyle \left(\left[\frac{a}{b}\right]\cdot_{\mathbb{Q}} \left[\frac{c}{d}\right] \right)\cdot_{\mathbb{Q}} \left[\frac{e}{f}\right] = 
+\left[\frac{a}{b}\right]\cdot_{\mathbb{Q}} \left( \left[\frac{c}{d}\right] \cdot_{\mathbb{Q}} \left[\frac{e}{f}\right]\right) $ for all $\displaystyle \left[\frac{a}{b}\right],\left[\frac{c}{d}\right] , \left[\frac{e}{f}\right]\in \mathbb{Q}.$
+
+\item[g)]  {\bf Existence of a multiplicative identity}
+
+    $\displaystyle \left[\frac{a}{b}\right] \cdot_{\mathbb{Q}}\left[\frac{1}{1}\right]=\left[\frac{a}{b}\right],$ for all $\displaystyle \left[\frac{a}{b}\right] \in\mathbb{Q}.$
+
+\item[h)] {\bf Existence of multiplicative inverses for nonzero elements}
+
+$\displaystyle \left[\frac{a}{b}\right] \cdot_{\mathbb{Q}}\left[\frac{b}{a}\right]=\left[\frac{1}{1}\right],$ for all $\displaystyle \left[\frac{a}{b}\right] \in\mathbb{Q}$ such that $\displaystyle\left[\frac{a}{b}\right]\neq \left[\frac{0}{1}\right].$ 
+\item[i)] {\bf Distributivity} 
+
+$\displaystyle \left[\frac{a}{b}\right]\cdot_{\mathbb{Q}} \left(\left[\frac{c}{d}\right]+_{\mathbb{Q}}\left[\frac{e}{f}\right]\right)=\left(\left[\frac{a}{b}\right]\cdot_{\mathbb{Q}} \left[\frac{c}{d}\right]\right) +_{\mathbb{Q}} \left( \left[\frac{a}{b}\right]\cdot_{\mathbb{Q}} \left[\frac{e}{f}\right]\right),$ for all $\displaystyle \left[\frac{a}{b}\right],\left[\frac{c}{d}\right], \left[\frac{e}{f}\right] \in\mathbb{Q}.$  
+\end{enumerate}    
+\end{theorem}
+\noindent\begin{proof} 
+    \item
+\begin{enumerate}[label=(\alph*)]
+    \item \textbf{Commutativity of addition}:
+    By Def 2.7, we have that:
+    \begin{align*}
+    \left[\frac{a}{b}\right]+_{\mathbb{Q}} \left[\frac{c}{d}\right] = \left[\frac{ad + bc}{bd}\right] \text{and}
+    \left[\frac{c}{d}\right]+_{\mathbb{Q}} \left[\frac{a}{b}\right] = \left[\frac{cb + da}{db}\right].
+    \end{align*}
+    Since addition and multiplication are commutative in $\mathbb{Z}$, we have $ad + bc = cb + da$, and $bd = db$. \\
+    Hence,
+    \begin{align*}
+    \left[\frac{ad + bc}{bd}\right] = \left[\frac{cb + da}{db}\right].
+    \end{align*}
+    Thus addition in $\mathbb{Q}$ is commutative.
+    \item \textbf{Associativity of addition}:
+    By Def 2.7, we have that:
+    \begin{align*}
+    \left(\left[\frac{a}{b}\right]+_{\mathbb{Q}}\left[\frac{c}{d}\right] \right)+_{\mathbb{Q}}\left[\frac{e}{f}\right] &= \left[\frac{ad + bc}{bd}\right] +_{\mathbb{Q}} \left[\frac{e}{f}\right] = \left[\frac{(ad + bc)f + e(bd)}{(bd)f}\right] \text{ and} \\
+    \left[\frac{a}{b}\right]+_{\mathbb{Q}}\left( \left[\frac{c}{d}\right] +_{\mathbb{Q}} \left[\frac{e}{f       }\right]\right) &= \left[\frac{a}{b}\right] +_{\mathbb{Q}} \left[\frac{cf + de}{df}\right] = \left[\frac{a(df) + b(cf + de)}{b(df)}\right].
+    \end{align*}
+    Expanding both numerators, we have:
+    \begin{align*}
+    (ad + bc)f + e(bd) &= adf + bcf + ebd \text{ and} \\
+    a(df) + b(cf + de) &= adf + bcf + ebd.
+    \end{align*}
+    Since both numerators and denominators are equal, we have:
+    \begin{align*}
+    \left[\frac{(ad + bc)f + e(bd)}{(bd)f}\right] = \left[\frac{a(df) + b(cf + de)}{b(df)}\right].
+    \end{align*}
+    Thus addition in $\mathbb{Q}$ is associative.
+    \item \textbf{Existence of an additive identity}:
+    By Def 2.7, we have that:
+    \begin{align*}
+    \left[\frac{a}{b}\right]+_{\mathbb{Q}}\left[\frac{0}{1}\right] = \left[\frac{a\cdot 1 + 0 \cdot b}{b \cdot 1}\right].
+    \end{align*}
+    By the multiplicative and additive identities in $\mathbb{Z}$, we have $a \cdot 1 = a$ and $0 \cdot b = 0$. Thus,
+    \begin{align*}
+    \left[\frac{a\cdot 1 + 0 \cdot b}{b \cdot 1}\right] = \left[\frac{a + 0}{b}\right] = \left[\frac{a}{b}\right].
+    \end{align*}
+    Therefore, $\left[\frac{0}{1}\right]$ is the additive identity in $\mathbb{Q}$.
+    \item \textbf{Existence of additive inverses}:
+    By Def 2.7, we have that:
+    \begin{align*}
+    \left[\frac{a}{b}\right]+_{\mathbb{Q}}\left[\frac{-a}{b}\right] = \left[\frac{a \cdot b + (-a) \cdot b}{b \cdot b}\right].
+    \end{align*}
+    By the distributive property in $\mathbb{Z}$, we have $a \cdot b + (-a) \cdot b = (a + -a) \cdot b = 0 \cdot b = 0$. Thus,
+    \begin{align*}
+    \left[\frac{a \cdot b + (-a) \cdot b}{b \cdot b}\right] = \left[\frac{0}{b^2}\right].
+    \end{align*}    
+    We must prove that $\left[\frac{0}{b^2}\right] = \left[\frac{0}{1}\right]$.
+    By Exercise 2.6, it suffices to show that:
+    \begin{align*}
+    0 \cdot 1 = 0 \cdot b^2.
+    \end{align*}
+    Since both sides equal 0, we have:
+    \begin{align*}
+    \left[\frac{0}{b^2}\right] = \left[\frac{0}{1}\right].
+    \end{align*}
+    Thus, $\left[\frac{-a}{b}\right]$ is the additive inverse of $\left[\frac{a}{b}\right]$ in $\mathbb{Q}$
+    \item \textbf{Commutativity of multiplication}:
+    By Def 2.7, we have that:
+    \begin{align*}
+    \left[\frac{a}{b}\right]\cdot_{\mathbb{Q}} \left[\frac{c}{d}\right] = \left[\frac{ac}{bd}\right] \text{ and}
+    \left[\frac{c}{d}\right]\cdot_{\mathbb{Q}} \left[\frac{a}{b}\right] = \left[\frac{ca}{db}\right].
+    \end{align*}
+    Since multiplication is commutative in $\mathbb{Z}$, we have $ac = ca$, and $bd = db$. \\
+    Hence,
+    \begin{align*}
+    \left[\frac{ac}{bd}\right] = \left[\frac{ca}{db}\right].
+    \end{align*}
+    Thus multiplication in $\mathbb{Q}$ is commutative.
+    \item \textbf{Associativity of multiplication}:
+    By Def 2.7, we have that:
+    \begin{align*}
+    \left(\left[\frac{a}{b}\right]\cdot_{\mathbb{Q}} \left[\frac{c}{d}\right] \right)\cdot_{\mathbb{Q}} \left[\frac{e}{f}\right] &= \left[\frac{ac}{bd}\right] \cdot_{\mathbb{Q}} \left[\frac{e}{f}\right] = \left[\frac{(ac)f}{(bd)f}\right] \text{ and} \\
+    \left[\frac{a}{b}\right]\cdot_{\mathbb{Q}} \left( \left[\frac{c}{d}\right] \cdot_{\mathbb{Q}} \left[\frac{e}{f}\right]\right) &= \left[\frac{a}{b}\right] \cdot_{\mathbb{Q}} \left[\frac{ce}{df}\right] = \left[\frac{a(ce)}{b(df)}\right].
+    \end{align*}
+    Since multiplication is associative in $\mathbb{Z}$, we have:
+    \begin{align*}
+    (ac)f = a(cf) \text{ and } (bd)f = b(df).
+    \end{align*}
+    Thus,
+    \begin{align*}
+    \left[\frac{(ac)f}{(bd)f}\right] = \left[\frac{a(ce)}{b(df)}\right].
+    \end{align*}
+    Therefore, multiplication in $\mathbb{Q}$ is associative.
+    \item \textbf{Existence of a multiplicative identity}:
+    By Def 2.7, we have that:
+    \begin{align*}
+    \left[\frac{a}{b}\right] \cdot_{\mathbb{Q}}\left[\frac{1}{1}\right] = \left[\frac{a \cdot 1}{b \cdot 1}\right].
+    \end{align*}
+    By the multiplicative identity in $\mathbb{Z}$, we have $a \cdot 1 = a$ and $b \cdot 1 = b$. Thus,
+    \begin{align*}
+    \left[\frac{a \cdot 1}{b \cdot 1}\right] = \left[\frac{a}{b}\right].
+    \end{align*}
+    Therefore, $\left[\frac{1}{1}\right]$ is the multiplicative identity in $\mathbb{Q}$.
+    \item \textbf{Existence of multiplicative inverses for nonzero elements}:
+    By Def 2.7, we have that:
+    \begin{align*}
+    \left[\frac{a}{b}\right] \cdot_{\mathbb{Q}}\left[\frac{b}{a}\right] = \left[\frac{a \cdot b}{b \cdot a}\right].
+    \end{align*}
+    By the commutative property of multiplication in $\mathbb{Z}$, we have $b \cdot a = a \cdot b$. Thus,
+    \begin{align*}
+    \left[\frac{a \cdot b}{b \cdot a}\right] = \left[\frac{a \cdot b}{a \cdot b}\right].
+    \end{align*}
+    Now we must show that $\left[\frac{a \cdot b}{a \cdot b}\right] = \left[\frac{1}{1}\right]$.
+    By Exercise 2.6, it suffices to show that:
+    \begin{align*}
+    (a \cdot b) \cdot 1 = 1 \cdot (a \cdot b).
+    \end{align*}
+    Since both sides are equal, we have:
+    \begin{align*}
+    \left[\frac{a \cdot b}{a \cdot b}\right] = \left[\frac{1}{1}\right].
+    \end{align*}
+    Therefore, $\left[\frac{b}{a}\right]$ is the multiplicative inverse of $\left[\frac{a}{b}\right]$ in $\mathbb{Q}$.
+    \item \textbf{Distributivity}:  
+    By Definition 2.7, we have:
+    \begin{align*}
+    \left[\frac{a}{b}\right]\cdot_{\mathbb{Q}} \left(\left[\frac{c}{d}\right]+_{\mathbb{Q}}\left[\frac{e}{f}\right]\right) 
+    &= \left[\frac{a}{b}\right] \cdot_{\mathbb{Q}} \left[\frac{cf + de}{df}\right] 
+    = \left[\frac{a(cf + de)}{bdf}\right],
+    \\
+    \left(\left[\frac{a}{b}\right]\cdot_{\mathbb{Q}} \left[\frac{c}{d}\right]\right) +_{\mathbb{Q}} \left( \left[\frac{a}{b}\right]\cdot_{\mathbb{Q}} \left[\frac{e}{f}\right]\right) 
+    &= \left[\frac{ac}{bd}\right] +_{\mathbb{Q}} \left[\frac{ae}{bf}\right] 
+    = \left[\frac{acbf + aebd}{bbdf}\right].
+    \end{align*}
+    So we must show that:
+    \begin{align*}
+    \left[\frac{a(cf + de)}{bdf}\right] = \left[\frac{acbf + aebd}{bbdf}\right].
+    \end{align*}
+  
+    Expanding the numerator on the left side, we have:
+    \begin{align*}
+    a(cf + de) = acf + ade.
+    \end{align*}
+    We can now multiply the left side by the multiplicative identity in $\mathbb{Q}$, $\left[\frac{b}{b}\right]$. Proving that $\left[\frac{b}{b}\right] = \left[\frac{1}{1}\right]$ follows trivially from Exercise 2.6. Thus, we have:
+    \begin{align*}
+    \left[\frac{a(cf + de)}{bdf}\right] \cdot \left[\frac{b}{b}\right] = \left[\frac{(acf + ade)b}{bbdf}\right] = \left[\frac{acbf + adeb}{bbdf}\right].
+    \end{align*}
+    Since multiplication is commutative in $\mathbb{Z}$, we have $adeb = aebd$. Thus,
+    \begin{align*}
+    \left[\frac{acbf + adeb}{bbdf}\right] = \left[\frac{acbf + aebd}{bbdf}\right].
+    \end{align*}
+    Therefore, distributivity holds in $\mathbb{Q}$.
+\end{enumerate}
+\end{proof}
+\begin{theorem}[2.10]
+
+$\mathbb{Q}$ is countable.
+\end{theorem}
+\begin{proof}
+Let $f: X \rightarrow \mathbb{Q}$ be defined by $f(a,b) = \left[\frac{a}{b}\right]$. By Def 2.5, every element in $\mathbb{Q}$ can be expressed as $\left[\frac{a}{b}\right]$ for some $(a,b) \in X$. Thus, $f$ is surjective. We must now show that
+$X$ is countable. Note that $X \subset \mathbb{Z} \times \mathbb{Z}$, because $\forall (a,b) \in X, (a,b) \in \mathbb{Z} \times \mathbb{Z}$. We can construct a function $g: \mathbb{Z} \times \mathbb{Z} \rightarrow \mathbb{N} \times \mathbb{N}$ which is a piecewise function defined by:
+\[
+g(a,b) =
+\begin{cases}
+(2a,\; 2b), & \text{if } a \ge 0,\; b \ge 0, \\[6pt]
+(2a,\; -2b - 1), & \text{if } a \ge 0,\; b < 0, \\[6pt]
+(-2a - 1,\; 2b), & \text{if } a < 0,\; b \ge 0, \\[6pt]
+(-2a - 1,\; -2b - 1), & \text{if } a < 0,\; b < 0.
+\end{cases}
+\]
+By Exercise 1.42, and Theorem 1.39, showing that this function is injective suffices to show that $\mathbb{Z} \times \mathbb{Z}$ is countable.
+We must now show that $g$ is injective for all cases: \\
+\textbf{Case 1:} \\ Let $(a_1,b_1), (a_2,b_2) \in \mathbb{Z} \times \mathbb{Z}$ such that $a_1, a_2 \ge 0$ and $b_1, b_2 \ge 0$. If $g(a_1,b_1) = g(a_2,b_2)$, then $(2a_1, 2b_1) = (2a_2, 2b_2)$. Thus, $2a_1 = 2a_2$ and $2b_1 = 2b_2$. Dividing both sides by 2 gives $a_1 = a_2$ and $b_1 = b_2$. Hence, $(a_1,b_1) = (a_2,b_2)$.\\
+\textbf{Case 2:} \\ Let $(a_1,b_1), (a_2,b_2) \in \mathbb{Z} \times \mathbb{Z}$ such that $a_1, a_2 \ge 0$ and $b_1, b_2 < 0$. If $g(a_1,b_1) = g(a_2,b_2)$, then $(2a_1, -2b_1 - 1) = (2a_2, -2b_2 - 1)$. Thus, $2a_1 = 2a_2$ and $-2b_1 - 1 = -2b_2 - 1$. Dividing both sides of the first equation by 2 gives $a_1 = a_2$. Adding 1 to both sides of the second equation and then dividing by -2 gives $b_1 = b_2$. Hence, $(a_1,b_1) = (a_2,b_2)$. \\
+\textbf{Case 3:} \\ Let $(a_1,b_1), (a_2,b_2) \in \mathbb{Z} \times \mathbb{Z}$ such that $a_1, a_2 < 0$ and $b_1, b_2 \ge 0$. If $g(a_1,b_1) = g(a_2,b_2)$, then $(-2a_1 - 1, 2b_1) = (-2a_2 - 1, 2b_2)$. Thus, $-2a_1 - 1 = -2a_2 - 1$ and $2b_1 = 2b_2$. Adding 1 to both sides of the first equation and then dividing by -2 gives $a_1 = a_2$. Dividing both sides of the second equation by 2 gives $b_1 = b_2$. Hence, $(a_1,b_1) = (a_2,b_2)$. \\
+\textbf{Case 4:} \\ Let $(a_1,b_1), (a_2,b_2) \in \mathbb{Z} \times \mathbb{Z}$ such that $a_1, a_2 < 0$ and $b_1, b_2 < 0$. If $g(a_1,b_1) = g(a_2,b_2)$, then $(-2a_1 - 1, -2b_1 - 1) = (-2a_2 - 1, -2b_2 - 1)$. Thus, $-2a_1 - 1 = -2a_2 - 1$ and $-2b_1 - 1 = -2b_2 - 1$. Adding 1 to both sides of the first equation and then dividing by -2 gives $a_1 = a_2$. Adding 1 to both sides of the second equation and then dividing by -2 gives $b_1 = b_2$. Hence, $(a_1,b_1) = (a_2,b_2)$. 
+\\[4pt]
+\noindent Since $g$ is injective in all cases, we conclude that $g$ is injective. Thus, $\mathbb{Z} \times \mathbb{Z}$ is countable. Since $X \subset \mathbb{Z} \times \mathbb{Z}$, by Corollary 1.40, $X$ is countable. Since there exists a surjective function from the countable set $X$ to $\mathbb{Q}$, by Corollary 1.41, we conclude that $\mathbb{Q}$ is countable.
+\end{proof}
+\end{document}

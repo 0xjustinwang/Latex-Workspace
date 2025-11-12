@@ -1,0 +1,127 @@
+\documentclass[11pt]{article}
+
+% ----------- Font Packages ------------
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+% ----------- Math Formatting ----------
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{dsfont}
+\usepackage[most]{tcolorbox}
+\tcbuselibrary{theorems}
+
+% Cross-referencing and hyperlinks
+\usepackage{hyperref}
+\usepackage{cleveref}
+
+% ----------- Layout and Spacing -------
+\usepackage[letterpaper, top=0.75in, bottom=0.75in, left=1in, right=1in, heightrounded]{geometry}
+\usepackage{setspace}
+\onehalfspacing
+
+% ----------- Misc Enhancements --------
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead[L]{Homework Three}
+
+\usepackage{bookmark}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor=blue,
+    citecolor=blue
+}
+
+\title{Algebra Homework: Exponents and the Order of Operations (PEMDAS)}
+\author{Name: \underline{\hspace{3cm}}}
+\date{Due: Nov 17}
+
+\begin{document}
+
+\maketitle
+
+% ---------------------- Foundational ----------------------
+\section*{Foundational Questions}
+
+\begin{itemize}
+    \item What does an exponent tell you to do? Give two examples using both positive and negative exponents.
+    \item What is the value of any nonzero number raised to the power of zero? Explain why this rule makes sense.
+    \item In the expression \(8 + 3 \times 2^2\), which operation do you do first? Why does the order of operations matter?
+    \item Write out what each letter in PEMDAS stands for, and explain the difference between multiplication/division and addition/subtraction in the order hierarchy.
+\end{itemize}
+
+% ---------------------- Computation ----------------------
+\section*{Exponent Rules and Order of Operations}
+
+Simplify each expression. Show every step in the correct order (PEMDAS).
+
+\begin{enumerate}[label=\textbf{(\arabic*)}, itemsep=1em]
+    \item \(2^4\)
+    \item \(5^0\)
+    \item \(3^{-2}\)
+    \item \(4^3 \times 4^2\)
+    \item \(\dfrac{8^6}{8^4}\)
+    \item \((2^3)^2\)
+    \item \((5 \times 10)^2\)
+    \item \(6^2 + 3 \times 2^3\)
+    \item \((7 + 3)^2 - 4^2\)
+    \item \(12 \div (3 \times 2)^2\)
+    \item \([2 + 3^2] \times (4 - 1)\)
+    \item \(5 + 2 \times (3 + 4)^2\)
+    \item \(\dfrac{(2^3 + 4)^2}{8}\)
+    \item \(6 - [3^2 - (2 + 1)]\)
+    \item \(\dfrac{4^3 - 2^4}{2^2}\)
+    \item \textbf{Challenge: } Simplify step by step:
+    \[
+        \dfrac{(3 + 2^3)^2 - (4^2 + 1)}{(2^2)^2}
+    \]
+\end{enumerate}
+
+% ---------------------- Word Problems ----------------------
+\section*{Word Problems and Applications}
+
+Show your work. Use order of operations carefully when translating the problem into math.
+
+\begin{enumerate}[label=\textbf{(\arabic*)}, itemsep=1.5em]
+    \item A square field has a side length of \(12\) meters.  
+    Write and compute the expression for its area using exponents.
+
+    \item A cube has side length \(5\) cm.  
+    Write an expression for its volume and evaluate.
+
+    \item An online video gets twice as many views each day as the day before.  
+    If it starts with \(1{,}000\) views, write an expression for the number of views after 4 days and find the result.
+
+    \item A scientist observes a bacteria colony that triples every 2 hours.  
+    Starting with \(200\) bacteria, how many are there after 6 hours? (Hint: use exponents.)
+
+    \item A store sells packs of batteries for \$4 each, plus a one-time fee of \$3 for shipping.  
+    Write an expression using parentheses that correctly gives the cost of buying 5 packs, and evaluate it.
+
+    \item \textbf{Challenge Problem}
+
+    A rocket’s height (in meters) after \(t\) seconds is modeled by:
+    \[
+        h(t) = 5t^2 + 10t + 25
+    \]
+    \begin{enumerate}[label=\textbf{(\alph*)}]
+        \item Find the rocket’s height after \(t = 4\) seconds.
+        \item What is the first term of the expression responsible for the rocket’s acceleration? Why?
+        \item If the rocket’s initial height doubles, how would you modify the equation? Write the new form.
+    \end{enumerate}
+\end{enumerate}
+
+% ---------------------- Extra Practice ----------------------
+\bigskip
+\noindent\textbf{Extra Practice (optional):} Simplify each of the following using PEMDAS:
+\begin{enumerate}[label=\textbf{(\alph*)}, itemsep=0.5em]
+    \item \(3^2 + 4^2\)
+    \item \(10 - 2 \times (3^2 + 1)\)
+    \item \((2^3 + 3^2) \div 5\)
+    \item \(2[(4 + 2)^2 - 3^2]\)
+\end{enumerate}
+
+\end{document}

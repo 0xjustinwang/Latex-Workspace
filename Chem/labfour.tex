@@ -1,0 +1,234 @@
+\documentclass[11pt]{article}
+% -------------------------------------------------
+% --------------- ENCODING & FONT ------------------
+% -------------------------------------------------
+\usepackage{stix2}
+\usepackage[T1]{fontenc}
+% -------------------------------------------------
+% ---------------- PAGE LAYOUT --------------------
+% -------------------------------------------------
+\usepackage[letterpaper, top=0.8in, bottom=0.8in, left=1in, right=1in]{geometry}
+\usepackage{setspace}
+\onehalfspacing % Comfortable for reports
+\usepackage{parskip} % No paragraph indent, space between paragraphs
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\textit{Lab 4: Determination of Oxygen Content in Air}}
+\fancyhead[R]{\textit{\thepage}}
+\renewcommand{\headrulewidth}{0.4pt}
+% -------------------------------------------------
+% ---------------- CHEMISTRY TOOLS ----------------
+% -------------------------------------------------
+\usepackage{siunitx} % For units and measurements
+\sisetup{
+ per-mode=symbol,
+ separate-uncertainty=true,
+ round-mode=places,
+ round-precision=3
+}
+\usepackage[version=4]{mhchem} % For chemical equations and reactions
+% Example: \ce{H2 + O2 -> H2O}
+% -------------------------------------------------
+% ---------------- MATH PACKAGES ------------------
+% -------------------------------------------------
+\usepackage{amsmath, amssymb, mathtools, bm}
+\usepackage{cancel} % For striking out terms
+\usepackage{physics} % Derivatives, vectors, etc.
+% -------------------------------------------------
+% ---------------- GRAPHICS & FIGURES -------------
+% -------------------------------------------------
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float} % Better figure placement
+% -------------------------------------------------
+% ----------------- TABLES ------------------------
+% -------------------------------------------------
+\usepackage{booktabs} % Beautiful tables
+\usepackage{multirow}
+\usepackage{array}
+% -------------------------------------------------
+% --------------- HYPERLINKS ----------------------
+% -------------------------------------------------
+\usepackage{hyperref}
+\usepackage{bookmark}
+\usepackage{cleveref}
+\hypersetup{
+ colorlinks=true,
+ linkcolor=blue!50!black,
+ urlcolor=blue!60!black,
+ citecolor=blue!50!black,
+ pdfauthor={Justin Wang},
+ pdftitle={Chemistry Lab Report},
+}
+% -------------------------------------------------
+% ----------------- DIAGRAMS ----------------------
+% -------------------------------------------------
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, calc, decorations.markings, positioning}
+% -------------------------------------------------
+% ----------- CUSTOM BOXED ENVIRONMENTS ----------
+% -------------------------------------------------
+\usepackage[table]{xcolor}
+% -------------------------------------------------
+% ----------------- ENUMERATIONS ------------------
+% -------------------------------------------------
+\usepackage{enumitem}
+\setlist{itemsep=4pt, topsep=4pt}
+% -------------------------------------------------
+% ----------------- TITLE FORMAT ------------------
+% -------------------------------------------------
+\usepackage{titlesec}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+% -------------------------------------------------
+% ------------------ DOCUMENT INFO ----------------
+% -------------------------------------------------
+\title{\textbf{Lab 4: Determination of Oxygen Content in Air}}
+\author{Justin Wang\\ University of Chicago \\ CHEM 11100}
+\date{11/10/2025}
+\begin{document}
+\maketitle
+
+\begin{center}
+    {\small Lab Partner: Charlotte Zelin} \\
+    {\small TA: Jordan Boysen}
+\end{center}
+
+\section*{Introduction}
+\hspace{2em}The purpose of this experiment was to calculate the percent composition of oxygen in air by measuring the volume of oxygen consumed when steel wool reacts with oxygen in a sealed graduated cylinder submerged in water. 
+Oxygen was discovered in 1774, by Antoine-Laurent Lavoisier. Nowadays, we know that Oxygen is essential for respiration in most living organisms and is a key component in combustion processes.
+Oxygen exists naturally in the following three forms: atomic oxygen (O), molecular oxygen (O$_2$), and ozone (O$_3$). Molecular oxygen is the most abundant form and constitutes
+20.6\% of air by volume. The percent composition of air is determined with the oxidation of iron in a controlled, moist, and slighly acidic enviroment. The controlled environment accelerates
+a rather slow reaction between iron and oxygen. When the oxygen reacts with iron, it forms iron oxide, which in turn reduces the volume of oxygen in the cylinder. The pressure then reduces inside the cylinder, and water gets sucked up the cylinder,
+which is directly proportional to the volume of oxygen consumed. By measuring the change in water level, the volume of oxygen consumed can be calculated, and thus the percent composition of oxygen in air can be determined.
+
+\section*{Experimental Procedure}
+The procedure followed the steps outlined in the lab manual.
+\newpage
+\section*{Data Analysis}
+\begin{table}[h!]
+\centering
+\begin{tabular}{lcc}
+\toprule
+\textbf{Quantity} & \textbf{Trial 1} & \textbf{Trial 2} \\
+\midrule
+Mass of steel wool (M$_{\text{sw}}$) & 0.75 g & 0.72 g \\
+Initial water level (h$_i$) & 13.0 mm & 12.5 mm \\
+Final water level (h$_f$) & 30.0 mm & 38.5 mm \\
+Radius of graduated cylinder (r) & 9.90 mm & 12.25 mm \\
+Height of graduated cylinder (H) & 126.5 mm & 128.5 mm \\
+\bottomrule
+\end{tabular}
+\caption{Measured data for two trials: mass of steel wool, initial and final water levels inside the graduated cylinder, and dimensions of the graduated cylinder.}
+\end{table}
+
+\subsection*{Sample Calculations}
+{\small\textit{Disclaimer: All values used in the sample calculations will be truncated to three significant figures for readibility. Actual calculations were done with full precision,
+and the final calculation of percent error will be reported with appropriate significant figures.}}
+
+Using data from Trial 1:
+\begin{enumerate}[label=\arabic*.]
+    \item Calculate the volume of air and steel wool in the graduated cylinder in the unit of mm$^3$:
+        \begin{align*}
+        V_{\text{a+sw}} &= \pi r^2(H - h_{i}) \\ 
+        &= \pi \cdot (9.90\text{ mm})^2 \cdot (126.5\text{ mm} - 13.0\text{ mm}) \\
+        &= 34900\text{ mm}^3
+        \end{align*}
+    \item Calculate the volume of steel wool by:
+        \begin{align*}
+        V_{\text{sw}} &= \frac{M_{\text{sw}}}{D_{\text{sw}}} \\
+        &= \frac{0.75\text{ g}}{7.87 \times 10^{-3} \:g/\text{mm}^3} \\
+        &= 95.3\text{ mm}^3
+        \end{align*}
+        where $D_{\text{sw}} = 7.87 \times 10^{-3} \: \frac{g}{\text{ mm}^3}$ is the density of steel wool.
+    \item Calculate the total initial volume of air in the graduated cylinder in units of mm$^3$:
+        \begin{align*}
+        V_{\text{a}} &= V_{\text{a+sw}} - V_{\text{sw}} \\
+        &= 34900\text{ mm}^3 - 95.3\text{ mm}^3 \\
+        &= 34800\text{ mm}^3
+        \end{align*}
+    \item Calculate the volume of Oxygen (O$_2$) consumed during the reaction in units of mm$^3$:
+        \begin{align*}
+        V_{\text{O}_2} &= \pi r^2 (h_{f} - h_{i}) \\
+        &= \pi \cdot (9.90\text{ mm})^2 \cdot (30.0\text{ mm} - 13.0\text{ mm}) \\
+        &= 5220\text{ mm}^3
+        \end{align*}
+    \item Calculate the percent of oxygen in air:
+       \begin{align*}
+        \% \text{O}_2 &= \left( \frac{V_{\text{O}_2}}{V_{\text{a}}} \right) \times 100\% \\
+        &= \left( \frac{5220\ \text{mm}^3}{34800\ \text{mm}^3} \right) \times 100\% \\
+        &= 15.0\%
+        \end{align*}
+\end{enumerate}
+\begin{table}[h!]
+\centering
+\begin{tabular}{lcccc}
+\toprule
+\textbf{Quantity} & \textbf{Trial 1} & \textbf{Trial 2} & \textbf{Average Composition} & \textbf{Percent Error} \\
+\midrule
+\% Composition of O$_2$ & 15\% & 22\% & 19\% & 9.1\% \\
+\bottomrule
+\end{tabular}
+\caption{Percent composition of oxygen (\%O$_2$) in each trial, and the average composition along with percent error compared to the accepted value of 20.6\%.}
+\end{table}
+
+\section*{Discussion}
+\hspace{2em}The average percent composition of oxygen in air from the two trials was calculated to be 19\%. We conclude that this is reasonably close to the accepted value of 20.6\%, with a percent error of 9.1\%. 
+Nonetheless, there were several possible sources of error that could have affected the accuracy of our results. First, we concluded that the reaction was finished when the water level stabilized after 30-40 minutes. 
+However, it is possible that the reaction was not fully complete, and some oxygen remained unreacted in the cylinder. This would lead to an underestimation of the oxygen content, which is apparent in Trial 1, as less oxygen would have been consumed than expected.
+Another potential source of error is the assumption that the steel wool density is uniform and equal to the density of steel. In reality, steel wool has a porous structure, which could lead to inaccuracies in calculating the volume of steel wool and thus the initial volume of air.
+To improve the accuracy of this experiment in the future, we could ensure that the reaction goes to completion by allowing more time for the reaction to finish. Additionally, this experiment could improve with a more precise calculation of the steel wool volume, perhaps by measuring it directly through water displacement as opposed to relying on density values. 
+\subsection*{Questions}
+\begin{enumerate}
+    \item Could the oxygen dissolved in water affect the results of this experiment significantly? \\
+    \textbf{A:} No, the oxygen dissolved in water would not significantly affect the results. For example, in Trial 1 the displacement of water throughout the experiment was 17.0 mm, which corresponds to a volume of:
+    \begin{align*}
+    V_{\text{displaced}} &= \pi r^2 (h_{f} - h_{i}) \\
+    &= \pi \cdot (9.90\text{ mm})^2 \cdot (30.0\text{ mm} - 13.0\text{ mm}) \\
+    &= 5220\text{ mm}^3 \\
+    \text{Solubility of water} &= 7 \times 10^{-6} \: \frac{g}{cm^3} \cdot \left(\frac{1 cm^3}{1000 mm^3}\right) = 7 \times 10^{-9} \: \frac{g}{mm^3} \\
+    \end{align*}
+    Given the solubility of oxygen in water at room temperature, the amount of oxygen dissolved in the displaced water volume would be approximately:
+    \begin{align*}
+    M_{\text{O}_2} &= 7 \times 10^{-9} \: \frac{g}{mm^3} \cdot 5220\text{ mm}^3 \cdot \frac{1}{\rho_{O_2}}\\
+    &= 25.6 \text{ mm}^3
+    \end{align*}
+    where $\rho_{O_2} = 1.429 \times 10^{-6} \frac{g}{mm^3}$ is the density of oxygen gas at room temperature. 
+    This volume is negligible compared to the total volume of oxygen consumed (5220 mm$^3$), thus the effect of dissolved oxygen in water can be ignored.
+    \item What part of this experiment contributes most significantly to the experimental error? \\
+    \textbf{A:} As discussed in the previous section, perhaps the most significant source of error is the assumption that the reaction goes to completion 
+    when the water level stabilizes after 30 or so minutes. The oxidation of iron is a slow process, and it is possible 
+    that some oxygen remains unreacted in the cylinder, leading to an underestimation of the oxygen content in air.
+    \item What is the catalyst employed in this experiment? \\
+    \textbf{A:} The catalyst employed in this experiment was the acetic acid solution which accelerated the oxidation reaction.
+    \item Which set of data is more reliable? \\
+    \textbf{A:} Doctor Who's data looks to be more reliable he has a higher amount of steel wool, which would mean it is not as likely to be a limiting reagent. 
+    If all the steel wool reacted completely, there might be some excess oxygen remaining in the graduated cylinder. Lt. Worf's data also has a significantly lower change in height,
+    which could indicate that the reaction did not go to completion.
+    \item Based on the chosen data, what is the oxygen content inside the cave? Is it comparable to the 20th century accepted value on Earth, 20.6\%? \\
+    \textbf{A:} Based on Doctor Who's data, the oxygen content inside the cave is calculated to be:
+    \begin{align*}
+    V_{\text{a+sw}} &= \pi r^2(H - h_{i}) \\ 
+    &= \pi \cdot (10.00\text{ mm})^2 \cdot (124.0\text{ mm} - 7.0\text{ mm}) \\
+    &= 36757\text{ mm}^3 \\
+    V_{\text{sw}} &= \frac{M_{\text{sw}}}{D_{\text{sw}}} \\
+    &= \frac{.86\text{ g}}{7.87 \times 10^{-3} \:g/\text{mm}^3} \\
+    &= 109.4\text{ mm}^3 \\
+    V_{\text{a}} &= V_{\text{a+sw}} - V_{\text{sw}} \\
+    &= 36757\text{ mm}^3 - 109.4\text{ mm}^3 \\
+    &= 36647\text{ mm}^3 \\
+    V_{\text{O}_2} &= \pi r^2 (h_{f} - h_{i}) \\
+    &= \pi \cdot (10.00\text{ mm})^2 \cdot (33.5\text{ mm} - 7.0\text{ mm}) \\
+    &= 8325\text{ mm}^3 \\
+    \% \text{O}_2 &= \left( \frac{V_{\text{O}_2}}{V_{\text{a}}} \right) \times 100\% \\
+    &= \left( \frac{8325\ \text{mm}^3}{36647\ \text{mm}^3} \right) \times 100\% \\
+    &= 23\%
+    \end{align*}
+    The percent composition of oxygen is calculated to be 23\% given Dr. Who's data. This is comparable to the current accepted value of 20.6\%, with a percent error of approximately 11.7\%.
+\end{enumerate}
+
+
+
+\end{document}
