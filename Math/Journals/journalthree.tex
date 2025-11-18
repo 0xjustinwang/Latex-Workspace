@@ -94,7 +94,37 @@
  attach boxed title to top left={yshift=-2mm,xshift=5mm},
  boxed title style={colframe=violet!60!black, colback=white}}{prop}
 
+\newtcolorbox{lemma}[1][]
+{colback=white!97!orange!10,
+ colframe=orange!70!black,
+ fonttitle=\bfseries,
+ coltitle=black,
+ boxrule=0.5pt,
+ arc=4pt,
+ top=6pt,
+ bottom=6pt,
+ left=6pt,
+ right=6pt,
+ enhanced,
+ attach boxed title to top left={yshift=-2mm,xshift=5mm},
+ boxed title style={colframe=orange!70!black, colback=white},
+ title=Lemma #1}
 
+\newtcolorbox{corollary}[1][]
+{colback=white!97!violet!10,
+ colframe=violet!70!black,
+ fonttitle=\bfseries,
+ coltitle=black,
+ boxrule=0.5pt,
+ arc=4pt,
+ top=6pt,
+ bottom=6pt,
+ left=6pt,
+ right=6pt,
+ enhanced,
+ attach boxed title to top left={yshift=-2mm,xshift=5mm},
+ boxed title style={colframe=violet!70!black, colback=white},
+ title=Corollary #1}
 
 % -------------------------- Document ---------------------------
 \title{MATH 16110: Journal Three}
@@ -104,6 +134,7 @@
 
 \maketitle 
 
+\textit{Disclaimer: For Script 3, I worked on the problems along with Beren Tur and Kaden Wang (For Geva's group work experiment), so some proofs may be exactly the same as theirs. }
 \begin{theorem}[1.38]
 Every subset of $\mathbb{N}$ is countable.
 \end{theorem}
@@ -477,4 +508,380 @@ We must now show that $g$ is injective for all cases: \\
 \\[4pt]
 \noindent Since $g$ is injective in all cases, we conclude that $g$ is injective. Thus, $\mathbb{Z} \times \mathbb{Z}$ is countable. Since $X \subset \mathbb{Z} \times \mathbb{Z}$, by Corollary 1.40, $X$ is countable. Since there exists a surjective function from the countable set $X$ to $\mathbb{Q}$, by Corollary 1.41, we conclude that $\mathbb{Q}$ is countable.
 \end{proof}
+
+\begin{lemma}[3.4]
+If $A$ is a nonempty, finite subset of a continuum $C$, then $A$ has a first and last point
+\end{lemma}
+\begin{proof}
+We want to prove that for any set $A \subset C$, which is finite and nonempty, there exists a first and last point in $A$.
+We will prove this by induction on the number of elements in $A$, denoted by $|A| = n$. \\
+\textbf{Base Case} $|A| = 1, A = \{x\}$, for some $x \in C$. By Def 3.3, $x$ is the first point because for all $a \in A$, $a = x$, similarly $x$ is the last point. Thus, the base case holds. \\
+\textbf{Inductive Step} Assume that for $A\subset C, $with $|A| = k$, where $k$ is a natural number, then $A$ has a first and last point. We want to show that for $A' \subset C,$ with $|A'| = k+1$, then $A'$ has a first and last point: \\
+Suppose $|A'| = k+1$. Let $x \in A'$, and let $A = A' \setminus \{x\}$. Then $|A| = k$, so by the inductive hypothesis, $A$ has a first point $a_{\text{min}}$ and a last point $a_{\text{max}}$. Since $A'$ and $A$ are subsets of the continuum $C$, they have an ordering $<$ by Axiom 3.2. Recall that $x \in A'$, and $x \notin A$. The are three cases to consider:
+\begin{itemize}
+    \item Case 1: $x < a_{\text{min}}$. Then $x$ is the first point of $A'$, and $a_{\text{max}}$ is the last point of $A'$.
+    \item Case 2: $x > a_{\text{max}}$. Then $a_{\text{min}}$ is the first point of $A'$, and $x$ is the last point of $A'$.
+    \item Case 3: $a_{\text{min}} < x < a_{\text{max}}$. Then $a_{\text{min}}$ is the first point of $A'$, and $a_{\text{max}}$ is the last point of $A'$.
+\end{itemize}
+Thus in all cases, $A'$ has a first and last point. By PMI, we conclude that for any nonempty, finite subset $A$ of a continuum $C$, $A$ has a first and last point.
+\end{proof}
+
+\begin{theorem}[3.5] Suppose that $A$ is a set of $n$ distinct points in a continuum $C$, or, in other words, $A \subset C$ has cardinality $n$.  Then symbols $a_1, \dotsc, a_n$ may be assigned to each point of $A$ so that $a_1 < a_2 < \dotsm < a_n$, i.e. $a_i < a_{i + 1}$ for $1 \leq i \leq n - 1$.
+\end{theorem}
+\begin{proof}
+We want to prove that for any set $A \subset C$, with $|A| = n$, then we can label the points in $A$ such that $a_i < a_{i+1}$ for $1 \leq i \leq n-1$. 
+We will prove this by induction on the number of elements in $A$, denoted by $|A| = n$. \\
+\textbf{Base Case} $|A| = 1, A = \{x\}$, for some $x \in C$. We can label the only point in $A$ as $a_1 = x$. Since there is only one point, there exists no $i$ such that $1 \leq i \leq n-1$. Thus, the base case holds vacuously. \\
+\textbf{Inductive Step} Assume that for $A\subset C, $with $|A| = k$, then we can label the points in $A$ such that $a_i < a_{i+1}$ for $1 \leq i \leq n-1$. We want to show that for $A' \subset C,$ with $|A'| = k+1$, then we can label the points in $A'$ such that $a_i < a_{i+1}$ for $1 \leq i \leq k$: \\
+Suppose $|A'| = k+1$. Recall that from Lemma 3.4, that any nonempty subset of a continuum $C$ has a last point. Let $a_{k+1}$ be the last point in $A'$. Let $A = A' \setminus \{a_k{+1}\}$. Then $|A| = k$, so by the inductive hypothesis, we can label the points in $A$ such that $a_i < a_{i+1}$ for $1 \leq i \leq k-1$. Since $a_{k+1}$ is the last point in $A'$, for all $a_i \in A$, we have $a_i < a_{k+1}$. Thus, we have labeled all points in $A'$ such that $a_i < a_{i+1}$ for $1 \leq i \leq k$. By PMI, we conclude that for any set $A$ of $n$ distinct points in a continuum $C$, we can label the points in $A$ such that $a_i < a_{i+1}$ for $1 \leq i \leq n-1$.
+\end{proof}
+
+\begin{corollary}[3.7]
+ Of three distinct points in a continuum, one must be between the other two.
+\end{corollary}
+\begin{proof}
+Let $A$ be a set of three distinct points in a continuum $C$. Without loss of generality, by Theorem 3.5, we can label the points in $A$ such that $a_1 < a_2 < a_3$. By Def 3.6, since $a_1 < a_2$ and $a_2 < a_3$, we have that $a_2$ is between $a_1$ and $a_3$. Thus, of three distinct points in a continuum, one must be between the other two.
+\end{proof}
+\textbf{Exercise 3.8}
+\begin{enumerate}
+
+\item[a)]We define a relation $<$ on $\mathbb{Z}$ by $m<n$ if $n=m+c$ for some $c\in \mathbb{N}.$  Show that,
+$\mathbb{Z},$ with the ordering $<,$ satisfies Axioms 1-3. 
+\begin{proof}
+We want to show that $\mathbb{Z}$ with the ordering $<$ satisfies Axioms 1-3. \\ 
+\textbf{Axiom 1:} The integer $7 \in \mathbb{Z}$, thus $\mathbb{Z}$ is nonempty, and satisfies Axiom 1.\\
+\textbf{Axiom 2:} We will show that $\mathbb{Z}$ has an ordering $<$ that satisfies the transitivity and trichotomy properties:
+    \begin{itemize}
+        \item\textit{Tricohotomy} says that $\forall m, n \in \mathbb{Z}$, exactly one of the following holds: $m<n, m>n, m=n$. Let $m, n \in \mathbb{Z}, c \in \mathbb{N}$. There are two cases to consider:
+        \begin{itemize}
+            \item Case 1: $|m=n| = 0$. Then $m=n$ and the trichotomy is satisfied.
+            \item Case 2: $|m-n| \neq 0$. So $|m-n| = c$. Then there are exactly two sub-cases to consider. Either $m-n = c$ or $m-n = -c$. If it is the former case, then $n = m + c$, so $m < n$ by the ordering. If it is the latter case, then $m = n + c$, so $m > n$ by the ordering. Thus, in this case, either $m < n$ or $m > n$. 
+            The trichotomy is satisfied in both cases.
+        \end{itemize}
+        \item\textit{Transitivity} says that $\forall m, n, p \in \mathbb{Z}$, if $m < n$ and $n < p$, then $m < p$. Let $m, n, p \in \mathbb{Z}, c_1, c_2 \in \mathbb{N}$. If $m < n$ and $n < p$, then by the ordering, $n = m + c_1$ and $p = n + c_2$. Substituting for $n$ in the second equation yields $p = (m + c_1) + c_2 = m + (c_1 + c_2)$. Let $c_3 = c_1 + c_2$. Since the natural numbers are closed under addition, $c_3 \in \mathbb{N}$. Thus, we have $p = m + c_3$, so by the ordering, $m < p$. Therefore, transitivity holds. 
+    \end{itemize}
+Thus, $\mathbb{Z}$ with the ordering $<$ satisfies Axiom 2. \\
+\textbf{Axiom 3:} We will show that $\mathbb{Z}$ with the ordering $<$ has no first or last point, and we will prove this by contradiction.\\
+\textit{No last point:} Suppose that k is the last point of $\mathbb{Z}$. Take $1 \in \mathbb{N}$. Then by the ordering, $k + 1 \in \mathbb{Z}$ and $k < k + 1$. This contradicts our assumption that $k$ is the last point of $\mathbb{Z}$. Thus, $\mathbb{Z}$ has no last point. \\
+\textit{No first point:} Suppose that k is the first point of $\mathbb{Z}$. Take $1 \in \mathbb{N}$. Then by the ordering, $k - 1 \in \mathbb{Z}$ and $k - 1 < k$. This contradicts our assumption that $k$ is the first point of $\mathbb{Z}$. Thus, $\mathbb{Z}$ has no first point.
+
+Since we have show that $\mathbb{Z}$ with the ordering $<$ satisfies Axioms 1-3, we conclude the proof.
+\end{proof}
+
+\item[b)] Show that, for any $p=\left[\frac{a}{b}\right]\in\mathbb{Q},$ there is some $(a_1,b_1)\in p$ with $0<b_1.$
+\\Let $p = \left[\frac{a}{b}\right]$ be any rational number, where $a, b \in \mathbb{Z}$ and $b \neq 0$. We want to find a representative $(a_1, b_1) \in p$ such that $b_1 > 0$. We consider the two cases for the sign of the denominator $b$:
+    
+    \begin{itemize}
+        \item Case 1: $b > 0$.
+        We simply choose the representative $(a_1, b_1) = (a, b)$. In this case, $b_1 = b > 0$.
+        
+        \item Case 2: $b < 0$.
+        Since $b$ is negative, $k = -1$ is a non-zero integer.
+        
+        We know that multiplying the numerator and denominator by the same non-zero integer results in an equivalent representative that is still in the class $p$:
+        \[
+        \left[\frac{a}{b}\right] = \left[\frac{k \cdot a}{k \cdot b}\right] = \left[\frac{-1 \cdot a}{-1 \cdot b}\right] = \left[\frac{-a}{-b}\right]
+        \]
+        We choose the new representative $(a_1, b_1) = (-a, -b)$.
+        
+        Since $b < 0$, its additive inverse, $-b$, must satisfy $-b > 0$.
+        Therefore, $b_1 = -b > 0$.
+    \end{itemize}
+    In both possible cases, we have found a representative $(a_1, b_1) \in p$ such that $b_1 > 0$.
+
+\item[c)] We define a relation $<_{\mathbb{Q}}$ on $\mathbb{Q}$ as follows. 
+\\For $p,q\in\mathbb{Q},$ let $(a_1,b_1)\in p$ be such that $0<b_1,$ and let $(a_2,b_2)\in q$ be such that $0<b_2.$  Then we define $p<_{\mathbb{Q}} q$ if $a_1b_2<a_2 b_1.$ 
+Show that $<_{\mathbb{Q}}$ is a well-defined relation on $\mathbb{Q}.$
+\\We must show that the definition of $p <_{\mathbb{Q}} q$ does not depend on the choice of representatives for $p$ and $q$.
+    
+    Let $p = \left[\frac{a_1}{b_1}\right] = \left[\frac{a'_1}{b'_1}\right]$ with $b_1 > 0$ and $b'_1 > 0$.
+    
+    Let $q = \left[\frac{a_2}{b_2}\right] = \left[\frac{a'_2}{b'_2}\right]$ with $b_2 > 0$ and $b'_2 > 0$.
+    
+    From the definition of equivalence classes, we know:
+    \begin{align*}
+        a_1 b'_1 = a'_1 b_1 \\
+        a_2 b'_2 = a'_2 b_2 
+    \end{align*}
+    
+    We must show that $a_1 b_2 < a_2 b_1$ holds if and only if $a'_1 b'_2 < a'_2 b'_1$.
+    
+    We will assume $a_1 b_2 < a_2 b_1$ and prove that $a'_1 b'_2 < a'_2 b'_1$.
+    
+    \noindent
+    Our assumption is:
+    \[
+    a_1 b_2 < a_2 b_1
+    \]
+    Since $b'_1 > 0$ and $b'_2 > 0$, their product $b'_1 b'_2$ is also positive. We can multiply our assumption by this positive number without changing the direction of the inequality:
+    \[
+    (a_1 b_2) (b'_1 b'_2) < (a_2 b_1) (b'_1 b'_2)
+    \]
+    Rearranging the terms on both sides:
+    \[
+    (a_1 b'_1) (b_2 b'_2) < (a_2 b'_2) (b_1 b'_1)
+    \]
+    Now, we substitute using our known equivalences
+    \begin{itemize}
+        \item Replace $(a_1 b'_1)$ with $(a'_1 b_1)$
+        \item Replace $(a_2 b'_2)$ with $(a'_2 b_2)$
+    \end{itemize}
+    This gives us:
+    \[
+    (a'_1 b_1) (b_2 b'_2) < (a'_2 b_2) (b_1 b'_1)
+    \]
+    We can simplify and re-group this as:
+    \[
+    (a'_1 b'_2) (b_1 b_2) < (a'_2 b'_1) (b_1 b_2)
+    \]
+    Since $b_1 > 0$ and $b_2 > 0$, their product $b_1 b_2$ is positive. We can divide the entire inequality by $b_1 b_2$:
+    \[
+    a'_1 b'_2 < a'_2 b'_1
+    \]
+    This is the exact definition for $\left[\frac{a'_1}{b'_1}\right] <_{\mathbb{Q}} \left[\frac{a'_2}{b'_2}\right]$.
+    
+    \noindent
+    We have successfully shown that if $p <_{\mathbb{Q}} q$ is true for one set of representatives, it is true for any other set of representatives (with positive denominators). Therefore, the relation $<_{\mathbb{Q}}$ is well-defined.
+\item[d)] Show that $\mathbb{Q},$ with the ordering $<_{\mathbb{Q}},$ satisfies Axioms 1-3.
+\\Axiom 1) $\left[\frac{1}{2}\right] \in \mathbb{Q}$, $\mathbb{Q}$ not empty.
+
+Axiom 2) Trichotomy
+
+$\forall \left[\frac{a_1}{b_1}\right], \left[\frac{a_2}{b_2}\right] \in \mathbb{Q}, b_1, b_2 > 0$
+
+because $a_1 b_2$ and $a_2 b_1$ are integers
+For any two rational numbers $\left[\frac{a}{b}\right]$ and $\left[\frac{c}{d}\right]$ (with $b,d \neq 0$), exactly one of the following holds:
+\[
+\left[\frac{a}{b}\right] = \left[\frac{c}{d}\right], \qquad
+\left[\frac{a}{b}\right] < \left[\frac{c}{d}\right], \qquad
+\left[\frac{a}{b}\right] > \left[\frac{c}{d}\right].
+\]
+
+Transitivity
+
+We show that if
+\[
+\left[\frac{a_1}{b_1}\right] < \left[\frac{a_2}{b_2}\right]
+\quad\text{and}\quad
+\left[\frac{a_2}{b_2}\right] < \left[\frac{a_3}{b_3}\right],
+\]
+then
+\[
+\left[\frac{a_1}{b_1}\right] < \left[\frac{a_3}{b_3}\right],
+\]
+where \(b_1,b_2,b_3>0\).
+
+By definition of the order on equivalence classes,
+\[
+\left[\frac{a_1}{b_1}\right] < \left[\frac{a_2}{b_2}\right]
+\iff a_1 b_2 < a_2 b_1,
+\qquad
+\left[\frac{a_2}{b_2}\right] < \left[\frac{a_3}{b_3}\right]
+\iff a_2 b_3 < a_3 b_2.
+\]
+
+Multiplying the first inequality by \(b_3>0\) and the second by \(b_1>0\) gives
+\begin{align*}
+a_1 b_2 b_3 &< a_2 b_1 b_3,\\[4pt]
+a_2 b_3 b_1 &< a_3 b_2 b_1.
+\end{align*}
+Since \(a_2 b_1 b_3 = a_2 b_3 b_1\), we may concatenate the two inequalities to obtain
+\[
+a_1 b_2 b_3 < a_2 b_1 b_3 = a_2 b_3 b_1 < a_3 b_2 b_1.
+\]
+By transitivity of the order on \(\mathbb{Z}\),
+\[
+a_1 b_2 b_3 < a_3 b_2 b_1.
+\]
+Dividing both sides by \(b_2>0\) yields
+\[
+a_1 b_3 < a_3 b_1,
+\]
+which is exactly
+\[
+\left[\frac{a_1}{b_1}\right] < \left[\frac{a_3}{b_3}\right].
+\]
+Thus the order on \(\mathbb{Q}\) is transitive.
+\[
+\boxed{%
+\left[\frac{a_1}{b_1}\right] < \left[\frac{a_2}{b_2}\right]
+\ \text{and}\ 
+\left[\frac{a_2}{b_2}\right] < \left[\frac{a_3}{b_3}\right]
+\ \Longrightarrow\
+\left[\frac{a_1}{b_1}\right] < \left[\frac{a_3}{b_3}\right].
+}
+\]
+Axiom 3)
+\\We will prove this by contradiction, showing that $\mathbb{Q}$ cannot have a first point (a smallest element). The proof that it has no last point (a largest element) is symmetric.
+\\
+\\Assume by Contradiction: Suppose $p = \left[\frac{a}{b}\right]$ (with $b > 0$) is the first point (the smallest element) in $\mathbb{Q}$. This means that for all $q \in \mathbb{Q}$, either $p <_{\mathbb{Q}} q$ or $p = q$.
+        
+        Construct a Smaller Element: We need to construct a rational number $p'$ that is smaller than $p$, contradicting our assumption.
+        
+        Since $b$ is a positive integer, $b+1$ is also a positive integer. We define a new rational number $p'$ as:
+        \[
+        p' = \left[\frac{a}{b+1}\right]
+        \]
+        
+        Compare $p'$ and $p$: We compare $p = \left[\frac{a}{b}\right]$ and $p' = \left[\frac{a}{b+1}\right]$ using the definition of the order relation: $p' <_{\mathbb{Q}} p \iff a(b) < a(b+1)$.
+        
+        \begin{itemize}
+            \item Case A: $a > 0$ (Positive rational number $p$)
+            Since $b > 0$, we know $b < b+1$.
+            Multiplying by the positive integer $a$ gives: $ab < a(b+1)$.
+            By the definition of the order, $p' <_{\mathbb{Q}} p$. This contradicts the assumption that $p$ was the first point.
+
+            \item Case B: $a = 0$ (The number zero $p=0$)
+            $p = \left[\frac{0}{b}\right] = 0$. In this case, $p' = \left[\frac{0}{b+1}\right] = 0$. So, $p' = p$, which is not a contradiction. We must try a different element.
+            
+            Instead, consider $p'' = \left[\frac{-1}{1}\right] = -1$.
+            We compare $p=0$ and $p''=-1$: $p'' <_{\mathbb{Q}} p \iff -1(1) < 0(1) \iff -1 < 0$. This is true.
+            Since $-1 < 0$, $0$ cannot be the first point.
+            
+            \item Case C: $a < 0$ (Negative rational number $p$)
+            Let's use the element $p' = p - \left[\frac{1}{b}\right]$. Wait, let's use the simplification from the blackboard:
+            
+            Let $p' = \left[\frac{a-1}{b}\right]$. We compare $p' = \left[\frac{a-1}{b}\right]$ and $p = \left[\frac{a}{b}\right]$.
+            \[
+            p' <_{\mathbb{Q}} p \iff (a-1)b < a b
+            \]
+            Expanding the left side:
+            \[
+            ab - b < ab
+            \]
+            Subtracting $ab$ from both sides:
+            \[
+            -b < 0
+            \]
+            Since we established $b > 0$, it must be true that $-b < 0$.
+            Thus, $p' = \left[\frac{a-1}{b}\right]$ is strictly less than $p = \left[\frac{a}{b}\right]$. This contradicts the assumption that $p$ was the first point.
+        \end{itemize}
+        
+        \item Conclusion for First Point: Since the existence of a smallest element $p$ leads to a contradiction in all cases, $\mathbb{Q}$ has no first point.
+        
+        \item Conclusion for Last Point: A symmetric argument can be used to show $\mathbb{Q}$ has no last point. If $p$ were the last point, we could construct a larger element $p'' = \left[\frac{a+1}{b}\right]$, leading to a contradiction.
+\end{enumerate}
+\end{exercise}
+
+\begin{definition} If $a,b\in C$ and $a < b$, then the set of points between $a$ and $b$ is called a \emph{region}, denoted by $\_{ab}$.  
+\end{definition}
+
+\begin{warning}  One often sees the notation $(a, b)$ for regions.  We will reserve the notation $(a, b)$ for ordered pairs in a product $A \times B$.  These are very different things.  
+\end{warning}
+
+\begin{theorem} If $x$ is a point of a continuum $C$, then there exists a region $\_{ab}$ such that $x \in \_{ab}$.
+\\ I want to prove, if $x\in C$, then there exists a region $\underline{ab}$ such that $x\in \underline{ab}$.
+\\Let $x\in C$. By axiom 3, there exists $a, b\in C$ such that $a < x$ and $ x < b$. By transitivity, if $a < x$ and $x < b$, then $a < x < b$, $a < b$. By definition 3.9, we have a region $\underline{ab}=\{y\in C| a<y<b\}$. By definition of $\underline{ab}$, it is known that $a<x<b$. Therefore $x\in \underline{ab}$.
+\end{theorem}
+
+We now come to one of the most important definitions of this course:
+
+\begin{definition}
+Let $A$ be a subset of a continuum $C$.  A point $p$ of $C$ is called a \emph{limit point} of $A$ if every region $R$ containing $p$ has nonempty intersection with $A \setminus \{p\}$.  Explicitly, this means:
+\[
+\text{for every region $R$ with $p \in R$, we have $R \cap (A \setminus \{p \}) \neq \emptyset$.}
+\]
+\end{definition}
+
+Notice that we do not require that a limit point $p$ of $A$ be an element of $A$. We will use the notation $LP(A)$ to denote the set of limit points of $A.$ 
+
+\begin{theorem} If $A \subset B$, then $LP(A)\subset LP(B).$
+\\Let $p\in LP(A)$, then for all R with $p\in R$, $R\cap (A\setminus \{p\})\neq \emptyset$. Because $A\subset B$, then $A\setminus \{p\} \subset B\setminus \{p\}$, and then for all R with $p\in R$, $R \cap (A \setminus \{p \})\subset R \cap (B \setminus \{p \})$. We know that a subset of $R \cap (B \setminus \{p \})$, for all R with $p\in R$, is not empty which implies for all R with $p\in R$, $ R \cap (B \setminus \{p \}) \neq \emptyset$. Therefore by definition 1.32, $LP(A)\subset LP(B)$.
+\end{theorem}
+
+\begin{definition} If $\_{ab}$ is a region in a continuum $C$, then $C \setminus (\{a\} \cup \_{ab} \cup \{b\})$ is called the \emph{exterior} of $\_{ab}$ and is denoted by $\ext\_{ab}$.
+\end{definition}
+
+\begin{lemma} If $\_{ab}$ is a region in a continuum $C,$ then$$\ext\_{ab}=\{x\in C\mid x<a\}\cup\{x\in C\mid b<x\}.$$
+    The exterior is defined as:
+    \[
+    \ext\_{ab} = C \setminus (\{a\} \cup \_{ab}\cup \{b\})
+    \]
+    We need to show that $C \setminus (\{a\} \cup \_{ab}\cup \{b\}) = \{x \in C \mid x < a\} \cup \{x \in C \mid b < x\}$.
+    
+    Part 1: Show $C \setminus (\{a\} \cup \_{ab}\cup \{b\}) \subset \{x \in C \mid x < a\} \cup \{x \in C \mid b < x\}$.
+    \begin{itemize}
+        \item Let $x \in \ext\_{ab}$. By definition, $x \in C$ and $x \notin (\{a\} \cup \_{ab}\cup \{b\})$.
+        \item The set $(\{a\} \cup \_{ab}\cup \{b\})$ is defined by the condition $a \le x \le b$.
+        \item Therefore, $x \notin (\{a\} \cup \_{ab}\cup \{b\})$ means that the condition $a \le x \le b$ is false.
+        \item The negation of $a \le x \le b$ is $(x < a \text{ or } x > b)$.
+        \item By the Law of Trichotomy for the ordered continuum $C$, since $x$ cannot lie between $a$ and $b$ (inclusive), this leaves only two possibilities:
+        \[
+        x < a \quad \text{ or } \quad x > b
+        \]
+        \item Thus, $x \in \{x \in C \mid x < a\} \cup \{x \in C \mid b < x\}$.
+        \item We conclude $C \setminus (\{a\} \cup \_{ab}\cup \{b\}) \subset \{x \in C \mid x < a\} \cup \{x \in C \mid b < x\}$.
+    \end{itemize}
+
+    Part 2: Show $\{x \in C \mid x < a\} \cup \{x \in C \mid b < x\} \subset C \setminus (\{a\} \cup \_{ab}\cup \{b\})$.
+    \begin{itemize}
+        \item Let $y \in \{x \in C \mid x < a\} \cup \{x \in C \mid b < x\}$. We consider the two cases for $y$:
+        
+        \item Case A: $y < a$.
+        If $y < a$, then $y$ cannot satisfy the condition $a \le y \le b$. Thus, $y \notin (\{a\} \cup \_{ab}\cup \{b\})$. By the definition of the exterior, $y \in C \setminus (\{a\} \cup \_{ab}\cup \{b\})$.
+        
+        \item Case B: $y > b$.
+        If $y > b$, then $y$ cannot satisfy the condition $a \le y \le b$. Thus, $y \notin (\{a\} \cup \_{ab}\cup \{b\})$. By the definition of the exterior, $y \in C \setminus (\{a\} \cup \_{ab}\cup \{b\})$.
+        
+        \item Since $y \in \ext\_{ab}$ in both cases, we conclude that $\{x \in C \mid x < a\} \cup \{x \in C \mid b < x\} \subset C \setminus (\{a\} \cup \_{ab}\cup \{b\})$.
+    \end{itemize}
+    
+    Conclusion: Since $\ext\_{ab}$ is a subset of the union of the two disjoint open rays (Part 1), and the union of the two open rays is a subset of $\ext\_{ab}$ (Part 2), we have shown that the two sets are equal:
+    \[
+    C \setminus (\{a\} \cup \_{ab}\cup \{b\}) = \{x \in C \mid x < a\} \cup \{x \in C \mid b < x\}.
+    \]
+\end{lemma}
+
+
+
+\begin{lemma}  No point in the exterior of a region is a limit point of that region.  No point of a region is a limit point of the exterior of that region.
+\\1. Prove that no point in the exterior of a region is a limit point of that region by contradiction.
+\\Contradiction Statement: A point $p\in \ext\_{ab}$ is a limit point of $\_{ab}$. \\That is for $p\in \ext\_{ab}, \ext\_{ab}\cap (\_{ab}\setminus \{p\})\neq \emptyset$.
+\\Observe that 
+\[
+\ext\_{ab}\cap (\_{ab}\setminus \{p\})=(\ext\_{ab}\cap \_{ab})\setminus (\ext\_{ab}\cap \{p\}). 
+\]
+Remember 
+\[
+\ext\_{ab}=\{x\in C|x<a\} \cup \{x\in C| b<x\} \text{ and } \_{ab}=\{x\in C|a<x<b\}. 
+\]
+So 
+\[
+\ext\_{ab}\cap \_{ab}=(\{x\in C|x<a\} \cup \{x\in C| b<x\}) \cap \{x\in C|a<x<b\}=\emptyset.
+\]
+And because
+\[
+\emptyset \setminus (\ext\_{ab}\cap \{p\})=\emptyset.
+\]
+Then
+\[
+\ext\_{ab}\cap (\_{ab}\setminus \{p\})= \emptyset.
+\]
+Which contradicts our first statement; therefore, no point $p\in \ext\_{ab}$ is a limit point of $\_{ab}$.
+\\
+\\2. Prove that no point of a region is a limit point of the exterior of that region by contradiction.
+\\Contradiction Statement: A point $p\in \_{ab}$ is a limit point of $\ext\_{ab}$. \\That is for $p\in \_{ab}, \_{ab}\cap (\ext\_{ab}\setminus \{p\})\neq \emptyset$.
+\\Observe that 
+\[
+\_{ab}\cap (\ext\_{ab}\setminus \{p\})=(\_{ab}\cap \ext\_{ab})\setminus (\_{ab}\cap \{p\}). 
+\]
+Remember 
+\[
+\ext\_{ab}=\{x\in C|x<a\} \cup \{x\in C| b<x\} \text{ and } \_{ab}=\{x\in C|a<x<b\}. 
+\]
+So 
+\[
+\_{ab}\cap \ext\_{ab}=\{x\in C|a<x<b\} \cap (\{x\in C|x<a\} \cup \{x\in C| b<x\})=\emptyset.
+\]
+And because
+\[
+\emptyset \setminus (\_{ab}\cap \{p\})=\emptyset.
+\]
+Then
+\[
+\_{ab}\cap (\ext\_{ab}\setminus \{p\})= \emptyset.
+\]
+Which contradicts our first statement; therefore, no point $p\in \_{ab}$ is a limit point of $\ext\_{ab}$.
+\end{lemma}
+
 \end{document}

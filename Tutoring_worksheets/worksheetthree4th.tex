@@ -1,0 +1,116 @@
+\documentclass[11pt]{article}
+
+% ----------- Font Packages ------------
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+% ----------- Math Formatting ----------
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{dsfont}
+\usepackage[most]{tcolorbox}
+\tcbuselibrary{theorems}
+
+% Cross-referencing and hyperlinks
+\usepackage{hyperref}
+\usepackage{cleveref}
+
+% ----------- Layout and Spacing -------
+\usepackage[letterpaper, top=0.75in, bottom=0.75in, left=1in, right=1in, heightrounded]{geometry}
+\usepackage{setspace}
+\onehalfspacing
+
+% ----------- Misc Enhancements --------
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead[L]{Homework Three}
+
+\usepackage{bookmark}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor=blue,
+    citecolor=blue
+}
+
+\title{Algebra Homework: Exponents and Order of Operations}
+\author{Name: \underline{\hspace{3cm}}}
+\date{Due: Nov 14}
+
+\begin{document}
+\maketitle
+
+% ---------------------------------------------------
+\section*{Foundational Questions}
+
+\begin{enumerate}
+    \item Explain the difference between \(3^2\) and \(2^3\).  
+    Why do switching the exponent and the base change the result?
+
+    \item What does it mean for an exponent to apply only to the number or expression it is directly attached to?  
+    Give an example where parentheses change the value of an exponent expression.
+
+    \item If you see an expression like  
+    \[
+        4 + 2^3 \times (5 - 1),
+    \]  
+    which part do you evaluate first? Explain your reasoning using PEMDAS.
+\end{enumerate}
+
+\vspace{1cm}
+
+% ---------------------------------------------------
+\section*{Parentheses and Exponents Practice}
+
+Work step-by-step. Simplify the parentheses first, then apply exponents, then multiply or divide.
+
+\[
+\textbf{(1)} \quad (6 - 2)^2 + 3
+\]
+
+\vspace{1.4cm}
+
+\[
+\textbf{(2)} \quad 4 \times (3^2 - 7)
+\]
+
+\vspace{1.4cm}
+
+\[
+\textbf{(3)} \quad 10 - \big( 2^3 + (4 - 1) \big)
+\]
+
+\vspace{1.8cm}
+
+% ---------------------------------------------------
+\newpage
+\section*{Mixed Exponent Practice}
+
+Simplify each expression:
+
+\begin{enumerate}[label=\textbf{(\arabic*)}]
+    \item \( 2^4 + 3^2 \)
+    \item \( (5 - 1)^2 \times 2 \)
+    \item \( 9 + (2^3 - 1) \)
+    \item \( 4 \times (1 + 3^2) \)
+    \item \( (2 + 3)^2 - (4 - 1) \)
+\end{enumerate}
+
+\vspace{1cm}
+
+% ---------------------------------------------------
+\section*{Word Problem Challenge}
+
+A character in Roblox builds a tall tower.  
+The base height of the tower is \((8 - 3)^2\) blocks.  
+Another player destroys \( \frac{1}{4} \) of the tower.  
+Then the character rebuilds \(2^3\) blocks on top.
+
+\begin{enumerate}[label=\textbf{(\alph*)}]
+    \item Write an expression that represents the final height of the tower.
+    \item Simplify the expression fully.
+\end{enumerate}
+
+\end{document}

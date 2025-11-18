@@ -1,0 +1,211 @@
+\documentclass[11pt]{article}
+% -------------------------------------------------
+% --------------- ENCODING & FONT ------------------
+% -------------------------------------------------
+\usepackage{stix2}
+\usepackage[T1]{fontenc}
+% -------------------------------------------------
+% ---------------- PAGE LAYOUT --------------------
+% -------------------------------------------------
+\usepackage[letterpaper, top=0.8in, bottom=0.8in, left=1in, right=1in]{geometry}
+\usepackage{setspace}
+\onehalfspacing % Comfortable for reports
+\usepackage{parskip} % No paragraph indent, space between paragraphs
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\textit{Lab 5: Flame Test}}
+\fancyhead[R]{\textit{\thepage}}
+\renewcommand{\headrulewidth}{0.4pt}
+% -------------------------------------------------
+% ---------------- CHEMISTRY TOOLS ----------------
+% -------------------------------------------------
+\usepackage{siunitx} % For units and measurements
+\sisetup{
+ per-mode=symbol,
+ separate-uncertainty=true,
+ round-mode=places,
+ round-precision=3
+}
+\usepackage[version=4]{mhchem} % For chemical equations and reactions
+% Example: \ce{H2 + O2 -> H2O}
+% -------------------------------------------------
+% ---------------- MATH PACKAGES ------------------
+% -------------------------------------------------
+\usepackage{amsmath, amssymb, mathtools, bm}
+\usepackage{cancel} % For striking out terms
+\usepackage{physics} % Derivatives, vectors, etc.
+% -------------------------------------------------
+% ---------------- GRAPHICS & FIGURES -------------
+% -------------------------------------------------
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float} % Better figure placement
+% -------------------------------------------------
+% ----------------- TABLES ------------------------
+% -------------------------------------------------
+\usepackage{booktabs} % Beautiful tables
+\usepackage{multirow}
+\usepackage{array}
+% -------------------------------------------------
+% --------------- HYPERLINKS ----------------------
+% -------------------------------------------------
+\usepackage{hyperref}
+\usepackage{bookmark}
+\usepackage{cleveref}
+\hypersetup{
+ colorlinks=true,
+ linkcolor=blue!50!black,
+ urlcolor=blue!60!black,
+ citecolor=blue!50!black,
+ pdfauthor={Justin Wang},
+ pdftitle={Chemistry Lab Report},
+}
+% -------------------------------------------------
+% ----------------- DIAGRAMS ----------------------
+% -------------------------------------------------
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, calc, decorations.markings, positioning}
+% -------------------------------------------------
+% ----------- CUSTOM BOXED ENVIRONMENTS ----------
+% -------------------------------------------------
+\usepackage[table]{xcolor}
+% -------------------------------------------------
+% ----------------- ENUMERATIONS ------------------
+% -------------------------------------------------
+\usepackage{enumitem}
+\setlist{itemsep=4pt, topsep=4pt}
+% -------------------------------------------------
+% ----------------- TITLE FORMAT ------------------
+% -------------------------------------------------
+\usepackage{titlesec}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+% -------------------------------------------------
+% ------------------ DOCUMENT INFO ----------------
+% -------------------------------------------------
+\title{\textbf{Lab 5: Flame Test}}
+\author{Justin Wang\\ University of Chicago \\ CHEM 11100}
+\date{11/15/2025}
+\begin{document}
+\maketitle
+\section*{Introduction}
+\hspace{2em}The purpose of this experiment was to identify various metal ions present in unknown salt soultions by measuring their flame colors when burned by a Bunsen burner.
+This technique is known as a flame test, and it relies on the principle that different metal ions emit characteristic colors when heated to high temperatures.
+At a fundamental level, the flame test works because when metal ions are heated, their electrons gain energy and jump to higher energy levels.
+Since atoms prefer to maintain the lowest energy state possible, the excited electrons will naturally fall back down to their original energy levels, releasing the excess energy in the form of light. The wavelength (and thus color) of the emitted light is specific to the energy difference between the excited and ground states, which varies for different metal ions.
+Thus, by observing the color of the flame, one can identify the metal ion present in the sample. It is important to note that this method is purely qualitative and cannot provide information about the concentration of the ions present, yet it remains a valuable tool for rapid identification of metal ions in various chemical compounds.
+
+\section*{Experimental Procedure}
+The procedure followed the steps outlined in the lab manual
+
+\section*{Data Analysis}
+\begin{table}[H]
+\centering
+
+\label{tab:flame-test}
+\begin{tabular}{c>{\raggedright\arraybackslash}p{4cm}>{\raggedright\arraybackslash}p{5cm}}
+\toprule
+\textbf{Solution} & \textbf{Flame Color and Intensity} & \textbf{Identification of Ions} \\
+\midrule
+1  & Bright Orange & Ca \\
+2  & Yellow Orange & Li \\
+3  & Brightish White & Mg \\
+4  & White & Mg \\
+5  & Strong Red-Orange & Ca \\
+6  & Whitish Green & Zn \\
+7  & Palish-Green & B \\
+8  & Light-Orange, Strong Yellow & Na \\
+9  & Whitish-Pinkish-Purple & K \\
+10 & Vivid Red & Sr \\
+11 & Gold & Fe \\
+12 & Bluish-Green & Cu \\
+13 & Whitish Blue & As \\
+14 & Greenish-Yellow & Ba \\
+\bottomrule
+\end{tabular}
+\caption{Observed flame color and its intensity, as well as the identification of ions based on the flame test results for each solution.}
+\end{table}
+
+\section*{Discussion}
+
+\setlength{\parindent}{2em} % sets paragraph indentation
+
+In this experiment, we aimed to identify various metal ions present in 14 unknown salt solutions using the flame test technique. The results of the experiments are summarized in Table 1, which lists the observed flame colors and their intensities, along with the corresponding identification of ions for each solution.
+
+By burning salt solutions in a Bunsen burner flame, we observed distinct colors that are characteristic of specific metal ions. For instance, solution 1 exhibited a bright orange flame, indicating the presence of calcium ions (Ca\textsuperscript{2+}), while solution 8 produced a strong yellow flame, characteristic of sodium ions (Na\textsuperscript{+}). Each metal ion emitted light at specific wavelengths when heated, resulting in the observed flame colors. These tests are made possible due to the exploitation of electron transitions within the metal ions, which release energy in the form of visible light when returning to their ground states.
+
+A potential source of error in the experiment could have stemmed from the contamination of sodium ions, which emit a strong yellow flame that could overshadow the colors of other ions present in the solutions. To mitigate this effect, we used blue cobalt glass filters to help block out the yellow light emitted by sodium ions, allowing for a clearer observation of other flame colors. Additionally, the subjective nature of color perception could lead to misidentification of flame colors, especially when colors are similar or when the intensity of the flame is low. To address this, we ensured that observations were made under consistent lighting conditions and by multiple observers when possible.
+
+Yet perhaps the most significant limitation of the flame tests was the iron wire loops that were used to introduce the salt solutions into the flame. These iron loops tended to burn easily, and when done so, emitted a bright orange flame that could have interfered with the observations of the actual flame colors by overpowering them. In future experiments, it would be beneficial to use wire loops which emit light not in the visible spectrum, to prevent interference with the flame colors being observed.
+\section*{Questions}
+\begin{enumerate}
+    \item List the ions with observed colors from higher to lower energy.
+
+
+From higher to lower energy, which corresponds from violet to red, the ions with observed colors are as follows:
+    \begin{enumerate}
+        \item K (Ion \#9) --- Whitish-Pinkish-Purple
+        \item As (Ion \#13) --- Whitish Blue
+        \item Mg (Ion \#3) --- Brightish White
+        \item Cu (Ion \#12) --- Bluish-Green
+        \item Zn (Ion \#6) --- Whitish Green
+        \item B (Ion \#7) --- Palish-Green
+        \item Ba (Ion \#14) --- Greenish-Yellow
+        \item Mg (Ion \#4) --- White
+        \item Na (Ion \#8) --- Light-Orange, Strong Yellow
+        \item Li (Ion \#2) --- Yellow Orange
+        \item Fe (Ion \#11) --- Gold
+        \item Ca (Ion \#1) --- Bright Orange
+        \item Ca (Ion \#5) --- Strong Red-Orange
+        \item Sr (Ion \#10) --- Vivid Red
+    \end{enumerate}
+    \item List the ions from the high to the low frequency of practical light.
+From higher to lower frequency of visible light, the ions are listed as follows:
+    \begin{enumerate}
+        \item K (Ion \#9) --- Whitish-Pinkish-Purple
+        \item As (Ion \#13) --- Whitish Blue
+        \item Mg (Ion \#3) --- Brightish White
+        \item Cu (Ion \#12) --- Bluish-Green
+        \item Zn (Ion \#6) --- Whitish Green
+        \item B (Ion \#7) --- Palish-Green
+        \item Ba (Ion \#14) --- Greenish-Yellow
+        \item Mg (Ion \#4) --- White
+        \item Na (Ion \#8) --- Light-Orange, Strong Yellow
+        \item Li (Ion \#2) --- Yellow Orange
+        \item Fe (Ion \#11) --- Gold
+        \item Ca (Ion \#1) --- Bright Orange
+        \item Ca (Ion \#5) --- Strong Red-Orange
+        \item Sr (Ion \#10) --- Vivid Red
+    \end{enumerate}  
+Note that frequency and energy are directly proportional, so the order remains the same as in question 1.
+    \item List the ions from the shorter wavelength to the longer wavelength of observed light.
+From shorter to longer wavelength of visible light, the ions are listed as follows:
+    \begin{enumerate}
+        \item K (Ion \#9) --- Whitish-Pinkish-Purple
+        \item As (Ion \#13) --- Whitish Blue
+        \item Mg (Ion \#3) --- Brightish White
+        \item Cu (Ion \#12) --- Bluish-Green
+        \item Zn (Ion \#6) --- Whitish Green
+        \item B (Ion \#7) --- Palish-Green
+        \item Ba (Ion \#14) --- Greenish-Yellow
+        \item Mg (Ion \#4) --- White
+        \item Na (Ion \#8) --- Light-Orange, Strong Yellow
+        \item Li (Ion \#2) --- Yellow Orange
+        \item Fe (Ion \#11) --- Gold
+        \item Ca (Ion \#1) --- Bright Orange
+        \item Ca (Ion \#5) --- Strong Red-Orange
+        \item Sr (Ion \#10) --- Vivid Red
+    \end{enumerate}
+Note that wavelength and frequency are inversely proportional, so the order remains the same as in question 1.       
+    \item State the relationship between energy, wavelength, and frequency. \\
+    Energy (E) of a photon is directly proportional to its frequency ($f$) and inversely proportional to its wavelength ($\lambda$). This relationship is mathematically expressed by the equation:
+    \[E = hf = \frac{hc}{\lambda}\]
+    where h is Planck's constant and c is the speed of light in a vacuum. Thus, as frequency increases, energy increases, and as wavelength increases, energy decreases.
+\end{enumerate}  
+
+    
+    
+
+\end{document}

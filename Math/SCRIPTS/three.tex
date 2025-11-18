@@ -1,0 +1,418 @@
+\documentclass[11pt]{article}
+
+\usepackage{color}
+%\input{rgb}
+%----------Packages----------
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsrefs}
+\usepackage{dsfont}
+\usepackage{mathrsfs}
+\usepackage{stmaryrd}
+\usepackage[all]{xy}
+\usepackage[mathcal]{eucal}
+\usepackage{verbatim}  %%includes comment environment
+\usepackage{fullpage}  %%smaller margins
+%----------Commands----------
+
+%%penalizes orphans
+\clubpenalty=9999
+\widowpenalty=9999
+
+
+
+
+
+%% bold math capitals
+\newcommand{\bA}{\mathbf{A}}
+\newcommand{\bB}{\mathbf{B}}
+\newcommand{\bC}{\mathbf{C}}
+\newcommand{\bD}{\mathbf{D}}
+\newcommand{\bE}{\mathbf{E}}
+\newcommand{\bF}{\mathbf{F}}
+\newcommand{\bG}{\mathbf{G}}
+\newcommand{\bH}{\mathbf{H}}
+\newcommand{\bI}{\mathbf{I}}
+\newcommand{\bJ}{\mathbf{J}}
+\newcommand{\bK}{\mathbf{K}}
+\newcommand{\bL}{\mathbf{L}}
+\newcommand{\bM}{\mathbf{M}}
+\newcommand{\bN}{\mathbf{N}}
+\newcommand{\bO}{\mathbf{O}}
+\newcommand{\bP}{\mathbf{P}}
+\newcommand{\bQ}{\mathbf{Q}}
+\newcommand{\bR}{\mathbf{R}}
+\newcommand{\bS}{\mathbf{S}}
+\newcommand{\bT}{\mathbf{T}}
+\newcommand{\bU}{\mathbf{U}}
+\newcommand{\bV}{\mathbf{V}}
+\newcommand{\bW}{\mathbf{W}}
+\newcommand{\bX}{\mathbf{X}}
+\newcommand{\bY}{\mathbf{Y}}
+\newcommand{\bZ}{\mathbf{Z}}
+
+%% blackboard bold math capitals
+\newcommand{\bbA}{\mathbb{A}}
+\newcommand{\bbB}{\mathbb{B}}
+\newcommand{\bbC}{\mathbb{C}}
+\newcommand{\bbD}{\mathbb{D}}
+\newcommand{\bbE}{\mathbb{E}}
+\newcommand{\bbF}{\mathbb{F}}
+\newcommand{\bbG}{\mathbb{G}}
+\newcommand{\bbH}{\mathbb{H}}
+\newcommand{\bbI}{\mathbb{I}}
+\newcommand{\bbJ}{\mathbb{J}}
+\newcommand{\bbK}{\mathbb{K}}
+\newcommand{\bbL}{\mathbb{L}}
+\newcommand{\bbM}{\mathbb{M}}
+\newcommand{\bbN}{\mathbb{N}}
+\newcommand{\bbO}{\mathbb{O}}
+\newcommand{\bbP}{\mathbb{P}}
+\newcommand{\bbQ}{\mathbb{Q}}
+\newcommand{\bbR}{\mathbb{R}}
+\newcommand{\bbS}{\mathbb{S}}
+\newcommand{\bbT}{\mathbb{T}}
+\newcommand{\bbU}{\mathbb{U}}
+\newcommand{\bbV}{\mathbb{V}}
+\newcommand{\bbW}{\mathbb{W}}
+\newcommand{\bbX}{\mathbb{X}}
+\newcommand{\bbY}{\mathbb{Y}}
+\newcommand{\bbZ}{\mathbb{Z}}
+
+%% script math capitals
+\newcommand{\sA}{\mathscr{A}}
+\newcommand{\sB}{\mathscr{B}}
+\newcommand{\sC}{\mathscr{C}}
+\newcommand{\sD}{\mathscr{D}}
+\newcommand{\sE}{\mathscr{E}}
+\newcommand{\sF}{\mathscr{F}}
+\newcommand{\sG}{\mathscr{G}}
+\newcommand{\sH}{\mathscr{H}}
+\newcommand{\sI}{\mathscr{I}}
+\newcommand{\sJ}{\mathscr{J}}
+\newcommand{\sK}{\mathscr{K}}
+\newcommand{\sL}{\mathscr{L}}
+\newcommand{\sM}{\mathscr{M}}
+\newcommand{\sN}{\mathscr{N}}
+\newcommand{\sO}{\mathscr{O}}
+\newcommand{\sP}{\mathscr{P}}
+\newcommand{\sQ}{\mathscr{Q}}
+\newcommand{\sR}{\mathscr{R}}
+\newcommand{\sS}{\mathscr{S}}
+\newcommand{\sT}{\mathscr{T}}
+\newcommand{\sU}{\mathscr{U}}
+\newcommand{\sV}{\mathscr{V}}
+\newcommand{\sW}{\mathscr{W}}
+\newcommand{\sX}{\mathscr{X}}
+\newcommand{\sY}{\mathscr{Y}}
+\newcommand{\sZ}{\mathscr{Z}}
+
+
+\renewcommand{\phi}{\varphi}
+
+\renewcommand{\emptyset}{\O}
+
+\providecommand{\abs}[1]{\lvert #1 \rvert}
+\providecommand{\norm}[1]{\lVert #1 \rVert}
+
+
+\providecommand{\ar}{\rightarrow}
+\providecommand{\arr}{\longrightarrow}
+
+\renewcommand{\_}[1]{\underline{ #1 }}
+
+
+\DeclareMathOperator{\ext}{ext}
+
+\newcommand{\head}[1]{
+	\begin{center}
+		{\large #1}
+		\vspace{.2 in}
+	\end{center}
+	
+	\bigskip 
+}
+
+%----------Theorems----------
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+
+
+\newtheorem{axiom}{Axiom}
+
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{nondefinition}[theorem]{Non-Definition}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{remarks}[theorem]{Remarks}
+\newtheorem{warning}[theorem]{Warning}
+
+
+\numberwithin{equation}{subsection}
+
+
+%----------Title-------------
+
+
+\begin{document}
+
+\head{MATH 161, Autumn 2025\\  SCRIPT 3: Introducing a Continuum }
+
+
+
+
+This sheet introduces a continuum $C$ through a series of axioms.
+
+
+\setcounter{section}{3}   
+
+\begin{axiom} A continuum is a nonempty set $C$.  
+\end{axiom}
+
+We often refer to elements of $C$ as \emph{points}.
+
+
+\begin{definition}  Let $X$ be a set.  An \emph{ordering} on the set $X$ is a subset $<$ of $X \times X$, with elements $(x, y) \in <$ written as $x < y$, satisfying the following properties:
+
+\begin{itemize}
+\item[(a)] {\it (Trichotomy) }
+
+For all $x, y \in X$ exactly one of the following holds:
+ $x < y,\  y < x\   \text{or } x=y.$ 
+\item[(b)] {\it (Transitivity)} For all $x, y, z \in X$, if $x < y$ and $y < z$ then $x < z$.
+\end{itemize}
+\end{definition}
+
+
+\begin{remarks}
+\begin{enumerate}
+\item[a)]  In mathematics ``or'' is understood to be inclusive unless stated otherwise. So in a) above, the word ``exactly'' is needed.
+\item[b)] $x<y$ may also be written as $y>x.$
+\item[c)] By $x \leq y$, we mean $x < y$ or $x = y$;  similarly for $x \geq y$.
+\end{enumerate}
+\end{remarks}
+
+
+\begin{axiom}  A continuum $C$ has an ordering $<$.
+\end{axiom}
+
+
+
+\begin{definition}  If $A \subset C$ is a subset of $C$, then a point $a \in A$ is a \emph{first} point of $A$ if, for every element $x \in A$, either $a < x$ or $a = x$.  Similarly, a point $b \in A$ is called a \emph{last} point of $A$ if, for every $x \in A$, either $x < b$ or $x = b$.
+\end{definition}
+
+\begin{lemma}  If $A$ is a nonempty, finite subset of a continuum $C$, then $A$ has a first and last point.
+\end{lemma}
+
+\begin{theorem}  Suppose that $A$ is a set of $n$ distinct points in a continuum $C$, or, in other words, $A \subset C$ has cardinality $n$.  Then symbols $a_1, \dotsc, a_n$ may be assigned to each point of $A$ so that $a_1 < a_2 < \dotsm < a_n$, i.e. $a_i < a_{i + 1}$ for $1 \leq i \leq n - 1$.
+\end{theorem}
+
+\begin{definition}  If $x, y, z \in C$ and either (i) both $x < y$ and $y < z$ or (ii) both $z<y$ and $y<x,$ then we say that $y$ is \emph{between} $x$ and $z$.
+\end{definition}
+
+\begin{corollary}  Of three distinct points in a continuum, one must be between the other two.
+\end{corollary}
+
+\begin{axiom} A continuum $C$ has no first or last point.
+\end{axiom}
+
+
+In the next exercise we show that the integers and the rationals both have orderings that satisfy Axioms 1-3.
+
+\begin{exercise}
+\begin{enumerate}
+\item[a)]  We define a relation $<$ on $\bbZ$ by $m<n$ if $n=m+c$ for some $c\in \bbN.$  Show that,
+$\bbZ,$ with the ordering $<,$ satisfies Axioms 1-3. 
+
+\item[b)] Show that, for any $p=\left[\frac{a}{b}\right]\in\bbQ,$ there is some $(a_1,b_1)\in p$ with $0<b_1.$
+
+\item[c)] We define a relation $<_{\bbQ}$ on $\bbQ$ as follows. 
+For $p,q\in\bbQ,$ let $(a_1,b_1)\in p$ be such that $0<b_1,$ and let $(a_2,b_2)\in q$ be such that $0<b_2.$  Then we define $p<_{\bbQ} q$ if $a_1b_2<a_2 b_1.$ 
+Show that $<_{\bbQ}$ is a well-defined relation on $\bbQ.$
+\item[d)] Show that $\bbQ,$ with the ordering $<_{\bbQ},$ satisfies Axioms 1-3.
+
+\end{enumerate}
+\end{exercise}
+
+\begin{definition} If $a,b\in C$ and $a < b$, then the set of points between $a$ and $b$ is called a \emph{region}, denoted by $\_{ab}$.  
+\end{definition}
+
+\begin{warning}  One often sees the notation $(a, b)$ for regions.  We will reserve the notation $(a, b)$ for ordered pairs in a product $A \times B$.  These are very different things.  
+\end{warning}
+
+\begin{theorem} If $x$ is a point of a continuum $C$, then there exists a region $\_{ab}$ such that $x \in \_{ab}$.
+\end{theorem}
+
+We now come to one of the most important definitions of this course:
+
+\begin{definition}
+Let $A$ be a subset of a continuum $C$.  A point $p$ of $C$ is called a \emph{limit point} of $A$ if every region $R$ containing $p$ has nonempty intersection with $A \setminus \{p\}$.  Explicitly, this means:
+\[
+\text{for every region $R$ with $p \in R$, we have $R \cap (A \setminus \{p \}) \neq \emptyset$.}
+\]
+\end{definition}
+
+Notice that we do not require that a limit point $p$ of $A$ be an element of $A$. We will use the notation $LP(A)$ to denote the set of limit points of $A.$ 
+
+\begin{theorem} If $A \subset B$, then $LP(A)\subset LP(B).$
+\end{theorem}
+
+
+
+\begin{definition} If $\_{ab}$ is a region in a continuum $C$, then $C \setminus (\{a\} \cup \_{ab} \cup \{b\})$ is called the \emph{exterior} of $\_{ab}$ and is denoted by $\ext{\_{ab}}$.
+\end{definition}
+
+
+\begin{lemma} If $\_{ab}$ is a region in a continuum $C,$ then
+$$\ext{\_{ab}}=\{x\in C\mid x<a\}\cup\{x\in C\mid b<x\}.$$
+\end{lemma}
+
+
+
+\begin{lemma}  No point in the exterior of a region is a limit point of that region.  No point of a region is a limit point of the exterior of that region.
+\end{lemma}
+
+
+\begin{theorem}  If two regions have a point $x$ in common, their intersection is a region containing $x$.
+\end{theorem}
+
+\begin{corollary}  If $n$ regions $R_1, \dotsc, R_n$ have a point $x$ in common, then their intersection $R_1 \cap \dotsm \cap R_n$ is a region containing $x$.
+\end{corollary}
+
+\begin{theorem}  Let $A, B$ be subsets of a continuum $C$.  Then  $LP(A \cup B)=LP(A)\cup LP(B).$
+\end{theorem}
+
+
+
+\begin{corollary}
+Let $A_1, \dotsc, A_n$ be $n$ subsets of a continuum $C$.  Then  $p$ is a limit point of $(A_1 \cup \dotsm \cup A_n)$ if, and only if, $p$ is a limit point of at least one of the sets $A_k$.
+\end{corollary}
+
+
+
+\begin{theorem}  If $p$ and $q$ are distinct points of a continuum $C$, then there exist disjoint regions $R$ and~$S$ containing $p$ and $q$, respectively.
+\end{theorem}
+
+\begin{corollary}  A subset of a continuum $C$ consisting of one point has no limit points.
+\end{corollary}
+
+\begin{theorem} A finite subset $A$ of a continuum $C$ has no limit points.
+\end{theorem}
+
+\begin{corollary}  If $A$ is a finite subset of a continuum $C$ and $x \in A$, then there exists a region $R,$ containing $x,$ such that $A \cap R = \{ x \}$.
+\end{corollary}
+
+
+\begin{theorem}  If $p$ is a limit point of $A$ and $R$ is a region containing $p$, then the set $R \cap A$ is infinite.
+\end{theorem}
+
+\begin{exercise}  Find realizations of a continuum $(C, <)$.  That is, find concrete sets $C$ endowed with a relation $<$ satisfying all of the axioms (so far).  Are they the same?  What does ``the same'' mean here?
+\end{exercise}
+\bigskip
+
+\begin{center}
+{\em Additional Exercises}
+\end{center} 
+
+{\em In all exercises you are expected to prove your answer, unless explicitly stated otherwise.}
+
+\begin{enumerate}
+
+\item Show that for all $p,q\in \bbQ$ such that $p<_{\bbQ}q,$ there is some $r\in \bbQ$ with $p<_{\bbQ} r <_{\bbQ}q.$
+
+
+
+\item By identifying $n\in \bbZ$ with $[\frac{n}{1}]\in \bbQ$ we can think of $\bbZ$ as a subset of $\bbQ.$ 
+We shall write $n$ to mean $[\frac{n}{1}].$ Show that for all $p\in \bbQ,$ there is some 
+$n\in \bbZ$ such that $p<_{\bbQ} n.$
+
+
+
+
+\item
+
+
+\begin{definition}
+	Given two sets $A$ and $B$, we say that $A\subsetneq B$ if $A\subset B$ and $A\neq B$.
+\end{definition}
+
+For each set $X$ and subset $<_X \subset X\times X$, determine if $<_X$ is an ordering:
+\begin{enumerate}
+\item Let $X = \wp(\bbN)$ and $<_X = \{(A,B) \in \wp(\bbN)\times\wp(\bbN) | A \subset B\}$.
+\item Let $X = \big\{ \{x \in \bbN | x \leq n\} \in \wp(\bbN) | n \in \bbN \big\}$ and $<_X = \{ (A, B)\in X\times X | A \subsetneq B\}$.
+\item Let $X = \{ f \subset \bbN \times \bbN | f \text{ is a function}\}$ and $<_X = \{ (f,g) \in X\times X | f(n) < g(n) \text{ for all }n\in\bbN\}$.
+\item Let $X = \{ f \subset \bbN \times \bbN | f \text{ is a function}\}$ and $<_X = \{ (f,g) \in X\times X | f(n) \leq g(n) \text{ for all }n\in\bbN \text{ and there exists } n\in\bbN \text{ such that } f(n) < g(n)\}$.
+\end{enumerate}
+(For the purposes of this exercise, ``$<$'' means the usual ordering on $\bbN$, i.e. if $m,n\in\bbN$ then $m < n$ if and only if $n = m+k$ for some $k\in\bbN$.)
+
+\item
+	Which of the following pairs of a set and an ordering satisfy Axioms 1,2, and 3 (and are thus examples of a ``continuum'')?
+	\begin{enumerate}
+		\item[i)] $C_1 = \{[n] \in \mathcal{P}(\bbN) \mid n \in \bbN\cup\{0\}\}$, where, for $[n], [m] \in C_1$, we say $[n] <_{C_1} [m]$ if $[n] \subsetneq [m]$;
+		\item[ii)] $C_2 = \bbZ$, where $<_\bbZ$ is the usual ordering on $\bbZ$;
+		\item[iii)] $C_3 = \bbZ\times \bbN$, where, for $(a,b), (x,y) \in \bbZ\times\bbN$ we say that $(a,b) <_3 (x,y)$ if $a < x$ or if $a=x$ and $b < y$.
+	\end{enumerate}
+
+
+\item
+		Find, without proof, the exterior of each region.
+		\begin{enumerate}
+			\item Let $C_2$ and $<_\bbZ$ be as in Exercise 5.  Let $R = \underline{38}$.
+			\item Let $C_3$ and $<_3$ be as in Exercise 5.  Let $R = \underline{(-2,5)(-2,10)}$.
+			\item Let $C_3$ and $<_3$ be as in Exercise 5.  Let $R = \underline{(-2,5)(1,10)}$.
+		\end{enumerate}
+
+
+
+\item
+		Find the limit points of each region.
+		\begin{enumerate}
+			\item Let $C_2$ and $<_\bbZ$ be as in Exercise 5.  Let $R = \underline{38}$.
+			\item Let $C_3$ and $<_3$ be as in Exercise 5.  Let $R = \underline{(-2,5)(-2,10)}$.
+			\item Let $C_3$ and $<_3$ be as in Exercise 5.  Let $R = \underline{(-2,5)(1,10)}$.
+		\end{enumerate}
+
+
+ 
+
+\item Let $A$ and $B$ be realizations of the continuum, with orderings $<_A, <_B,$ respectively. We say that $A$ and $B$ are {\em isomorphic} if there is a bijection $f:A\longrightarrow B$ such that 
+$$a_1<_A a_2\Longrightarrow f(a_1)<_B f(a_2).$$
+Show that $\bbZ$ and $\bbQ$ (with the orderings given in Scripts 1 and 2) are realizations of the continuum that are {\em not} isomorphic.
+
+
+
+
+\item
+Suppose that $R_1, R_2, \dots$ are regions in a continuum $C$ and that $x \in LP(\displaystyle \bigcup_{i=1}^\infty R_i)$.  Is it true that there exists $i \in \bbN$ such that $x \in LP(R_i)$?  Does this answer change if we add the additional hypothesis that there exists $k\in \bbN$ such that $x \in R_k$?
+
+\item Show that any continuum $C$ satisfying Axioms 1-3 is infinite and write $C$ as a union of regions in $C.$
+
+
+
+\item  Prove that if $A\subset\bbZ,$ $A $ has no limit points.
+
+
+
+\item Let $i^2=-1$ and define $\bbZ [i]=\{a+bi\mid a,b\in\bbZ\}.$ Define an ordering on $\bbZ[i]$ by $a+bi<c+di$ if, and only if,
+either $a<c,$ or $a=c$ and $b<d.$
+\begin{enumerate}
+\item Prove that $<$ is indeed an ordering. (So you must verify the properties in Definition 3.1. Note that you may assume the usual properties of $\bbZ$ - see Script 0 for full details.)
+\item Prove that, with this ordering, $\bbZ[i]$ satisfies Axioms 1,2 and 3, so is a realization of the continuum as defined so far. 
+
+
+
+\end{enumerate}
+
+
+
+
+\end{enumerate}
+
+
+\end{document}
